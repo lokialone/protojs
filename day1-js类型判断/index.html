@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>原生js算法练习</title>
+</head>
+
+<body>
+    <h6>编写arraysSimilar函数，实现判断传入的两个数组是否相似。具体需求：</h6>
+    <ul>
+        <li>1. 数组中的成员类型相同，顺序可以不同。例如[1, true] 与 [false, 2]是相似的</li>
+        <li>2. 数组的长度一致</li>
+        <li>3. 类型的判断范围，需要区分:String, Boolean, Number, undefined, null, 函数，日期, window</li>
+    </ul>
+</body>
+<script>
+function judge(obj) {
+    var p = [];
+
+    for (var i = 0; i < obj.length; i++) {
+
+    	if(typeof obj[i] === 'object'){
+
+    		if(obj[i] === null){
+    			p.push('null');
+    		}else if(obj[i] instanceof Date){
+    			p.push('date');
+    		}else if(obj[i] instanceof Window){
+    			p.push('window');
+    		}else{
+    			p.push('Object');
+    		}
+
+    	}else{
+    		p.push(typeof obj[i]);
+    	}
+    }
+    return p.sort();
+}
+
+/*isArray*/
+function isArray(arr) {
+    return Object.prototype.toString.call(arr) === "[object Array]";
+}
+/*
+ * param1 Array 
+ * param2 Array
+ * return true or false
+ */
+function arraysSimilar(arr1, arr2) {
+
+    if (!isArray(arr1) || !isArray(arr2)) {
+        return false;
+    }
+    if (arr1.length != arr2.length) {
+        return false;
+    }
+
+    var arr1_types = judge(arr1);
+    var arr2_types = judge(arr2);
+
+    for(var i = 0;i < arr1_types.length;i++){
+
+    	if(arr1_types[i] !== arr2_types[i]){
+    		return false;
+    	}
+    }
+
+    return true;
+
+}
+
+</script>
+<script src="testData.js"></script>
+</html>

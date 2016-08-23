@@ -13,8 +13,19 @@
         <li>2. 数组的长度一致</li>
         <li>3. 类型的判断范围，需要区分:String, Boolean, Number, undefined, null, 函数，日期, window</li>
     </ul>
+    <h5>
+        总结
+    </h5>
+    <ul>
+        <li>原始类型boolean，string，number，undefined，null。除了null以外都可以使用typeof,null就直接判断是否 == null。</li>
+        <li>引用类型object，array，date，error，window，regExp。除了array外可以使用instance of(instance of 不能跨frame)</li>
+        <li>Object.prototype.toString.call()尤其适合判断array，同时引用的类型都能很好的判断</li>
+        <li>function 可以使用type of判断类型</li>
+    </ul>
 </body>
+
 <script>
+
 function judge(obj) {
     var p = [];
 

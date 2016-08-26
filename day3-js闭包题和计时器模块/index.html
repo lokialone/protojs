@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="time"></div>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	</ul>
+</body>
+<script>
+for(var i = 0;i <= 3 ;i++){
+	setTimeout(function(){
+		console.log('test'+i);
+	},0);
+}
+
+var _ul = document.getElementsByTagName('ul');
+var _lis = _ul[0].children;
+for(var j = 0; j < _lis.length;j++){
+	_lis[j].onclick = function(){
+		alert(j);
+	}
+}
+
+
+// var flag = true;
+// setTimeout(function(){
+//     flag = false;
+// },0)
+// while(flag){};
+// console.log(flag);
+
+for(var x=0;x<5;x++){
+    setTimeout(function(){
+         console.log('delayer:' + x );
+    }, 0);
+    console.log(x);
+}
+</script>
+<script src="time.js"></script>
+</html>

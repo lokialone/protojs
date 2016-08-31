@@ -20,14 +20,21 @@ CountDown.prototype.getTime = function() {
 	return this.day+'天'+this.hour+'小时'+this.minute+'分钟'+this.second+'秒';
 }
 
-CountDown.prototype.update = function() {
-	var current_time = new Date();
-	var diffrence = current_time - this.origin_time;
-	if(diffrence >= 1000){
-		this.time--;
-		this.origin_time = current_time;	
-	}
+/**
+ * 每1s update tiem
+ * @return {[type]} [description]
+ */
+// CountDown.prototype.update = function() {
+// 	var current_time = new Date();
+// 	var diffrence = current_time - this.origin_time;
+// 	if(diffrence >= 1000){
+// 		this.time--;
+// 		this.origin_time = current_time;	
+// 	}
+// }
 
+CountDown.prototype.update = function(){
+	this.time--;
 }
 
 CountDown.prototype.renderTime = function(id) {
@@ -36,14 +43,37 @@ CountDown.prototype.renderTime = function(id) {
 	document.getElementById(id).innerHTML= time;	
 }
 
-CountDown.prototype.run = function(id){
+Function.prototype.bind = function(context){
 	var _self = this;
-	if(this.time >= 0){
-		setTimeout(function(){
-			_self.renderTime(id);
-			_self.run(id);
-		},200);
-	}	
+	return function(){
+		return _self.apply(context,arguments);
+	}
+}
+
+var obj = {
+	name: 'lokialone'
+}
+
+var func = function(){
+	alert(this.name);
+}.bind(obj);
+func();
+CountDown.prototype.run = function(id){
+	
+
+	var timer = setInterval(function(){
+		if(this.time > 0 ){
+			this.renderTime(id);
+		}else{
+			clearInterval(timer);
+		}
+	}.bind(this),1000);
+	// if(this.time >= 0){
+	// 	setTimeout(function(){
+	// 		_self.renderTime(id);
+	// 		_self.run(id);
+	// 	},200);
+	// }	
 }
 
 function getProduct(temp){

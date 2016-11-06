@@ -41,6 +41,26 @@ for(var x=0;x<5;x++){
     }, 0);
     console.log(x);
 }
+
+var tmp = new Array();
+var v = new Array();
+for (i = 0; i < 2; i++) {
+   var j = 0;
+   tmp[i] = setInterval((function (i) {
+    	return function(){
+				console.log(i);
+				console.log(j);
+      	if (j < 10 + (i * 5)) {
+           console.log(i+ '..' + j);
+            j++;
+        } else {
+            clearInterval(tmp[i])
+        }
+      }
+    })(i), 1000);
+}
+
+console.log(tmp);
 </script>
 <script src="time.js"></script>
 </html>

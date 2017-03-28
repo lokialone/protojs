@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+    /*必须将div的display属性设置为inline-block,div的宽度才会跟随着子元素的宽度被撑大*/
+    .img-wrap{
+      display: inline-block;
+      height: 72px;
+      background-image:url('http://fpoimg.com/100x60');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .img{
+      visibility:hidden;
+      height: 100%;
+      max-width: 154px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <h4>要求</h4>
+   <p>显示的图片如果宽度小于154，那么就高度设置为72px,宽度自适应。如果显示的图片宽度大于154，那么就让宽度等于154，高度自适应</p>
+  <div class="img-wrap" style="background-image:url('http://fpoimg.com/100x60')">
+    <img src='http://fpoimg.com/100x60' alt=""  class="img"/>
+  </div>
+  <div class="img-wrap" style="background-image:url('http://fpoimg.com/800x250')">
+    <img src='http://fpoimg.com/800x250' alt="" class="img"/>
+  </div>
+</body>
+</html>

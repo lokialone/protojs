@@ -7,9 +7,35 @@
   <title>Document</title>
 </head>
 <body>
+even uppercase, odd lowercase
 <p>打开控制台</p>
 </body>
 <script>
-  
+  function toWeridCase1(str) {
+    var arr = str.split('');
+    var res = '';
+    for(var i= 0, len = arr.length;i < len; i++) {
+
+      if(i % 2 == 0) {
+        res += arr[i].toUpperCase();
+      }else{
+        res += arr[i].toLowerCase();
+      }
+    }
+    console.log(res);
+  }
+  toWeridCase1('hello world s');
+
+  function toWeridCase2(str) {
+    var res = str.split('').map(function(item, index,input){
+      if(index % 2 === 0){
+        return item.toUpperCase();
+      }
+      return item.toLowerCase();
+    }).join('');
+    console.log(res);
+  }
+  toWeridCase2('hello world s');
+
 </script>
 </html>

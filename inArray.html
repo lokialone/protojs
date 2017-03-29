@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p>Given two arrays of strings a1 and a2 return a sorted array r in lexicographical order of the strings of a1 which are substrings of strings of a2.
+  </p>
+  <p>如果a1中有属于a2中字符的substring就return</p>
+<h6>Example 1:</h6>
+<pre>
+  a1 = ["arp", "live", "strong"]
+
+  a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+
+  returns ["arp", "live", "strong"]
+</pre>
+<h6>Example 2:</h6>
+<pre>
+  a1 = ["tarp", "mice", "bull"]
+
+  a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+
+  returns []
+
+</pre>
+</body>
+<script>
+//自己写的
+function inArray(array1,array2){
+  var res = [];
+  array1.sort().forEach(function(item1) {
+    array2.every(function(item2) {
+      if(item2.indexOf(item1) !== -1){
+        res.push(item1);
+        return false;
+      }else{
+        return true;
+      }
+    })
+  });
+  console.log(res);
+}
+var a1 = ["arp", "live", "strong"];
+var a2 = ["lively", "alive", "harp", "sharp", "armstrong"]
+inArray(a1, a2);
+
+//other good one
+//将数组转化成一个string来find子字符串0.0
+function inArray2(a1, a2){
+  var str = a2.join(' ');
+  return a1.filter(function(s){
+    return str.indexOf(s) !== -1;
+  }).sort();
+}
+console.log(inArray2(a1, a2));
+// use find 防止重复
+function inArray3(a1, a2){
+  return a1.filter(function(item1){
+    return a2.find(function(item2){
+      return item2.match(item1);
+    });
+  }).sort();
+}
+console.log(inArray3(a1, a2));
+</script>
+</html>

@@ -1,3 +1,4 @@
+//阶乘
 function factorial(n) {
     if (n === 0) return 1;
     return n * factorial(n - 1);
@@ -17,13 +18,31 @@ let oldObj = { name: 'lokia', name2: 'lokiaaa', names: { name1: 'lokia', name2: 
 function deepCopy(obj, newObj = {}) {
     for (let k in obj) {
         let v = obj[k];
-        if (typeof v !== 'object' && typeof v !== 'function') newObj[k] = v
-        else {
+        if (typeof v === 'object') {
             newObj[k] = Object.prototype.toString.call(v) === '[object Array]' ? [] : {}
             deepCopy(obj[k], newObj[k])
+        }
+        else {
+            newObj[k] = v;
         }
     }
     return newObj
 }
 
-console.log(deepCopy(oldObj));
+//es5 
+
+function deepCopy_es5(obj, newObj) {
+    var newObj = newObj || {}
+    for (let k in obj) {
+        let v = obj[k];
+        if (typeof v === 'object') {
+            newObj[k] = Object.prototype.toString.call(v) === '[object Array]' ? [] : {}
+            deepCopy(obj[k], newObj[k])
+        }
+        else {
+            newObj[k] = v;
+        }
+    }
+    return newObj
+}
+console.log(deepCopy_es5(oldObj));

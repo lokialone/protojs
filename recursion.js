@@ -40,9 +40,29 @@ function deepCopy_es5(obj, newObj) {
             deepCopy(obj[k], newObj[k])
         }
         else {
-            newObj[k] = v;
+            newObj[k] = v
         }
     }
     return newObj
 }
-console.log(deepCopy_es5(oldObj));
+// console.log(deepCopy_es5(oldObj))
+
+//version版本比较
+
+let v1 = '1.2.40'
+let v2 = '1.3.15'
+// 返回gt > lt < eq =
+function compareVersion(v1, v2) {
+    let a1 = v1.split('.')
+    let a2 = v2.split('.')
+    let loop = a1.length <= a2.length ? a1.length : a2.length
+    for (let i = 0; i < loop; i++) {
+        if (a1[i] === a2[i]) continue
+        else
+            return a1[i] > a2[i] ? 'gt' : 'lt'
+    }
+    if (a1.length === a2.length) return 'eq'
+    return a1.length > a2.length ? 'gt' : 'lt'
+}
+
+console.log(compareVersion(v1, v2));

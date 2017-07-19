@@ -65,4 +65,40 @@ function compareVersion(v1, v2) {
     return a1.length > a2.length ? 'gt' : 'lt'
 }
 
-console.log(compareVersion(v1, v2));
+// console.log(compareVersion(v1, v2));
+
+//二叉树遍历
+let tree = { value: 1, left: { value: 2, left: { value: 4 }, right: { value: 5 } }, right: { value: 3 } }
+//先序
+function preorder(tree) {
+    console.log(tree.value)
+    if (tree.left) preorder(tree.left)
+    if (tree.right) preorder(tree.right)
+}
+
+preorder(tree)
+//中序
+function inOrder(tree) {
+    if (tree.left) preorder(tree.left)
+    console.log(tree.value)
+    if (tree.right) preorder(tree.right)
+}
+
+inOrder(tree);
+//后序
+function postOrder(tree) {
+    if (tree.left) preorder(tree.left)
+    if (tree.right) preorder(tree.right)
+    console.log(tree.value)
+}
+//全排列
+//一开始是因为想把全排列问题解决，才开始想再深入学习一下递归的
+//开始挑战全排列
+//递归的解决思路：一个数字排列只有一种，我们需要做的是将
+
+
+
+
+// 树的遍历
+//深搜
+

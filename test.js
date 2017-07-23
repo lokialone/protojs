@@ -8,12 +8,3 @@ function towerBuilder(num) {
   console.log(arr);
 }
 towerBuilder(6);
-
-let arr = [1, 3, 4]
-let obj = { 'name': 1, 'name2': 2 }
-
-for (let key in arr)
-  console.log(key, arr[key]);
-
-for (let key in obj)
-  console.log(key, obj[key]);

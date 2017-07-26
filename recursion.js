@@ -76,7 +76,7 @@ function preorder(tree) {
     if (tree.right) preorder(tree.right)
 }
 
-preorder(tree)
+// preorder(tree)
 //中序
 function inOrder(tree) {
     if (tree.left) preorder(tree.left)
@@ -84,7 +84,7 @@ function inOrder(tree) {
     if (tree.right) preorder(tree.right)
 }
 
-inOrder(tree);
+// inOrder(tree);
 //后序
 function postOrder(tree) {
     if (tree.left) preorder(tree.left)
@@ -94,9 +94,42 @@ function postOrder(tree) {
 //全排列
 //一开始是因为想把全排列问题解决，才开始想再深入学习一下递归的
 //开始挑战全排列
-//递归的解决思路：一个数字排列只有一种，我们需要做的是将
+//递归的解决思路：从第一位开始依次与后一位交互位置
+function swap(str, i, j) {
+    var arr = str.split('');
+    if (!arr) return;
+    if (arr.length < i + 1)
+        return;
+    var temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+    return arr.join('');
+}
+
+function swapSibling(str, i) {
+    return swap(str, i, i++);
+}
+//全排列version1
+function VerRange(str, index) {
+    console.log(str);
+    var len = str.length;
+    var nstr = swapSibling(str, index);
+    if (index + 1 < len) VerRange(nstr, ++index);
+
+}
 
 
+function allRange1(str) {
+    for (var i = 1; i < str.length; i++) {
+        var nstr = swap(str, i, 0);
+        console.log('=ntr', str);
+        console.log('==', nstr);
+        VerRange(nstr, 0);
+    }
+}
+
+console.log(allRange1('1234'));
+// VerRange('1234', 1);
 
 
 // 树的遍历

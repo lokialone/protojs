@@ -13,7 +13,19 @@ function Fibonacci(n) {
 
 // console.log(Fibonacci(3));
 
-let oldObj = { name: 'lokia', name2: 'lokiaaa', names: { name1: 'lokia', name2: 'lokiaaa' }, scores: [1, 2, 3, 4, 5], score: { name: [1, 3, .4, 5], hell0: 'dddd' } }
+let oldObj = {
+    name: 'lokia',
+    name2: 'lokiaaa',
+    names: {
+        name1: 'lokia',
+        name2: 'lokiaaa'
+    },
+    scores: [1, 2, 3, 4, 5],
+    score: {
+        name: [1, 3, .4, 5],
+        hell0: 'dddd'
+    }
+}
 //es6 use babel-node run script
 function deepCopy(obj, newObj = {}) {
     for (let k in obj) {
@@ -21,8 +33,7 @@ function deepCopy(obj, newObj = {}) {
         if (typeof v === 'object') {
             newObj[k] = Object.prototype.toString.call(v) === '[object Array]' ? [] : {}
             deepCopy(obj[k], newObj[k])
-        }
-        else {
+        } else {
             newObj[k] = v;
         }
     }
@@ -38,8 +49,7 @@ function deepCopy_es5(obj, newObj) {
         if (typeof v === 'object') {
             newObj[k] = Object.prototype.toString.call(v) === '[object Array]' ? [] : {}
             deepCopy(obj[k], newObj[k])
-        }
-        else {
+        } else {
             newObj[k] = v
         }
     }
@@ -68,7 +78,21 @@ function compareVersion(v1, v2) {
 // console.log(compareVersion(v1, v2));
 
 //二叉树遍历
-let tree = { value: 1, left: { value: 2, left: { value: 4 }, right: { value: 5 } }, right: { value: 3 } }
+let tree = {
+    value: 1,
+    left: {
+        value: 2,
+        left: {
+            value: 4
+        },
+        right: {
+            value: 5
+        }
+    },
+    right: {
+        value: 3
+    }
+}
 //先序
 function preorder(tree) {
     console.log(tree.value)
@@ -107,7 +131,7 @@ function swap(str, i, j) {
 }
 
 function swapSibling(str, i) {
-    return swap(str, i, i++);
+    return swap(str, i, ++i);
 }
 //全排列version1
 function VerRange(str, index) {
@@ -124,14 +148,52 @@ function allRange1(str) {
         var nstr = swap(str, i, 0);
         console.log('=ntr', str);
         console.log('==', nstr);
-        VerRange(nstr, 0);
+        VerRange(nstr, 1);
     }
 }
 
-console.log(allRange1('1234'));
-// VerRange('1234', 1);
+// console.log(allRange1('1234'));
+// VerRange('123', 0);
 
-
+// 春岩版全排列
+function fullArray(arr) {
+    var ret = [];
+    if (arr.length > 1) {
+        arr.forEach(function (element, index) {
+            var narr = arr.slice(0);
+            narr.splice(index, 1);
+            fullArray(narr).forEach(function (ele, ind) {
+                ret.push(element + ele);
+            });
+        }, this);
+    } else {
+        ret = arr;
+    }
+    return ret;
+}
+// console.log(fullArray('1234'.split('')));
 // 树的遍历
 //深搜
 
+
+function perm(arr, narr) {
+    if (narr.length === 0) {
+        narr.push(arr[0]);
+        arr.splice(0, 1);
+    }
+    if (narr.length === arr.length) {
+        console.log('narr', narr);
+    } else {
+        console.log('ok');
+
+        narr.forEach(function (ele, index) {
+            console.log(index, ele);
+            arr.splice(0, 1);
+            narr.splice(index, 0, arr[0]);
+            perm(arr, narr.splice(index, 0, arr[0]));
+        });
+    }
+}
+
+
+console.log(perm([1, 2], []));

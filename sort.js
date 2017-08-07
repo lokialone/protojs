@@ -35,15 +35,16 @@ console.timeEnd('origin');
 
 
 //插入排序
+//使用了另一个数组0.0，感觉可以去掉
 function sort2(arr) {
     let resArray = [];
     arr.forEach((item) => {
         if (!resArray.length) {
             resArray.push(item);
         } else {
-            let needIndex = 0;
+            let needIndex = arr.length - 1;
             resArray.every((item2, index) => {
-                if (item < item2) {
+                if (item2 > item) {
                     needIndex = index;
                     return false
                 }
@@ -55,4 +56,11 @@ function sort2(arr) {
     return resArray;
 }
 
-console.log(sort2(arr));
+function sort2_2(arr) {
+    for()
+}
+
+// console.log(sort2(arr));
+console.time('insert_sort');
+sort2(arr);
+console.timeEnd('insert_sort');

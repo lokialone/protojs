@@ -26,16 +26,16 @@ function sort1(arr, fun) {
 
 
 
-console.time('origin');
-arr.sort();
-console.timeEnd('origin');
+// console.time('origin');
+// arr.sort();
+// console.timeEnd('origin');
 // console.time('time1');
 // sort1(arr);
 // console.timeEnd('time1');
 
 
 //插入排序
-//使用了另一个数组0.0，感觉可以去掉
+//使用了空数组0.0，感觉可以去掉
 function sort2(arr) {
     let resArray = [];
     arr.forEach((item) => {
@@ -55,12 +55,23 @@ function sort2(arr) {
     });
     return resArray;
 }
-
+//insert_sort 不借用空数组
 function sort2_2(arr) {
-    for()
+    for(let i = 1, len = arr.length; i < len; i++) {
+        for(let j = 0; j < i;j++){
+            if (arr[i] < arr[j]) {
+                arr.splice(j, 0, arr[i]);
+                arr.splice(i + 1, 1);
+                break;
+            }
+        }
+    }
+    return arr;
 }
 
 // console.log(sort2(arr));
-console.time('insert_sort');
-sort2(arr);
-console.timeEnd('insert_sort');
+// console.time('insert_sort');
+// sort2(arr);
+// console.timeEnd('insert_sort');
+
+console.log(sort2_2(arr));

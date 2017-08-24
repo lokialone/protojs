@@ -1,15 +1,32 @@
 window.onload = function () {
-    var vm = new Vue({
-        el: '#app',
+
+    // Vue.component('my-component', {
+    //     template: '<div>A custom component!</div>'
+    // });
+    var Child = {
+        template: '<div>A custom component!</div>',
+    }
+    var vm1 = new Vue({
+        template: '<my-component> </my-component>',
         data: {
             message: 'title'
+        },
+        components: {
+            'my-component': Child
         }
     });
+    vm1.$mount('#app');
 
-    new Vue({
+    var vm2 = new Vue({
         el: '#test',
         data: {
             world: 'worldddddd!'
         }
-    })
+    });
+
+   
+
+  
+   
+
 }

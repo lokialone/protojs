@@ -196,4 +196,7 @@ function perm(arr, narr) {
 }
 
 
-console.log(perm([1, 2], []));
+// console.log(perm([1, 2], []));
+
+//将数组铺平
+let arr_23 = [1,3, [1,2], [1,3,5.[1,3]]];

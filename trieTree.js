@@ -1,8 +1,8 @@
 //字典树 trie树
 
 //实例有n个单词，记录所有单词出现的频率
-
 //实现插入树
+//todo 树的搜索
 let arr = [
         'number', 'init','number', 'ins',
         'out', 'add', 'addition', 'include',

@@ -15,6 +15,7 @@ window.onload = function () {
             'my-component': Child
         }
     });
+  
     vm1.$mount('#app');
 
     var vm2 = new Vue({
@@ -23,6 +24,16 @@ window.onload = function () {
             world: 'worldddddd!'
         }
     });
+
+    var test = Vue.extend({
+        template: '<div>A test component!</div>',
+    });
+    var vm = new test().$mount('#test2');
+    console.log(vm);
+    
+    
+
+
 
    
 

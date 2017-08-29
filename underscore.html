@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>underscore</title>
+    <script src="./underscore.js"></script>
+</head>
+<body>
+    <a href="javascript: undefined">hhhhhh</a>
+</body>
+<script>
+    var obj = {
+        name : 'Francis',
+        gender: 'male'
+    }
+    var test = _(obj);
+    // console.log(test); 
+    // console.log(_(test));
+    _.map([1, 2, 3], function(num){ return num * 3; });
+    console.log(_.map([{name: 3}, {name: 5}, {name: 6}], {name: 3}));
+    console.log(_.map([0, 1, 2, 4], 3));
+    _.each({one: 1, two: 2, three: 3}, alert);
+</script>
+</html>

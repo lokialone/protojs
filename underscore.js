@@ -36,10 +36,18 @@
   var Ctor = function(){};
 
   // Create a safe reference to the Underscore object for use below.
-  var _ = function(obj) {
+  var _ = function(obj) {   
     if (obj instanceof _) return obj;
+    // orginal
     if (!(this instanceof _)) return new _(obj);
     this._wrapped = obj;
+
+    //modify
+    // if (!(this instanceof _)) {
+    //   let news = new _(obj);
+    //   news._wrapped = obj
+    //   return news;
+    // }
   };
 
   // Export the Underscore object for **Node.js**, with
@@ -50,7 +58,7 @@
       exports = module.exports = _;
     }
     exports._ = _;
-  } else {
+  } else {  
     root._ = _;
   }
 
@@ -150,7 +158,10 @@
     var i, length;
     if (isArrayLike(obj)) {
       for (i = 0, length = obj.length; i < length; i++) {
-        iteratee(obj[i], i, obj);
+        // iteratee(obj[i], i, obj);
+        console.log('dd');
+        
+        alert(obj[i], i, obj);
       }
     } else {
       var keys = _.keys(obj);

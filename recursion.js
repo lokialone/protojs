@@ -133,27 +133,6 @@ function swap(str, i, j) {
 function swapSibling(str, i) {
     return swap(str, i, ++i);
 }
-//全排列version1
-function VerRange(str, index) {
-    console.log(str);
-    var len = str.length;
-    var nstr = swapSibling(str, index);
-    if (index + 1 < len) VerRange(nstr, ++index);
-
-}
-
-
-function allRange1(str) {
-    for (var i = 1; i < str.length; i++) {
-        var nstr = swap(str, i, 0);
-        console.log('=ntr', str);
-        console.log('==', nstr);
-        VerRange(nstr, 1);
-    }
-}
-
-// console.log(allRange1('1234'));
-// VerRange('123', 0);
 
 // 春岩版全排列
 function fullArray(arr) {
@@ -174,7 +153,6 @@ function fullArray(arr) {
 // console.log(fullArray('1234'.split('')));
 // 树的遍历
 //深搜
-
 
 function perm(arr, narr) {
     if (narr.length === 0) {
@@ -199,4 +177,22 @@ function perm(arr, narr) {
 // console.log(perm([1, 2], []));
 
 //将数组铺平
-let arr_23 = [1,3, [1,2], [1,3,5.[1,3]]];
+//todo
+// let arr_23 = [1,3, [1,2], [1,3,5[1,3]]];
+
+//数据全排列
+// 1234  2134 3124 4231
+
+function fullPerm (str, index) {
+    console.log(str);
+    let arr = str.split(',');
+    if (index === 0) {
+        for (var i = index, len = arr.length; i < len; i++) {
+            
+        }
+    } else {
+
+    }  
+}
+
+console.log(fullPerm('1,2,3,4', 0));

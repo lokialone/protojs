@@ -68,7 +68,6 @@ function scramble3(str1, str2) {
 // console.timeEnd('scamble3');
 
 //others solution
-//todo read carefully
 function scramble4(str1, str2) {
     var map={};
     for(var i in str1) {

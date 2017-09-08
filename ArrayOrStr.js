@@ -67,4 +67,16 @@ function scramble3(str1, str2) {
 // scramble3('dscriptjavadfsfsdfsdfsdfsdfsdffdfdfdfdfdfdfdfdfdfdfdfddffdfdfdfsdffvsjvsfjgnbfacnamlpweruqvskfmksmckfjdnvjsfnvlksd','jsdcvscdcdceclmcmalopnpeavascriptfdfdfdfdfdfdfdfdfdfdfdfsafdfasdfasfasfsdfsdfasfdsafdfdsfdsfasfafdsfafsda');
 // console.timeEnd('scamble3');
 
-console.log(scramble3('abcdd', 'dad'));
+//others solution
+//todo read carefully
+function scramble4(str1, str2) {
+    var map={};
+    for(var i in str1) {
+      map[str1[i]] ? map[str1[i]]++ : map[str1[i]]=1;
+    }
+    for(var i in str2) {
+      if(!map[str2[i]]) return false;
+      map[str2[i]]--;
+    }
+    return true;
+  }

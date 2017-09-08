@@ -20,4 +20,30 @@ function scramble(str1, str2) {
     );
 }
 
-console.log(scramble('scriptjava','javascript'));
+function scramble2(str1, str2) {
+    //code me
+    let arr1 = str1.split('');
+    let arr2 = str2.split('');
+    for(let i = 0, len = arr2.length; i < len; i++) {
+        let index = arr1.indexOf(arr2[i]);
+        if (index > -1) {
+            arr1.splice(index, 1);
+        } else {
+   
+             return  false;
+        } 
+    }
+    return true; 
+}
+
+function scramble3(str1, str2) {
+    
+}
+
+
+console.time('scamble2');
+scramble2('dscriptjavadfsfsdfsdfsdfsdfsdffdfdfdfdfdfdfdfdfdfdfdfddffdfdfdfsdffvsjvsfjgnbfacnamlpweruqvskfmksmckfjdnvjsfnvlksd','jsdcvscdcdceclmcmalopnpeavascriptfdfdfdfdfdfdfdfdfdfdfdfsafdfasdfasfasfsdfsdfasfdsafdfdsfdsfasfafdsfafsda');
+console.timeEnd('scamble2');
+console.time('scamble1');
+scramble('scriptjavadfsfsdfsdfsdfsdfsdffdfdfdfdfdfdfdfdfdfdfdfddffdfdfdfsdffvsjvsfjgnbfacnamlpweruqvskfmksmckfjdnvjsfnvlksd','jsdcvscdcdceclmcmalopnpeavascriptfdfdfdfdfdfdfdfdfdfdfdfsafdfasdfasfasfsdfsdfasfdsafdfdsfdsfasfafdsfafsda');
+console.timeEnd('scamble1');

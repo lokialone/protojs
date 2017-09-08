@@ -37,13 +37,34 @@ function scramble2(str1, str2) {
 }
 
 function scramble3(str1, str2) {
-    
+    let arr1 = str1.split('').sort();
+    let arr2 = str2.split('').sort();
+    let startIndex = 0;
+    let hasOne = false;
+    for(let i = 0, len1 = arr2.length; i < len1; i++) {
+        hasOne = false;
+        for( let j = startIndex, len2 = arr1.length; j< len2; j++ ) {
+            if (arr2[i] === arr1[j]) {
+                startIndex = j;
+                hasOne = true;
+                break;
+            }
+        }
+        if (!hasOne) return false;
+    }
+    return true;
 }
 
+// console.time('scamble1');
+// scramble('scriptjavadfsfsdfsdfsdfsdfsdffdfdfdfdfdfdfdfdfdfdfdfddffdfdfdfsdffvsjvsfjgnbfacnamlpweruqvskfmksmckfjdnvjsfnvlksd','jsdcvscdcdceclmcmalopnpeavascriptfdfdfdfdfdfdfdfdfdfdfdfsafdfasdfasfasfsdfsdfasfdsafdfdsfdsfasfafdsfafsda');
+// console.timeEnd('scamble1');
 
-console.time('scamble2');
-scramble2('dscriptjavadfsfsdfsdfsdfsdfsdffdfdfdfdfdfdfdfdfdfdfdfddffdfdfdfsdffvsjvsfjgnbfacnamlpweruqvskfmksmckfjdnvjsfnvlksd','jsdcvscdcdceclmcmalopnpeavascriptfdfdfdfdfdfdfdfdfdfdfdfsafdfasdfasfasfsdfsdfasfdsafdfdsfdsfasfafdsfafsda');
-console.timeEnd('scamble2');
-console.time('scamble1');
-scramble('scriptjavadfsfsdfsdfsdfsdfsdffdfdfdfdfdfdfdfdfdfdfdfddffdfdfdfsdffvsjvsfjgnbfacnamlpweruqvskfmksmckfjdnvjsfnvlksd','jsdcvscdcdceclmcmalopnpeavascriptfdfdfdfdfdfdfdfdfdfdfdfsafdfasdfasfasfsdfsdfasfdsafdfdsfdsfasfafdsfafsda');
-console.timeEnd('scamble1');
+// console.time('scamble2');
+// scramble2('dscriptjavadfsfsdfsdfsdfsdfsdffdfdfdfdfdfdfdfdfdfdfdfddffdfdfdfsdffvsjvsfjgnbfacnamlpweruqvskfmksmckfjdnvjsfnvlksd','jsdcvscdcdceclmcmalopnpeavascriptfdfdfdfdfdfdfdfdfdfdfdfsafdfasdfasfasfsdfsdfasfdsafdfdsfdsfasfafdsfafsda');
+// console.timeEnd('scamble2');
+
+// console.time('scamble3');
+// scramble3('dscriptjavadfsfsdfsdfsdfsdfsdffdfdfdfdfdfdfdfdfdfdfdfddffdfdfdfsdffvsjvsfjgnbfacnamlpweruqvskfmksmckfjdnvjsfnvlksd','jsdcvscdcdceclmcmalopnpeavascriptfdfdfdfdfdfdfdfdfdfdfdfsafdfasdfasfasfsdfsdfasfdsafdfdsfdsfasfafdsfafsda');
+// console.timeEnd('scamble3');
+
+console.log(scramble3('abcdd', 'dad'));

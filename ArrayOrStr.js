@@ -19,7 +19,7 @@ function scramble(str1, str2) {
         }
     );
 }
-
+//数据一大，仍未通过
 function scramble2(str1, str2) {
     //code me
     let arr1 = str1.split('');
@@ -35,7 +35,7 @@ function scramble2(str1, str2) {
     }
     return true; 
 }
-
+//通过
 function scramble3(str1, str2) {
     let arr1 = str1.split('').sort();
     let arr2 = str2.split('').sort();

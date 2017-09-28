@@ -180,14 +180,16 @@ function swap(arr, from, to){
     return newArr;
 }
 
-function fullPerm (arr, index) {
-    for(let j = index, len = arr.length; j < len ; j++) {
+function fullPerm (arr, index, ret) {
+    if (index === 0) ret.push(arr);
+    for(let j = index, len = arr.length; j < len ; j++) { 
         let narr = swap(arr, index, j);
-        if (j !== index || index === 0) {
-            console.log(narr);
+        if (j !== index) {
+           ret.push(narr);
         }
-        fullPerm(narr, index + 1);
-    }  
+        fullPerm(narr, index + 1, ret);
+    }
+    return ret.length;
 }
 
-fullPerm([1,2,3], 0);
+console.log(fullPerm([1,2,3,4,5], 0,[]));

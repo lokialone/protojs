@@ -119,20 +119,6 @@ function postOrder(tree) {
 //一开始是因为想把全排列问题解决，才开始想再深入学习一下递归的
 //开始挑战全排列
 //递归的解决思路：从第一位开始依次与后一位交互位置
-function swap(str, i, j) {
-    var arr = str.split('');
-    if (!arr) return;
-    if (arr.length < i + 1)
-        return;
-    var temp = arr[j];
-    arr[j] = arr[i];
-    arr[i] = temp;
-    return arr.join('');
-}
-
-function swapSibling(str, i) {
-    return swap(str, i, ++i);
-}
 
 // 春岩版全排列
 function fullArray(arr) {
@@ -183,16 +169,25 @@ function perm(arr, narr) {
 //数据全排列
 // 1234  2134 3124 4231
 
-function fullPerm (str, index) {
-    console.log(str);
-    let arr = str.split(',');
-    if (index === 0) {
-        for (var i = index, len = arr.length; i < len; i++) {
-            
-        }
-    } else {
+function swap(arr, from, to){
+    let newArr = [];
+    arr.forEach(item => {
+        newArr.push(item);
+    });
+    let tmp = newArr[from];
+    newArr[from] = newArr[to];
+    newArr[to] = tmp;
+    return newArr;
+}
 
+function fullPerm (arr, index) {
+    for(let j = index, len = arr.length; j < len ; j++) {
+        let narr = swap(arr, index, j);
+        if (j !== index || index === 0) {
+            console.log(narr);
+        }
+        fullPerm(narr, index + 1);
     }  
 }
 
-console.log(fullPerm('1,2,3,4', 0));
+fullPerm([1,2,3], 0);

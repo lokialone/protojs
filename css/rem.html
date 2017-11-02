@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function setRemUnit() {
+            var clientWidth = document.documentElement.clientWidth;
+            clientWidth = clientWidth < 780 ? clientWidth : 780;
+            document.documentElement.style.fontSize = clientWidth / 100 + 'px';
+        }
+        window.addEventListener('resize', function () {
+            setRemUnit();
+        }, false);
+        window.addEventListener('pageshow', function (e) {
+            if (e.persisted) {
+                setRemUnit();
+            }
+        }, false);
+        setRemUnit();
+    </script>
+     <style lang="css">
+            .p1 {font-size: 16px; line-height: 32px;}
+            .s1 {font-size: 2em;}
+            .s1 {font-size: 2em; line-height: 2em;}  
+            .p2 {font-size: 16px; line-height: 2;}
+            .s5 {font-size: 2em;}
+            .s5 {font-size: 2em; line-height: 2em;}
+            .s7{
+                font-size: 2rem;
+            }
+            .s8{
+                font-size: 2em;
+            }
+            .p3{
+                width: 10rem;
+                height: 10rem;
+                background: red;
+            }
+        </style>
+</head>
+<body>
+   <div class="p1">
+	    <div class="s1">1</div>
+  	    <div class="s2">1</div>
+    </div>
+    <div class="p2">
+	    <div class="s5">1</div>
+  	    <div class="s6">1</div>
+    </div>
+    <div class="p3">
+        <div class="s7">1</div>
+        <div class="s8">1</div>
+    </div>
+    <!-- <iframe src="//www.baicu.com" frameborder="0">
+
+    </iframe> -->
+    <div>
+        summer:
+         在chrome中，将页面分割成100份并不可行，因为chrome能用最小为12px,推荐还是10分，12分这种吧。。。
+    </div>
+</body>
+
+</html>

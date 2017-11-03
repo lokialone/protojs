@@ -219,7 +219,7 @@ function fullPerm3 (str, index = 0, res = new Set()) {
         if (index === arr.length -1) res.add(narr.join(''));
         fullPerm3(narr, index + 1, res);
     }
-    return res;
+    return Array.from(res);
 }
 
 console.log(fullPerm3('aabb'));

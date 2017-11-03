@@ -180,6 +180,7 @@ function swap(arr, from, to){
     return newArr;
 }
 
+//lokia write
 function fullPerm (arr, index, ret) {
     if (index === 0) ret.push(arr);
     for(let j = index, len = arr.length; j < len ; j++) { 
@@ -192,4 +193,24 @@ function fullPerm (arr, index, ret) {
     return ret.length;
 }
 
-console.log(fullPerm([1,2,3,4,5], 0,[]));
+// console.log(fullPerm([1,2,3,4,5], 0,[]));
+
+//1234
+//1234 2134 3214 4231
+// 1234 1324 1432 
+// 1234 1243
+//这个版本是全排列的思路正确理解的版本
+function fullPerm2 (str, index = 0, res = []) {
+    let arr = typeof str === 'string' ? str.split('') : str;
+    for (let i = index, len = arr.length; i < len; i++) {
+        let narr = swap(arr, index, i);
+        if (index === arr.length -1) res.push(narr);
+        fullPerm2(narr, index + 1, res);
+    }
+    return res;
+}
+
+
+console.log(fullPerm2('1234'));
+
+

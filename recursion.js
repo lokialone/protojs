@@ -204,13 +204,27 @@ function fullPerm2 (str, index = 0, res = []) {
     let arr = typeof str === 'string' ? str.split('') : str;
     for (let i = index, len = arr.length; i < len; i++) {
         let narr = swap(arr, index, i);
-        if (index === arr.length -1) res.push(narr);
+        if (index === arr.length -1) res.push(narr.join(''));
         fullPerm2(narr, index + 1, res);
     }
     return res;
 }
+// console.log(fullPerm2('aabb'));
+
+//去重全排列
+function fullPerm3 (str, index = 0, res = new Set()) {
+    let arr = typeof str === 'string' ? str.split('') : str;
+    for (let i = index, len = arr.length; i < len; i++) {
+        let narr = swap(arr, index, i);
+        if (index === arr.length -1) res.add(narr.join(''));
+        fullPerm3(narr, index + 1, res);
+    }
+    return res;
+}
+
+console.log(fullPerm3('aabb'));
 
 
-console.log(fullPerm2('1234'));
+
 
 

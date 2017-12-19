@@ -15,3 +15,7 @@
 https://stackoverflow.com/questions/32816750/why-z-index-does-not-work-for-element-having-transform-translatey?rq=1
 
 3. 仔细想想还是应该翻下vue源码，看看他是如何执行transition的。
+看了一下只是把class直接加上去而已，问题应该还是在z-index和tranfrom之间
+
+##结论
+添加transform时，当前这个元素会产生一个stack context, 与外部的stack context不一致，导致当前z-index无法使用。解决方案是不依赖z-index去控制堆叠关系，使用 translateZ来控制上下层级。或者使被遮盖的元素加上translate3d(0,0,0),但是添加transform会导致posistion:fixed失效成position:abolute,并不是无害的解决方案。

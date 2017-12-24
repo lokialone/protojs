@@ -7,11 +7,18 @@ use  `echo $SHELL to` to find shell type, 推荐使用/bin/sh,
     assignment to invalid subscript range
 ```
 
+这个报错出现的原因是zsh环境下，数组的第一个下标是1 。。。
+
 ## 文件没有权限时，给脚本加上权限
 `chmod +x test.sh`
 
-##查看电脑中安装的脚本解释器
+## 查看电脑中安装的脚本解释器
 `ls -l /bin/*sh`
+
+
+## 创建文本菜单
+
+
 
 ## 遇到的问题
 

@@ -1,8 +1,7 @@
 #! /usr/bin/expect 
-set timeout 30 
-spawn ssh root@21.196.206.205
-expect "*password"
-send "1[2w/sdf)@.As6"
+# 设定超时时间为3秒
+set timeout 3   
+spawn ssh root@123.206.192.21
+expect "*password*"
+send "mypassword"
 interact
- 
-# auto_login_ssh 1[2w/sdf\)@.As6;w root@21.196.206.205

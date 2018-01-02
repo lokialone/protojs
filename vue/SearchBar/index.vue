@@ -63,7 +63,6 @@ export default {
     mounted() {},
     methods: {
         rightClick(item) {
-            console.log('item', item);
             this.flag = false;
             this.$emit('right-click', item || this.keyword);
         },

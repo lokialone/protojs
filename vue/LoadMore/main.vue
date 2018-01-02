@@ -1,6 +1,6 @@
 <template>
     <div class="loading">
-        {{showText}}
+        {{ showText }}
     </div>
 </template>
 <script>

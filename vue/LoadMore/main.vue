@@ -1,13 +1,23 @@
 <template>
-    <div class="loading">
-        {{ showText }}
+    <div class="loading" v-show="isShow">
+        <div class="state-loading" v-if="state == 'loading'">
+           <i class="loading-icon"></i> {{showText}}
+        </div>
+        <div class="state-end" v-if="state == 'end'">
+            没有更多内容啦~
+        </div>
+
     </div>
 </template>
+
 <script>
 export default {
+    name: 'load-more',
     data() {
         return {
-            showText: ''
+            showText: '加载中...',
+            onPageBottom: false,
+            state: 'loading'
         };
     },
     created() {
@@ -16,21 +26,12 @@ export default {
         });
     },
     props: {
-        // 是否能够加载
-        canLoad: {
-            type: Boolean,
-            required: true,
-            default: false
-        },
-        // 数据加载完毕
-        end: {
-            type: Boolean,
-            required: true,
+        isShow: {
             default: false
         }
     },
     destroyed() {
-        // window.onscroll = undefined;
+        this.onPageBottom = false;
     },
     methods: {
         //距顶高度
@@ -79,19 +80,21 @@ export default {
             //当滚动条到底时触发，滚动条高度(只读) = 可视窗口高度(固定) + 距顶高度
             if (this.getScrollHeight() ===
                 this.getWindowHeight() + this.getDocumentHeight()) {
-                if (this.canLoad) {
-                    this.$emit('loading');
-                }
-            }
-        }
-    },
-    watch: {
-        end(val) {
-            if (val) {
-                this.showText = '';
+                this.onPageBottom = true;
             } else {
-                this.showText = '正在加载...';
+                this.onPageBottom = false;
             }
+        },
+        show() {
+            this.state = 'loading';
+            this.isShow = true;
+        },
+        close() {
+            this.isShow = false;
+        },
+        end() {
+            this.isShow = true;
+            this.state = 'end';
         }
     }
 };
@@ -103,6 +106,20 @@ export default {
     padding-top: 10px;
     padding-bottom: 10px;
     clear: both;
-    font-size: 24px;
+    font-size: 24/2px;
+    .state-loading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+     .loading-icon{
+        display: inline-block;
+        width: 30/2px;
+        height: 30/2px;
+        margin-right: 14/2px;
+        background: url('//img.souche.com/20170417/png/242b07c606eed2c788f25227fbf22a80.png') no-repeat;
+        background-size: contain;
+        animation: keeprotate 1s linear infinite;
+    }
 }
 </style>

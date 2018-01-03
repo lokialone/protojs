@@ -1,5 +1,9 @@
 <template lang="html">
-    <input class="mui-switch mui-switch-animbg" type="checkbox" :checked='checked' @click="changeCheckState()">
+    <input
+        class="mui-switch mui-switch-animbg"
+        type="checkbox"
+        :checked="data"
+        @click="changeCheckState()">
 </template>
 
 <script>
@@ -7,7 +11,7 @@ export default {
     data() {
         return {};
     },
-    props: ['checked'],
+    props: ['data'],
     computed: {},
     mounted() { },
     methods: {
@@ -59,13 +63,13 @@ export default {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-.mui-switch[checked] {
+.mui-switch:checked {
     border-color: #FF571A;
     box-shadow: #FF571A 0 0 0 16px inset;
     background-color: #FF571A;
 }
 
-.mui-switch[checked]:before {
+.mui-switch:checked:before {
     left: 21px;
 }
 
@@ -77,13 +81,13 @@ export default {
     transition: left 0.3s;
 }
 
-.mui-switch.mui-switch-animbg[checked] {
+.mui-switch.mui-switch-animbg:checked {
     box-shadow: #dfdfdf 0 0 0 0 inset;
     background-color: #FF571A;
     transition: border-color 0.4s, background-color ease 0.4s;
 }
 
-.mui-switch.mui-switch-animbg[checked]:before {
+.mui-switch.mui-switch-animbg:checked:before {
     transition: left 0.3s;
 }
 
@@ -95,13 +99,13 @@ export default {
     transition: left 0.3s;
 }
 
-.mui-switch.mui-switch-anim[checked] {
+.mui-switch.mui-switch-anim:checked {
     box-shadow: #FF571A 0 0 0 16px inset;
     background-color: #FF571A;
     transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
 }
 
-.mui-switch.mui-switch-anim[checked]:before {
+.mui-switch.mui-switch-anim:checked:before {
     transition: left 0.3s;
 }
 </style>

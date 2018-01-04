@@ -1,4 +1,6 @@
 
+https://zhuanlan.zhihu.com/p/29058936
+
 很多人相信也有相同的疑问，在什么情况下我可以安全的使用 Array.from()、什么情况下我可以放心大胆的使用 [ ].filter()、在老版本的 IE 里面可以使用 Map、Set 吗？
 
 
@@ -103,5 +105,5 @@ console.log((0, _getIterator3.default)(arr));
 3.lodash 来替代绝大多数的 prototype 的扩展。
 
 
-https://zhuanlan.zhihu.com/p/29058936
+
 

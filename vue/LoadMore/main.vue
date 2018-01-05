@@ -112,7 +112,15 @@ export default {
         justify-content: center;
         align-items: center;
     }
-     .loading-icon{
+    @keyframes keeprotate{
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg);
+        }
+    }
+    .loading-icon{
         display: inline-block;
         width: 30/2px;
         height: 30/2px;

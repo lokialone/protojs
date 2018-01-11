@@ -48,7 +48,7 @@ export default {
     data() {
         return {
             months: [],
-            currentMonth: 1,
+            currentMonth: 0,
             show: false,
             currentSelect: 'currentWeek'
         };
@@ -62,7 +62,7 @@ export default {
     methods: {
         createMonths() {
             this.currentMonth = Date.getCurrentMonth();
-            this.months = [this.currentMonth, this.getNextMonth(this.currentMonth), this.getNextMonth(this.currentMonth - 1)];
+            this.months = [this.currentMonth, this.getNextMonth(this.currentMonth), this.getNextMonth(this.getNextMonth(this.currentMonth))];
         },
         getNextMonth(num) {
             return num - 1 > 0 ? num - 1 : 12 - (num - 1);
@@ -76,15 +76,33 @@ export default {
                     this.emitLastWeekDate(item);
                     break;
                 case 'month':
-                    this.currentSelect = 'month';
-                    this.show = !this.show;
+                    if (this.currentSelect === 'month') {
+                        this.currentSelect = 'month';
+                        this.show = !this.show;
+                    } else {
+                        this.currentSelect = 'month';
+                        this.$emit('select-date', Date.getMonthStartDate(this.currentMonth), Date.getMonthEndDate(this.currentMonth));
+                    }
                     break;
                 default:
                     break;
             }
         },
-        selectMonth(item) {
+        selectMonth(item, index) {
             this.currentMonth = item;
+            switch (index) {
+                case 0:
+                    this.$bury('MSD_RANK_NMONTH_BTN');
+                    break;
+                case 1:
+                    this.$bury('MSD_RANK_PMONTH_BTN');
+                    break;
+                case 2:
+                    this.$bury('MSD_RANK_P1MONTH_BTN');
+                    break;
+                default:
+                    break;
+            }
             this.$emit('select-date', Date.getMonthStartDate(item), Date.getMonthEndDate(item));
             setTimeout(() => {
                 this.show = false;

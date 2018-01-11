@@ -2,22 +2,29 @@
     <input
         class="mui-switch mui-switch-animbg"
         type="checkbox"
-        :checked="data"
-        @click="changeCheckState()">
+        @change="$emit('change', currentValue)"
+        v-model="currentValue">
 </template>
 
 <script>
+//usage v-model=""
 export default {
     data() {
         return {};
     },
-    props: ['data'],
-    computed: {},
+    props: ['value'],
+    computed: {
+        currentValue: {
+            get() {
+                return this.value;
+            },
+            set(val) {
+                this.$emit('input', val);
+            }
+        }
+    },
     mounted() { },
     methods: {
-        changeCheckState() {
-            this.$emit('check-change');
-        }
     },
     components: {}
 };

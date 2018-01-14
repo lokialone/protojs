@@ -80,9 +80,7 @@ export default {
             //当滚动条到底时触发，滚动条高度(只读) = 可视窗口高度(固定) + 距顶高度
             if (this.getScrollHeight() ===
                 this.getWindowHeight() + this.getDocumentHeight()) {
-                this.onPageBottom = true;
-            } else {
-                this.onPageBottom = false;
+                this.$emit('onPageBottom');
             }
         },
         show() {
@@ -112,15 +110,7 @@ export default {
         justify-content: center;
         align-items: center;
     }
-    @keyframes keeprotate{
-        from{
-            transform: rotate(0deg);
-        }
-        to{
-            transform: rotate(360deg);
-        }
-    }
-    .loading-icon{
+     .loading-icon{
         display: inline-block;
         width: 30/2px;
         height: 30/2px;

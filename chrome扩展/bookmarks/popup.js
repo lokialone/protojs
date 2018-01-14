@@ -2,6 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// Add the bookmarks
+
+function addBookmark() {
+  chrome.bookmarks.create(, function callback)
+}
 // Search the bookmarks when entering the search keyword.
 $(function() {
   $('#search').change(function() {

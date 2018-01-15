@@ -1,0 +1,34 @@
+@media only screen and (device-width: 375px) and (device-height: 812px) and
+(-webkit-device-pixel-ratio: 3) {
+    /*增加底部适配层*/
+    .has-bottombar {
+        box-sizing: border-box;
+        bottom: 34px !important;
+        &:after {
+            content: '';
+            z-index: 9998;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 34px;
+            background: #f2f2f2;
+        }
+    }
+
+    /*底色为白色的按钮底部适配 ，padding-bottom*/
+    .has-white-bottombar {
+        box-sizing: border-box;
+        bottom: 24px !important;
+        &:after {
+            content: '';
+            z-index: 9998;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 24px;
+            background: white;
+        }
+    }
+}

@@ -77,8 +77,9 @@ export default {
             return scrollHeight;
         },
         onScroll() {
-            //当滚动条到底时触发，滚动条高度(只读) = 可视窗口高度(固定) + 距顶高度
-            if (this.getScrollHeight() ===
+            //当滚动条到底时触发，滚动条高度(只读) = 可视窗口高度(固定) + 距顶高度 
+            // 兼容webview，使用 <= 判断底部
+            if (this.getScrollHeight() <=
                 this.getWindowHeight() + this.getDocumentHeight()) {
                 this.$emit('onPageBottom');
             }

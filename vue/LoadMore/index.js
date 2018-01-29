@@ -42,6 +42,7 @@ class LoadMore {
     }
     // 监听onPageBottom 并执行传入的函数
     LoadData (callback) {
+        this.show();
         this.callback = callback;
         this.instance.$on('onPageBottom', callback);
     }

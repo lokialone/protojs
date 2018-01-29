@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body { display: flex; width: 100vw; height: 100vh; justify-content: center; align-items: center; background: #2098ce; }
+    div { width: 200px; height: 200px; position: relative; overflow: hidden; background: #ddd; }
+    svg { position: absolute; top: 0; left: 0; }
+    svg line { stroke-width: 3; stroke: #000; fill: none; stroke-dasharray: 200; transition: transform .6s ease-out; }
+    div:hover svg line.top { transform: translateX(-400px); }
+    div:hover svg line.bottom { transform: translateX(400px); }
+    div:hover svg line.left { transform: translateY(400px); }
+    div:hover svg line.right { transform: translateY(-400px); }
+</style>
+<body>
+    <div>
+        <svg width="200" height="200">
+            <line class="top" x1="0" y1="0" x2="600" y2="0"/>
+            <line class="left" x1="0" y1="200" x2="0" y2="-400"/>
+            <line class="bottom" x1="200" y1="200" x2="-400" y2="200"/>
+            <line class="right" x1="200" y1="0" x2="200" y2="600"/>
+        </svg>
+    </div>
+</body>
+</html>

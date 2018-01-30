@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #clipped {
+    margin-bottom: 20px;
+    clip-path: url(#cross);
+    }
+</style>
+<body>
+
+    <!-- Learn about this code on MDN: https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path -->
+    <img id="clipped" src="https://mdn.mozillademos.org/files/12668/MDN.svg" alt="MDN logo">
+    <svg height="0" width="0">
+    <defs>
+        <clipPath id="cross">
+            <rect y="110" x="137" width="90" height="90"/>
+            <rect x="0" y="110" width="90" height="90"/>
+            <rect x="137" y="0" width="90" height="90"/>
+            <rect x="0" y="0" width="90" height="90"/>
+        </clipPath>
+    </defs>
+    </svg>
+
+    <select id="clipPath">
+        <option value="none">none</option>
+        <option value="circle(100px at 110px 100px)">circle</option>
+        <option value="url(#cross)" selected>cross</option>
+        <option value="inset(20px round 20px)">inset</option>
+    </select>
+    
+</body>
+<script>
+    var clipPathSelect = document.getElementById("clipPath");
+    clipPathSelect.addEventListener("change", function (evt) {
+        document.getElementById("clipped").style.clipPath = evt.target.value;
+    });
+</script>   
+</html>

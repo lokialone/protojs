@@ -13,7 +13,6 @@ export function getCurrentWeekStartDate() {
 export function getCurrentWeekEndDate() {
     return moment().isoWeekday('Sunday').format(format);
 }
-
 // 获取上周一
 export function getLastWeekStartDate() {
     return moment().weekday(-6).format(format);
@@ -36,6 +35,49 @@ export function getMonthStartDate(month = '') {
 export function getMonthEndDate(month = '') {
     month = month ? month - 1 : '';
     return moment().month(month).endOf('month').format(format);
+}
+
+/**
+ * 根据传入的date获取月份
+ * @param {*} date 
+ * return 传入日期的所在的月份。默认返回当天的所在的月份
+ */
+export function getMonthByDate(date = '') {
+    return moment(date).month() + 1;
+}
+
+/**
+ * 获取今天的日期
+ * param format 可不传，默认 'YYYY-MM-DD'
+ * return 格式需要的今天的日期
+ */
+export function getCurrentDay(format = 'YYYY-MM-DD') {
+    return moment().format(format);
+}
+
+// 获取最近三个月的日期，包括本月
+export function getLastThreeMonthDate() {
+    let res = [];
+    res.push(getCurrentDay());
+    res.push(moment().subtract(1, 'month').format(format));
+    res.push(moment().subtract(2, 'month').format(format));
+    return res;
+}
+/**
+ * get month start date by param date 
+ * @param {string} [date=''] 
+ * @returns month start date
+ */
+export function getMonthStartDate(date = '') {
+    return moment(date).date(1).format(format);
+}
+/**
+ * get month end date by param date 
+ * @param {string} [date=''] 
+ * @returns month end date
+ */
+export function getMonthEndDate(date = '') {
+    return moment(date).endOf('month').format(format);
 }
 
 export default {

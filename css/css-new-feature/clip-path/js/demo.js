@@ -8,7 +8,9 @@
  * Copyright 2017, Codrops
  * http://www.codrops.com
  */
-{
+
+ 
+ window.onload = function() {
 	setTimeout(() => document.body.classList.add('render'), 60);
 	const navdemos = Array.from(document.querySelectorAll('nav.demos > .demo'));
 	const total = navdemos.length;
@@ -39,4 +41,5 @@
 		document.body.classList.remove('loading');
 		document.body.classList.add('imgloaded');
 	});
-}
+	
+ };

@@ -27,12 +27,12 @@ export function getCurrentMonth() {
     return moment().month() + 1;
 }
 // 根据月份返回本月1号
-export function getMonthStartDate(month = '') {
+export function getMonthStartDatebyMonth(month = '') {
     month = month ? month - 1 : '';
     return moment().month(month).date(1).format(format);
 }
 // 根据月份返回本月月底日期
-export function getMonthEndDate(month = '') {
+export function getMonthEndDatebyMonth(month = '') {
     month = month ? month - 1 : '';
     return moment().month(month).endOf('month').format(format);
 }
@@ -68,7 +68,7 @@ export function getLastThreeMonthDate() {
  * @param {string} [date=''] 
  * @returns month start date
  */
-export function getMonthStartDate(date = '') {
+export function getMonthStartDateByDate(date = '') {
     return moment(date).date(1).format(format);
 }
 /**
@@ -76,17 +76,31 @@ export function getMonthStartDate(date = '') {
  * @param {string} [date=''] 
  * @returns month end date
  */
-export function getMonthEndDate(date = '') {
+export function getMonthEndDatebyDate(date = '') {
     return moment(date).endOf('month').format(format);
 }
+/**
+ * 获取最近前几日
+ * @param {*} day 
+ */
+export function getPreNearlyDay(day = 7) {
+    return moment().subtract(day, 'days').format(format);
+}
+/**
+ * 获取最近后几日
+ * @param {*} day 
+ */
+export function getNextNearlyDay(day = 7) {
+    return moment().add(day, 'days').format(format);
+}
 
-export default {
-    getCurrentWeekStartDate,
-    getCurrentWeekEndDate,
-    getLastWeekStartDate,
-    getLastWeekEndDate,
-    getMonthStartDate,
-    getMonthEndDate,
-    getCurrentMonth
-};
+// export default {
+//     getCurrentWeekStartDate,
+//     getCurrentWeekEndDate,
+//     getLastWeekStartDate,
+//     getLastWeekEndDate,
+//     getMonthStartDate,
+//     getMonthEndDate,
+//     getCurrentMonth
+// };
 

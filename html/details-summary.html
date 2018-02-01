@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+ /* 隐藏默认三角 */
+::-webkit-details-marker {
+    display: none;
+}
+::-moz-list-bullet {
+    font-size: 0;
+    float: left;
+}
+summary {
+    user-select: none;
+    outline: 0;
+}
+summary::after {
+    content: '';
+    position: absolute;
+    width: 12px; height: 12px;
+    margin: 4px 0 0 .5ch;
+    background: url(./arrow-on.svg) no-repeat;
+    background-size: 100% 100%;
+    transition: transform .2s;
+}
+[open] summary::after {
+    transform: rotate(90deg);
+}
+/* 动画效果 */
+details + dl {
+    max-height: 0;
+    transition: max-height .25s;
+    margin: 0 0 1rem;
+    overflow: hidden;
+}
+[open] + dl {
+    max-height: 100px;
+}
+</style>
+</head>
+<body>
+    details 标签在Chrome，Firefox等浏览器下默认是有展开收起行为的，
+    <details>
+        <summary>这是摘要1</summary>
+        <p>这里具体描述，标签相对随意，例如这里使用的&lt;p&gt;标签。</p>
+    </details>
+    
+    <details open>
+        <summary>这是摘要2</summary>
+        <content>这里&lt;details&gt;标签设置了HTML布尔属性open，因此，默认是展开状态。</content>
+    </details>
+    
+    <details open>
+        <p>如果&lt;summary&gt;缺省，则会自动补上，文案是“详细信息”。</p>
+    </details>
+    <details open><summary>订单中心</summary></details>
+    <dl>
+        <dd><a href>我的订单</a></dd>
+        <dd><a href>我的活动</a></dd>
+        <dd><a href>评价晒单</a></dd>
+        <dd><a href>购物助手</a></dd>
+    </dl>
+    <details open><summary>关注中心</summary></details>
+    <dl>
+        <dd><a href>关注的商品</a></dd>
+        <dd><a href>关注的店铺</a></dd>
+        <dd><a href>关注的专辑</a></dd>
+        <dd><a href>收藏的内容</a></dd>
+    </dl>
+    <details open><summary>资产中心</summary></details>
+    <dl>
+        <dd><a href>余额</a></dd>
+        <dd><a href>优惠券</a></dd>
+        <dd><a href>礼品卡</a></dd>
+    </dl>
+
+</body>
+</html>

@@ -43,11 +43,11 @@
     this._wrapped = obj;
 
     //modify
-    // if (!(this instanceof _)) {
-    //   let news = new _(obj);
-    //   news._wrapped = obj
-    //   return news;
-    // }
+    if (!(this instanceof _)) {
+      let news = new _(obj);
+      news._wrapped = obj
+      return news;
+    }
   };
 
   // Export the Underscore object for **Node.js**, with

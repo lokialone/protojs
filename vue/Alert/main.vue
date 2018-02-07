@@ -4,7 +4,7 @@
         <div class="alert">
         <div class="content">
             <div class="">
-                {{msg}}
+                {{ msg }}
             </div>
             <div class="border">
             </div>

@@ -30,3 +30,4 @@
         docEl.removeChild(fakeBody);
     }
 })(window, document);
+//配合post-css adaptive使用

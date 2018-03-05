@@ -1,0 +1,1 @@
+https://www.w3cplus.com/css3/do-you-really-understand-css-linear-gradients.html

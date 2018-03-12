@@ -4,3 +4,6 @@
 ## pwa pratice
 1. PWA 在饿了么的实践经验
 https://zhuanlan.zhihu.com/p/25800461?utm_medium=social&utm_source=ZHShareTargetIDMore
+
+## pwa webpack-plugin
+https://github.com/goldhand/sw-precache-webpack-plugin

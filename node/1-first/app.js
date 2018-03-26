@@ -3,6 +3,8 @@ var path = require('path');
 var http = require('http');
 var filterDir = require('./filter-dir.js');
 const bl = require('bl')
+var net =  require('net')
+var strftime = require('strftime')
 // 获取文件内容的行数 类似cat file | wc -l
 // let num =  fs.readFileSync(process.argv[2], 'utf8').split('\n').length - 1;
 // fs.readFile(process.argv[2], 'utf8', (err, data) => {
@@ -55,10 +57,10 @@ const bl = require('bl')
 var urls = []
 function collectArgvUrl() { 
     process.argv.forEach((item, index) => {
-        if (index > 1) urls.push(item);
-    });
+        if (index > 1) urls.push(item)
+    })
 }
-collectArgvUrl();
+collectArgvUrl()
 // const urls = ['http://127.0.0.1:8080/filter-dir.js', 'http://127.0.0.1:8080/text', 'http://127.0.0.1:8080/text2']
 
 // use recursion to do this
@@ -76,30 +78,60 @@ collectArgvUrl();
 // }
 // getRes(urls[0], 0);
 // get response in order;
-var results = []
-var count  = []
-function printResults() {
-    for (var i = 0; i < results.length; i++) {
-        console.log(results[i])
-    } 
-}
+// var results = []
+// var count  = []
+// function printResults() {
+//     for (var i = 0; i < results.length; i++) {
+//         console.log(results[i])
+//     } 
+// }
 
-function httpGet(i) {
-    http.get(process.argv[2 + i], (res => {
-        res.pipe(bl((err, data) => {
-            if (err) return console.error(err)
-            results[i] = data.toString();
-            count++;
-            if (count === url.length) {
-                printResults();
-            }
-        }))
-    }))
-}
+// function httpGet(i) {
+//     http.get(process.argv[2 + i], (res => {
+//         res.pipe(bl((err, data) => {
+//             if (err) return console.error(err)
+//             results[i] = data.toString();
+//             count++;
+//             if (count === url.length) {
+//                 printResults();
+//             }
+//         }))
+//     }))
+// }
 
-for (var i = 0; i < urls.length; i++) {
-    httpGet(urls[i])
-  }
+// for (var i = 0; i < urls.length; i++) {
+//     httpGet(urls[i])
+//   }
+
+// about tcp module
+
+// var server = net.createServer(function(socket) {
+// 	socket.write(strftime('%F %H:%M'), new Date())
+//     // socket.pipe(socket);
+//     socket.end("\n")
+// });
+
+// server.listen(process.argv[2]);
+
+// serve file
+// var resFile = process.argv[3]
+// var server = http.createServer(function (req, res) {
+//     fs.createReadStream(resFile).pipe(res)
+// })
+// server.listen(process.argv[2])
+
+// change request data
+var map = require('through2-map')
+var tx = map((d) => d.toString().toUpperCase())
+var server = http.createServer((req, res) => {
+    if (req.method === 'POST') {
+        req.pipe(tx).pipe(res)
+    }
+})
+server.listen(process.argv[2])
+
+
+
 
 
 

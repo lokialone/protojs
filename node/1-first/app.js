@@ -121,16 +121,35 @@ collectArgvUrl()
 // server.listen(process.argv[2])
 
 // change request data
-var map = require('through2-map')
-var tx = map((d) => d.toString().toUpperCase())
+// var map = require('through2-map')
+// var tx = map((d) => d.toString().toUpperCase())
+// var server = http.createServer((req, res) => {
+//     if (req.method === 'POST') {
+//         req.pipe(tx).pipe(res)
+//     }
+// })
+// server.listen(process.argv[2])
+
+var url = require('url')
+
 var server = http.createServer((req, res) => {
-    if (req.method === 'POST') {
-        req.pipe(tx).pipe(res)
+    let myUrl = url.parse(req.url, true)
+    let date = new Date(myUrl.query.iso)
+    res.writeHead(200, {'Content-Type': 'application/json'})
+    if (myUrl.pathname === '/api/parsetime') {
+        // date = date.toISOString()
+        let hour = date.getHours()
+        let minute = date.getMinutes()
+        let second =  date.getSeconds()
+        var res_date = {hour: hour, minute: minute, second: second}
+        res.write(JSON.stringify(res_date))
+    } else if (myUrl.pathname === '/api/unixtime') {
+        res.write(JSON.stringify({unixtime: date.getTime()}))
     }
+    res.end()
 })
+
 server.listen(process.argv[2])
-
-
 
 
 

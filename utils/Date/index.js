@@ -93,6 +93,17 @@ export function getPreNearlyDay(day = 7) {
 export function getNextNearlyDay(day = 7) {
     return moment().add(day, 'days').format(format);
 }
+//在移动端淘宝中new Date 只能识别以下格式的日期
+//2018/3/26 18:00:00
+export function dealDate(data) { 
+    let reg = new RegExp('-', 'g');
+    console.log(data.replace(reg, '/'));
+    return new Date(data.replace(reg, '/'));
+}
+// cookie 兼容中文
+export function cookie() {
+    
+}
 
 // export default {
 //     getCurrentWeekStartDate,

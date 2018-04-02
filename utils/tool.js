@@ -35,3 +35,9 @@ export function pushObject(arr, obj) {
         throw new Error('first parameter is not a array');
     }
 }
+
+// isPhoneX
+function isIphoneX() {
+    return /iphone/gi.test(navigator.userAgent) && (screen.height === 812 && screen.width === 375);
+}
+

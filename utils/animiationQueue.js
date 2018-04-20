@@ -1,3 +1,6 @@
+// how to use
+// push每个函数里都包含着next()函数，保证每个函数顺序执行
+// demo  weidian-dependencies-charts
 class AnimationQueue {
 
     constructor() {
@@ -10,6 +13,7 @@ class AnimationQueue {
             this.funcs.push(fn);
         }
     }
+
     next() {
         let fn = this.funcs[this.index];
         if (typeof fn === 'function') {
@@ -21,3 +25,4 @@ class AnimationQueue {
 }
 
 export default AnimationQueue;
+

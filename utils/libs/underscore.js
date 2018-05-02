@@ -41,13 +41,6 @@
     // orginal
     if (!(this instanceof _)) return new _(obj);
     this._wrapped = obj;
-
-    //modify
-    if (!(this instanceof _)) {
-      let news = new _(obj);
-      news._wrapped = obj
-      return news;
-    }
   };
 
   // Export the Underscore object for **Node.js**, with
@@ -98,6 +91,7 @@
     if (_.isObject(value)) return _.matcher(value);
     return _.property(value);
   };
+
   _.iteratee = function(value, context) {
     return cb(value, context, Infinity);
   };
@@ -125,6 +119,7 @@
     if (!_.isObject(prototype)) return {};
     if (nativeCreate) return nativeCreate(prototype);
     Ctor.prototype = prototype;
+    // 不算理解这段代码
     var result = new Ctor;
     Ctor.prototype = null;
     return result;
@@ -158,10 +153,7 @@
     var i, length;
     if (isArrayLike(obj)) {
       for (i = 0, length = obj.length; i < length; i++) {
-        // iteratee(obj[i], i, obj);
-        console.log('dd');
-        
-        alert(obj[i], i, obj);
+        iteratee(obj[i], i, obj);
       }
     } else {
       var keys = _.keys(obj);

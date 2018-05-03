@@ -20,7 +20,7 @@ function debounce(method, context) {
 //     }
 // }
 
-// export class debounceClassArray {
+// export class debounceClassArray {`
 //     constructor() {
 //         this.fns = [];
 //     }

@@ -14,28 +14,6 @@ let m = 0;
 let nr = [];
 let mr = [];
 
-// rl.on('line',function(line){
-//     var nums = line.split(' ');
-//     if (nums.length === 2) {
-//         n = parseInt(nums[0]);
-//         m = parseInt(nums[1]);
-//         nr = [];
-//         mr = [];
-//         if (!n & !m) rl.close();
-//     } else {
-//         if (nr.length != n) {
-//             nr.push(parseInt(line));
-//             console.log('nr', nr);
-//         } else if (mr.length < m - 1) {
-//             mr.push(parseInt(line));
-//             console.log('mr', mr);
-//         } else {
-//             mr.push(parseInt(line));
-//             console.log(deal_2(nr, mr));
-//         }
-//     }
-// });
-
 // fool version
 function deal(nr, mr) {
     if (nr.length > mr.length) {
@@ -87,4 +65,24 @@ function deal_2(nr, mr) {
     return 'Loowater is doomed';
 }
 
-console.log(deal_2([5, 4], [7, 8, 4]));
+rl.on('line',function(line){
+    var nums = line.split(' ');
+    if (nums.length === 2) {
+        n = parseInt(nums[0]);
+        m = parseInt(nums[1]);
+        nr = [];
+        mr = [];
+        if (!n & !m) rl.close();
+    } else {
+        if (nr.length != n) {
+            nr.push(parseInt(line));
+            console.log('nr', nr);
+        } else if (mr.length < m - 1) {
+            mr.push(parseInt(line));
+            console.log('mr', mr);
+        } else {
+            mr.push(parseInt(line));
+            console.log(deal_2(nr, mr));
+        }
+    }
+});

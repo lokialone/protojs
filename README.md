@@ -7,6 +7,7 @@
  browser-sync start --server --files "css/*.css"
 ```
 
+## 全局安装parcel, 使用parcel也是个不错的选择
 详情见 https://www.browsersync.io/
 
 

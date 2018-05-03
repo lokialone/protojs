@@ -41,3 +41,11 @@ function isIphoneX() {
     return /iphone/gi.test(navigator.userAgent) && (screen.height === 812 && screen.width === 375);
 }
 
+// 可中断的遍历
+Array.prototype.each = function (callback) {
+    if (!callback) return false;
+    for (let i = 0, len = this.length; i < len; i++) {
+        if (callback(this[i], i) === false) break;
+    }
+}
+

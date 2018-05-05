@@ -1,8 +1,8 @@
 // p2 时间分配
 //只关注算法，不考虑如何输入数据
 require('../tool.js');
-let testData = [{n: 3, j: 3}, {n: 4, j: 4}, {n: 5, j: 5}];
-
+let testData = [{n: 3, j: 3}, {n: 4, j: 4}, {n: 5, j: 5}]; 
+// log 15
 // step1 把数组根据j的大小重大到小排序
 // 算出同步执行任务，需要多花的额外时间
 function timeAssgin(data) {
@@ -34,5 +34,12 @@ function timeAssgin(data) {
     console.log(res);
 }
 
-timeAssgin(testData);
+// timeAssgin(testData);
+
+function timeAssgin_2(data) {
+    data.sort((a, b) => {
+        return a.j < b.j;
+    });
+    
+}
 

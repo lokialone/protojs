@@ -89,82 +89,9 @@ https://github.com/livoras/blog/issues/13
 
 https://foio.github.io/virtual-dom/
 
-virtual-dom原理与简单实现
-https://juejin.im/post/5a21621af265da4304066c8d
 
-
-var element = {
-    tagName: 'ul', // 节点标签名
-    props: { // dom的属性键值对
-        id: 'list'
-    },
-    children: [
-        {tagName: 'li', props: {class: 'item'}, children: ["Item 1"]},
-        {tagName: 'li', props: {class: 'item'}, children: ["Item 2"]},
-        {tagName: 'li', props: {class: 'item'}, children: ["Item 3"]}
-    ]
-}
- ==>
-<ul id="list">
-<li class="item">Item 1</li>
-<li class="item">Item 2</li>
-<li class="item">Item 3</li>
-</ul>
-
-function Element(tagName, props, children) {
-    this.tagName = tagName
-    this.props = props
-    this.children = children
-}
-
-var ul = new Element('ul', {id: 'list'}, [
-    {tagName: 'li', props: {class: 'item'}, children: ["Item 1"]},
-    {tagName: 'li', props: {class: 'item'}, children: ["Item 2"]},
-    {tagName: 'li', props: {class: 'item'}, children: ["Item 3"]}
-])
-// render函数渲染
-Element.prototype.render = function() {
-    let el = document.createElement(this.tagName), // 节点名称
-        props = this.props // 节点属性
-
-    for (var propName in props) {
-        propValue = props[propName]
-        el.setAttribute(propName, propValue)
-    }
-
-    this.children.forEach((child) => {
-        var childEl = (child instanceof Element)
-            ? child.render()
-            : document.createTextNode(child)
-        el.appendChild(childEl)
-    })
-    return el
-}
 ### virtual dom 自我实践
-1. 使用js表示dom
-
-<ul class="list">
-  <li>item 1</li>
-  <li>item 2</li>
-</ul>
- ==>
-{ type: 'ul', props: { 'class': 'list' }, children: [
-  { type: 'li', props: {}, children: ['item 1'] },
-  { type: 'li', props: {}, children: ['item 2'] }
-] }
-<!-- 仅仅是为了方便表示 -->
-function h(type, props, ...children) {
-  return {
-    type,
-    props,
-    children
-  }
-}
-
-h('ul', { 'class': 'list' },
-  h('li', {}, 'item 1'),
-  h('li', {}, 'item 2'),
-)
+见element.js， diff.js, patch.js
 
 #### shadow dom
 

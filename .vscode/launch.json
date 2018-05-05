@@ -4,12 +4,11 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
         {
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/algorithm/book-算法竞赛入门经典/chapter1/1.1.js"
+            "program": "${workspaceFolder}/algorithm/book-算法竞赛入门经典/chapter1/1.1.2.js"
         }
     ]
 }

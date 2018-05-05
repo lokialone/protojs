@@ -4,7 +4,7 @@ require('../tool.js');
 let testData = [{n: 3, j: 3}, {n: 4, j: 4}, {n: 5, j: 5}];
 
 // step1 把数组根据j的大小重大到小排序
-
+// 算出同步执行任务，需要多花的额外时间
 function timeAssgin(data) {
     data.sort((a, b) => {
         return a.j < b.j;

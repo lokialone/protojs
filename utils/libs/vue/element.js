@@ -1,21 +1,21 @@
 //实现 js对象生成 html节点
-// var element = {
-//     tagName: 'ul', // 节点标签名
-//     props: { // dom的属性键值对
-//         id: 'list'
-//     },
-//     children: [
-//         {tagName: 'li', props: {class: 'item'}, children: ["Item 1"]},
-//         {tagName: 'li', props: {class: 'item'}, children: ["Item 2"]},
-//         {tagName: 'li', props: {class: 'item'}, children: ["Item 3"]}
-//     ]
-// }
-//  ==>
-// <ul id="list">
-// <li class="item">Item 1</li>
-// <li class="item">Item 2</li>
-// <li class="item">Item 3</li>
-// </ul>
+var element = {
+    tagName: 'ul', // 节点标签名
+    props: { // dom的属性键值对
+        id: 'list'
+    },
+    children: [
+        {tagName: 'li', props: {class: 'item'}, children: ["Item 1"]},
+        {tagName: 'li', props: {class: 'item'}, children: ["Item 2"]},
+        {tagName: 'li', props: {class: 'item'}, children: ["Item 3"]}
+    ]
+}
+ ==>
+<ul id="list">
+<li class="item">Item 1</li>
+<li class="item">Item 2</li>
+<li class="item">Item 3</li>
+</ul>
 
 function Element(tagName, props, children) {
     this.tagName = tagName

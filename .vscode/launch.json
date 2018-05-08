@@ -8,6 +8,13 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
+            "program": "${workspaceFolder}/utils/libs/vue/virtual-dom.js"
+        },
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
             "program": "${workspaceFolder}/algorithm/book-算法竞赛入门经典/chapter1/1.1.2.js"
         }
     ]

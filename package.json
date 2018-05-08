@@ -27,6 +27,7 @@
     "http-proxy": "^1.16.2"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"
   }

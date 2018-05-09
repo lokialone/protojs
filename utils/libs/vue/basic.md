@@ -93,7 +93,19 @@ https://foio.github.io/virtual-dom/
 ### virtual dom 自我实践
 见element.js， diff.js, patch.js
 
+#### 第一步实现 element.js
+将json 对象渲染成 html
+
+#### diff.js
+diff 2个treez,
+
+在以上 virtual dom 算法的几篇文章中皆有
+
 #### shadow dom
+
+### 模板编译
+将html模板字符串 转换成  elementASTs 
+目前看的是  https://github.com/berwin/Blog/issues/18
 
 
 ## 自己实现一个类vue的库

@@ -1,5 +1,3 @@
-
-
 export function sendFile(file, url) {
     var uri = url;
     var xhr = new XMLHttpRequest();
@@ -15,23 +13,21 @@ export function sendFile(file, url) {
     // Initiate a multipart/form-data upload
     xhr.send(fd);
 }
-
-export function fileUpload() {
+// 
+export function fileUpload(type) {
     var input = document.createElement('input');
     input.type = 'file';
-    input.click(); 
+    input.accept = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel';
+    input.click();
     function handleFiles() {
-        console.log(input.files);
         if (!input.files.length) return;
         let file = input.files[0];
-        sendFile({name: 'ddd', file}, 'http://demos.hacks.mozilla.org/paul/demos/resources/webservices/devnull.php');
+        console.log(file);
+        // sendFile({name: 'ddd', file}, 'http://demos.hacks.mozilla.org/paul/demos/resources/webservices/devnull.php');
     }
-
     input.addEventListener('change', handleFiles, false);     
 }
 // test code
-
-
 function uploadImage() {
     var input = document.createElement('input');
     input.type = 'file';
@@ -48,8 +44,7 @@ function uploadImage() {
         }
         // var reader = new FileReader();
         // reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
-        // reader.readAsDataURL(file);
-        
+        // reader.readAsDataURL(file);  
     }
 
     input.addEventListener('change', handleFiles, false);  
@@ -58,9 +53,8 @@ function uploadImage() {
 var preview = '';
 window.onload = function() {
     // test code
-     preview = document.getElementById('preview');
-     preview.onclick = () => {
+    preview = document.getElementById('preview');
+    preview.onclick = () => {
         fileUpload();
-     }
-    
+    } 
 }

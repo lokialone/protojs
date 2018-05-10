@@ -1,16 +1,19 @@
 // Create WebSocket connection.
-const socket = new WebSocket('ws://localhost:7003');
+// server /Users/lokalone/code/tech/protojs/node/socket.js
+const socket = new WebSocket('ws://127.0.0.1:7003');
+// var socket = new WebSocket("ws://www.example.com/socketserver", "protocolOne");
 
+let btn = document.getElementById('send');
 // Connection opened
 socket.addEventListener('open', function (event) {
+    console.log('connected');
     socket.send('Hello Server!');
-
-    setTimeout(() => {
-        console.log('ddd');
-        socket.send('Hello Server');
-    }, 2000);
 });
 
+btn.onclick = () => {
+    console.log('send message');
+    socket.send('hello server');
+}
 
 // Listen for messages
 socket.addEventListener('message', function (event) {

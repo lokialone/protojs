@@ -100,10 +100,20 @@ export function dealDate(data) {
     console.log(data.replace(reg, '/'));
     return new Date(data.replace(reg, '/'));
 }
-// cookie 兼容中文
-export function cookie() {
-    
+
+// 获取传入的月份有几天
+export function getDaysInOneMonth(year, month) {
+    month = parseInt(month, 10);
+    var d = new Date(year, month, 0);
+    return d.getDate();
 }
+
+export function validatePhone(phone) {
+    // 手机号格式：1开头的11位数
+    if (phone && phone.length && /^1\d{10}$/.test(phone)) return true;
+    return false;
+}
+
 
 // export default {
 //     getCurrentWeekStartDate,

@@ -1,62 +1,65 @@
 import Toast from '@/components/common/toast/main.js';
-import formData from './form-data.json';
 
-function findNameFromData(type) {
-    for (let i = 0, len = formData.length; i < len; i += 1) {
-        for (let j = 0, len1 = formData[i].items.length; j < len1; j += 1) {
-            let item = formData[i].items[j];
-            if (item.key === type) return item.name;
-        }
-    }
-}
+const desc = {
+    companyName: '公司名称',
+    area: '所在地区',
+    place: '公司地址',
+    companyType: '公司性质',
+    registCapital: '注册资本',
+    fromDate: '营业期限',
+    toDate: '营业期限',
+    creditCode: '统一信用代码',
+    businessLicenceNumber: '营业执照编号',
+    shopBrandPic: '店铺门头图片',
+    businessLicencePic: '营业执照照片',
+    corporationName: '烦人姓名',
+    identityCode: '身份证号码',
+    identityCardCorrect: '身份证正面照片',
+    identityCardOpposite: '身份证反面照片'
+};
 
-export function validateBankCard(value) {
-    return value.length >= 19;
-}
-
-export function validatePhone(value) {
-    return value.length === 11;
-}
-
-export function validateIdCard(value, type) {
+export function validateIdCard(value) {
     let flag = value.length === 18;
-    if (!flag) {
-        let errorMsg = findNameFromData(type);
-        Toast.show({'info': `${errorMsg}未正确填写`});
-    }
     return flag;
 }
 
-export function validateNotNull(value, type) {
+export function validateNotNull(value) {
     let flag = value !== '' && value !== null;
-    if (!flag) {
-        let errorMsg = findNameFromData(type);
-        Toast.show({'info': `${errorMsg}未正确填写`});
-    }
     return flag;
 }
+
 export function validateOne(type, value) {
     switch (type) {
-        case 'bankCardNo':
-            return validateBankCard(value, type);
-        case 'bankReservationNumber':
-            return validatePhone(value, type);
         case 'identityCode':
-            return validateIdCard(value, type);
+            return validateIdCard(value);
         default:
-            return validateNotNull(value, type);
+            return validateNotNull(value);
     }
 }
 
+export function validateOneAndToast(type, value) {
+    if (type === 'areaString') {
+        return true;
+    }
+    if (!validateOne(type, value)) {
+        let errorMsg = desc[type];
+        Toast.show({'info': `${errorMsg}未正确填写`});
+        return false;
+    } else {
+        return true;
+    }
+
+}
 
 export function validateAll(data) {
     /* eslint-disable */
     for (let item in data) {
         // console.log('', item, validateOne(item, data[item]));
-        if (!validateOne(item, data[item])) return false;
+        if (!validateOneAndToast(item, data[item])) return false;
     }
     return true;
 }
+
 
 
 export default {

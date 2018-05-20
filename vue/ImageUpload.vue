@@ -1,6 +1,7 @@
 <template>
     <div class='photo-upload'>
         <label>
+            <!-- 三星手机 钉钉app里，input 点击很多时候会没反应  可以的话推荐使用当前app的图片上传 -->
             <input type="file" accept="image/*" @change="image" style="display:none">
             <img :src="imageUrl">
             <div style="color: #a0a0a0; text-align:center">{{item.descs[index]}}</div>

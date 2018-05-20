@@ -108,11 +108,7 @@ export function getDaysInOneMonth(year, month) {
     return d.getDate();
 }
 
-export function validatePhone(phone) {
-    // 手机号格式：1开头的11位数
-    if (phone && phone.length && /^1\d{10}$/.test(phone)) return true;
-    return false;
-}
+
 
 
 // export default {

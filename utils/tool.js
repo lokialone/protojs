@@ -49,3 +49,58 @@ Array.prototype.each = function (callback) {
     }
 }
 
+
+export function getWindowHeight() {
+    return document.documentElement.offsetHeight || document.body.offsetHeight;
+}
+
+export function getClientHeight() {
+    return document.documentElement.clientHeight || document.body.clientHeight;
+}
+
+//暂时只做了99以内的数组转化
+// 将数字转换成中文数字
+export function cNumberTranfer(number) {
+    const NUMBER = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+    let num = parseInt(number);
+    let nums = num.toString().split('');
+    if (num < 10) {
+        return NUMBER[num - 1];
+    }
+
+    if (num < 20) {
+        return `十${NUMBER[nums[1] - 1]}`;
+    }
+    if (nums[1] === '0') {
+        return `${NUMBER[nums[0] - 1]}十`;
+    }
+    return `${NUMBER[nums[0] - 1]}十${NUMBER[nums[1] - 1]}`;
+}
+
+// 图片上传，pc端可用，移动端无法使用
+export function fileUpload() {
+    var input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.click();
+    return new Promise((resolve, reject) => {
+        function handleFiles() {
+            console.log('input', input.files);
+            if (!input.files.length) return;
+            let file = input.files[0];
+            return imageUpload(file).then((res) => {
+                resolve(res.data.path);
+            }).catch((err) => {
+                reject(err);
+            });
+
+        }
+        input.onchange = () => {
+            handleFiles();
+        };
+
+        input.addEventListener('change', handleFiles, false);
+    });
+}
+
+

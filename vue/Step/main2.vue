@@ -18,6 +18,8 @@
     </div>
 </template>
 <script>
+// TODO
+// need change
 import ORDER_CODE from '@/const/order-status.js';
 
 const ORDER_STATUS = ['签署协议', '支付定金', '支付尾款', '提车完成'];

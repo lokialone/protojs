@@ -12,7 +12,7 @@ server.listen(7003, function() { });
 
 // create the server
 wsServer = new WebSocketServer({
-  httpServer: server
+    httpServer: server
 });
 
 // WebSocket server
@@ -21,11 +21,11 @@ wsServer.on('request', function(request) {
   // This is the most important callback for us, we'll handle
   // all messages from users here.
   connection.on('message', function(message) {
-    console.log('Message', message);
-    connection.send('server hello');
+        console.log('Message', message);
+        connection.send('server hello');
   });
   
-  connection.on('close', function(connection) {
+        connection.on('close', function(connection) {
   
   });
 });

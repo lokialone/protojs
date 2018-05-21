@@ -12,7 +12,7 @@ const desc = {
     businessLicenceNumber: '营业执照编号',
     shopBrandPic: '店铺门头图片',
     businessLicencePic: '营业执照照片',
-    corporationName: '烦人姓名',
+    corporationName: '法人姓名',
     identityCode: '身份证号码',
     identityCardCorrect: '身份证正面照片',
     identityCardOpposite: '身份证反面照片'

@@ -12,6 +12,9 @@ class Toast {
     show(options) {
         this.instance.title = options.title;
         this.instance.info = options.info;
+        this.instance.icon = options.icon;
+        this.instance.type = options.type;
+        this.instance.traceId = options.traceId || '';
         this.instance.time = options.time || 1500;
         this.instance.show();
     }

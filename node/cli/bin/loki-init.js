@@ -16,12 +16,10 @@ if (!projectName) {  // project-name 必填
 
 const list = glob.sync('*')  // 遍历当前目录
 let rootName = path.basename(process.cwd())
-console.log('list----->', list,  rootName);
 if (list.length) {  // 如果当前目录不为空
     if (list.filter(name => {
         const fileName = path.resolve(process.cwd(), path.join('.', name))
-        console.log('filename------->', fileName);
-        const isDir = fs.stat(fileName).isDirectory()
+        const isDir = fs.statSync(fileName).isDirectory()
         return name.indexOf(projectName) !== -1 && isDir
       }).length !== 0) {
       console.log(`项目${projectName}已经存在`)

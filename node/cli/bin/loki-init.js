@@ -37,5 +37,6 @@ go()
 
 function go () {
     // 预留，处理子命令
-    console.log(path.resolve(process.cwd(), path.join('.', rootName)))  
+    console.log(path.resolve(process.cwd(), path.join('.', rootName))) 
+     
 }

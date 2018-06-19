@@ -2,6 +2,7 @@ const program = require('commander')
 const path = require('path')
 const fs = require('fs')
 const glob = require('glob') // npm i glob -D
+const download = require('./download');
 
 program.usage('<project-name>').parse(process.argv)
 
@@ -37,6 +38,8 @@ go()
 
 function go () {
     // 预留，处理子命令
-    console.log(path.resolve(process.cwd(), path.join('.', rootName))) 
-     
+    download('lokialone/vue-template#master', rootName)
+    .then(target => console.log(target))
+    .catch(err => console.log(err))
+
 }

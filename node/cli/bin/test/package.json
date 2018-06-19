@@ -1,0 +1,19 @@
+{
+  "name": "vue-template",
+  "version": "1.0.0",
+  "description": "vue项目通用模板",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lokialone/vue-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lokialone/vue-template/issues"
+  },
+  "homepage": "https://github.com/lokialone/vue-template#readme"
+}

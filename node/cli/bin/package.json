@@ -1,7 +1,7 @@
 {
-  "name": "vue-template",
+  "name": "hello",
   "version": "1.0.0",
-  "description": "vue项目通用模板",
+  "description": "A project named hello",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

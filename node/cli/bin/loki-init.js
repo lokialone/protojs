@@ -21,6 +21,7 @@ if (!projectName) {  // project-name 必填
 //决定是否能够创建当前文件
 const list = glob.sync('*')  // 遍历当前目录
 let rootName = path.basename(process.cwd())
+let downloadTemp = path.basename(process.cwd())
 if (list.length) {  // 如果当前目录不为空
     if (list.filter(name => {
         const fileName = path.resolve(process.cwd(), path.join('.', name))
@@ -53,8 +54,6 @@ inquirer.prompt([
       default: `A project named hello`
     }
   ]).then(answers => {
-        // Use user feedback for... whatever!!
-        console.log(answers)
         go(answers)
 });
 
@@ -71,9 +70,7 @@ function go (answers) {
         if (err) {
           console.error(err);
         } else {
-          generator(answers, rootName, path.parse(rootName).dir).then(() => {
-
-          })
+          generator(answers, rootName, 'build')
         }
     });
 

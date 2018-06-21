@@ -21,7 +21,7 @@ module.exports = function (metadata = {}, src, dest = '.') {
           })
       	done()
       }).build(err => {
-        rm(src)
+        // rm(src)
       	err ? reject(err) : resolve()
       })
   })

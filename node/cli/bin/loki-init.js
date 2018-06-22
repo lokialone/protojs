@@ -11,7 +11,7 @@ program.usage('<project-name>').parse(process.argv)
 
 // 根据输入，获取项目名称
 let projectName = program.args[0]
-let template = 'lokialone/vue-template#master';
+let template = 'lokialone/vue-template#master'
 //决定是否能够创建当前文件
 // const list = glob.sync('*')  // 遍历当前目录
 // let rootName = path.basename(process.cwd())

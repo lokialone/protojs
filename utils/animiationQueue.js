@@ -21,7 +21,6 @@ class AnimationQueue {
             fn();
         }
     }
-
 }
 
 export default AnimationQueue;

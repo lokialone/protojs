@@ -2,6 +2,7 @@ const themeColor = {
     'cheniu': '#ff4040',
     'dfc': '#FF571A'
 };
+
 //根据app 设置theme
 function setTheme() {
     let app = getEnvInfoFromUserAgent();

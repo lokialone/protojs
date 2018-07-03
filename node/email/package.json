@@ -1,5 +1,5 @@
 {
-  "name": "so-email",
+  "name": "send-deploy-email",
   "version": "1.0.3",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "tag": "node lib/tag.js"
   },
   "bin": {
-    "deploy-email": "./index.js"
+    "send-deploy-email": "./index.js"
   },
   "engines": {
     "node": ">= 8.0.0",
@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "chalk": "^2.4.1",
     "clear": "^0.1.0",
     "clui": "^0.3.6",

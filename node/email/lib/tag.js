@@ -68,8 +68,6 @@ function getVersionOptions (version) {
     return opts;
 }
 
-
-
 module.exports = {
     run: () => {
         return inquirer.prompt([{

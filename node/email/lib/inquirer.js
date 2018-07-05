@@ -11,16 +11,17 @@ const log = console.log
 const tool = require('./tool.js')
 const Tips = {
     title: '邮件主题',
+    tag: '发布版本',
     desc: '发布功能描述',
     time: '发布时间',
     tester: '测试',
-    developer: '开发者',
+    developmenter: '开发者',
     product: '产品',
     design: '设计',
     operate: '运营'
 }
 
-function askEmailInfo() {
+function askEmailInfo(tag, desc) {
     const configFilePath = tool.getConfigFilePath()
     if (!fs.existsSync(configFilePath)) {
         let tmp = {}
@@ -40,10 +41,13 @@ function askEmailInfo() {
     for (item in Tips) {
         let defaultValue = jsonData[item] || ''
         if (item === 'desc') {
-            defaultValue = ''
+            defaultValue = desc
         } else if (item === 'time') {
             defaultValue = moment().format('YYYY-MM-DD hh:mm:ss')
+        } else if (item === 'tag') {
+            defaultValue = tag
         }
+
         questions.push({
             name: item,
             type: 'input',

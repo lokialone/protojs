@@ -56,48 +56,55 @@ function verify (phone, code) {
 
 function sendEmail(res) {
     countdown.start()
-    const packageConfig = require(tool.getCurrentPath('package.json'))
+    let projectDesc = JSON.stringify([{
+        teamId: res.teamId,
+        id: res.projectId,
+        tag: res.tag,
+        developmenter: res.developmenter,
+        tester: res.tester,
+        product: res.product,
+        desc: res.desc,
+        design: res.design,
+        operate: res.operate  
+    }])
     let data = {
+        recipients: '',
+        emailTeams:'', 
         title: res.title,
         desc: res.desc,
         time: res.time,
-        token: conf.get('token'),
-        projects: JSON.stringify([{
-            teamId: res.teamId,
-            id: res.projectId,
-            tag: packageConfig.version,
-            developmenter: res.developmenter,
-            tester: res.tester,
-            product: res.product,
-            desc: res.desc
-        }])
+        projects: projectDesc,
+        token: res.token
     }
+    
     return new Promise((resolve, reject) => {
         axios.post('http://robben.souche-inc.com/f2e-robben/publish/send.json', qs.stringify(data)).then((res) => {
             countdown.stop()
-            console.log(res.data);
             if (res.data.success) {
                 resolve()
                 log(
                     chalk.blue.bold('邮件发送成功')
                 )
             }
-            reject()
+            reject(new Error(res.data.msg))
         }).catch((e) => {
-            console.error(e)
-            reject()
+            countdown.stop()
+            reject(e)
         })
     }) 
 }
 
 function getUserInfo() {
     axios.defaults.headers.post['Cookie'] = `isDingDing=true; _security_token_inc=${conf.get('token')}`;
+    axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
     return new Promise((resolve, reject) => {
         axios.post('http://robben.souche-inc.com/f2e-robben/validUserInfo.json').then((res) => {
-            resolve ({code: res.data.code, data: res.data.data})
+            if (res.data.code == '200') {
+                resolve (res.data.data)
+            }
+            reject(new Error('无法登录'))
         }).catch((e) => {
-            reject({code: '500'})
-            console.error(e)
+            reject(e)
         })
     })   
 }
@@ -105,9 +112,20 @@ function getUserInfo() {
 function getProjects(teamId) {
     return new Promise((resolve, reject) => {
         axios.post('http://robben.souche-inc.com/f2e-robben/publish/project/search.json', qs.stringify({ teamId })).then((res) => {
-            resolve ({code: res.data.code, data: res.data.data})
+            resolve (res.data.data)
         }).catch((e) => {
             reject({code: '500'})
+            console.log(e)
+        })
+    })  
+}
+
+function getTagList(gitPath) {
+    return new Promise((resolve, reject) => {
+        axios.post('http://robben.souche-inc.com/git/getTagList.json', qs.stringify({ gitPath })).then((res) => {
+            resolve (res.data.data)
+        }).catch((e) => {
+            reject()
             console.log(e)
         })
     })  
@@ -118,6 +136,6 @@ module.exports = {
     verify: verify,
     sendEmail: sendEmail,
     getUserInfo: getUserInfo,
-    getProjects: getProjects
-
+    getProjects: getProjects,
+    getTagList: getTagList
 }

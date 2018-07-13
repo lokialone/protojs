@@ -1,6 +1,6 @@
 {
   "name": "@souche/send-deploy-email",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "tag": "node lib/tag.js"
   },
   "bin": {
-    "send-deploy-email": "./index.js"
+    "sde": "./index.js"
   },
   "engines": {
     "node": ">= 8.0.0",

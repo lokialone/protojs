@@ -75,3 +75,15 @@ function sort2_2(arr) {
 // console.timeEnd('insert_sort');
 
 console.log(sort2_2(arr));
+
+// 快排
+function  quickSort(params) {
+    if (!params.length) return [];
+    let first = params.splice(0,1);
+    let left = [];
+    let right = [];
+    params.forEach(item => {
+        first > item ? left.push(item) : right.push(item)
+    }); 
+    return quickSort(left).concat(first, quickSort(right));
+}

@@ -1,0 +1,34 @@
+{
+	"configurationDto": {
+		"remark": "",
+		"keyMapDto": [
+		  {
+			"name": "",
+			"keyValues": [
+			  {
+				"key": "",
+				"value": "",
+				"sort": ""
+			  }
+			],
+			"sort": ""
+		  }
+		]
+	  },
+	  "parameterDto": {
+		"remark": "",
+		"keyMapDto": [
+		  {
+			"name": "",
+			"keyValues": [
+			  {
+				"key": "",
+				"value": "",
+				"sort": ""
+			  }
+			],
+			"sort": ""
+		  }
+		]
+	}
+}

@@ -12,6 +12,7 @@
   "author": "lokialone",
   "license": "ISC",
   "dependencies": {
-    "swagger-client": "^3.8.14"
+    "axios": "^0.18.0",
+    "idx": "^2.4.0"
   }
 }

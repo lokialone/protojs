@@ -15,488 +15,56 @@
             "description": "getModelConfig",
             "operations": [
                 {
+                    "method": "get",
+                    "summary": "车辆配置",
+                    "notes": "getModelConfig",
+                    "nickname": "getModelConfig",
+                    "produces": [
+                        "*/*"
+                    ],
+                    "consumes": [
+                        "application/json"
+                    ],
+                    "parameters": [
+                        {
+                            "allowMultiple": false,
+                            "defaultValue": "",
+                            "description": "车型 code",
+                            "name": "modelCode",
+                            "paramType": "query",
+                            "type": "string",
+                            "required": true
+                        }
+                    ],
+                    "responseMessages": [
+                        {
+                            "code": 200,
+                            "message": null,
+                            "responseModel": "Result«ModelConfigDto»"
+                        }
+                    ],
+                    "deprecated": "false",
                     "type": "Result«ModelConfigDto»"
                 }
-            ]
-        }
+			]
+		}
     ],
     "models": {
-        "OperationInfo": {
-            "description": "",
-            "id": "OperationInfo",
-            "properties": {
-                "skuId": {
-                    "description": "规格 id",
-                    "required": false,
-                    "type": "string"
-                },
-                "modelCode": {
-                    "description": "车型 code",
-                    "required": false,
-                    "type": "string"
-                },
-                "bodyColor": {
-                    "description": "车身颜色",
-                    "required": false,
-                    "type": "string"
-                },
-                "bodyColorCode": {
-                    "description": "车身颜色代码",
-                    "required": false,
-                    "type": "string"
-                },
-                "interiorColorCode": {
-                    "description": " 内饰颜色代码",
-                    "required": false,
-                    "type": "string"
-                },
-                "interiorColor": {
-                    "description": " 内饰颜色",
-                    "required": false,
-                    "type": "string"
-                },
-                "stockNum": {
-                    "description": "库存数量",
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "lowPrice": {
-                    "description": "底价",
-                    "required": false,
-                    "type": "string"
-                },
-                "purchasePrice": {
-                    "description": "采购价",
-                    "required": false,
-                    "type": "string"
-                },
-                "wholesalePrice": {
-                    "description": "批发价",
-                    "required": false,
-                    "format": "int64",
-                    "type": "integer"
-                },
-                "wholesalePriceCanModify": {
-                    "description": "批发价是否可以修改",
-                    "required": false,
-                    "type": "boolean"
-                },
-                "preferentialType": {
-                    "description": "优惠方式",
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "preferentialCount": {
-                    "description": "优惠",
-                    "required": false,
-                    "type": "string"
-                },
-                "earliestDelivery": {
-                    "description": "最早几天交车",
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "latestDelivery": {
-                    "description": "最晚几天交车",
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "sourceType": {
-                    "description": "车源类型",
-                    "required": false,
-                    "type": "string"
-                },
-                "plateAddress": {
-                    "description": "上牌归属",
-                    "items": {
-                        "type": "string"
-                    },
-                    "required": false,
-                    "type": "array"
-                },
-                "plateAddressName": {
-                    "description": "上牌归属名称",
-                    "items": {
-                        "type": "string"
-                    },
-                    "required": false,
-                    "type": "array"
-                },
-                "plateDeposit": {
-                    "description": "上牌押金/元",
-                    "required": false,
-                    "type": "string"
-                },
-                "deposit": {
-                    "description": "定金",
-                    "required": false,
-                    "type": "string"
-                },
-                "distance": {
-                    "description": "距离/km",
-                    "required": false,
-                    "type": "string"
-                },
-                "shopName": {
-                    "description": "店铺名称",
-                    "required": false,
-                    "type": "string"
-                },
-                "shopCode": {
-                    "description": "店铺code",
-                    "required": false,
-                    "type": "string"
-                },
-                "remark": {
-                    "description": "其他说明",
-                    "required": false,
-                    "type": "string"
-                },
-                "baseCommission": {
-                    "description": "基础佣金",
-                    "required": false,
-                    "type": "string"
-                },
-                "vipPhone": {
-                    "description": "二网经理电话",
-                    "required": false,
-                    "type": "string"
-                },
-                "saleLocation": {
-                    "description": "销售区域",
-                    "required": false,
-                    "type": "string"
-                },
-                "saleLocationName": {
-                    "description": "销售区域名称",
-                    "required": false,
-                    "type": "string"
-                },
-                "carSourceLocation": {
-                    "description": "车源所在地",
-                    "required": false,
-                    "type": "string"
-                },
-                "carSourceLocationName": {
-                    "description": "车源所在地名称",
-                    "required": false,
-                    "type": "string"
-                },
-                "handleCarDateStr": {
-                    "description": "交车时间，yyyy/MM/dd",
-                    "required": false,
-                    "type": "string"
-                },
-                "brandCode": {
-                    "description": "品牌code",
-                    "required": false,
-                    "type": "string"
-                },
-                "brandName": {
-                    "description": "品牌名称",
-                    "required": false,
-                    "type": "string"
-                },
-                "seriesCode": {
-                    "description": "系列编码",
-                    "required": false,
-                    "type": "string"
-                },
-                "seriesName": {
-                    "description": "系列名称",
-                    "required": false,
-                    "type": "string"
-                },
-                "modelName": {
-                    "description": "车型名称",
-                    "required": false,
-                    "type": "string"
-                },
-                "status": {
-                    "description": "上下架状态",
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "spuId": {
-                    "description": "spuId",
-                    "required": false,
-                    "type": "string"
-                }
-            }
-        },
-        "Result«Page«NewCarOrderAPPListDTO»»": {
-            "description": "",
-            "id": "Result«Page«NewCarOrderAPPListDTO»»",
-            "properties": {
-                "success": {
-                    "required": false,
-                    "type": "boolean"
-                },
-                "data": {
-                    "required": false,
-                    "type": "Page«NewCarOrderAPPListDTO»"
-                },
-                "msg": {
-                    "required": false,
-                    "type": "string"
-                },
-                "code": {
-                    "required": false,
-                    "type": "string"
-                },
-                "traceId": {
-                    "required": false,
-                    "type": "string"
-                }
-            }
-        },
-        "NewCarOrdersDto": {
-            "description": "",
-            "id": "NewCarOrdersDto",
-            "properties": {
-                "name": {
-                    "description": "品牌名称",
-                    "required": false,
-                    "type": "string"
-                },
-                "carOrderInfoDtoList": {
-                    "description": "品牌列表",
-                    "items": {
-                        "type": "NewCarOrderInfoDto"
-                    },
-                    "required": false,
-                    "type": "array"
-                }
-            }
-        },
-        "ModelConfigurationDto": {
-            "description": "",
-            "id": "ModelConfigurationDto",
-            "properties": {
-                "remark": {
-                    "required": false,
-                    "type": "string"
-                },
-                "keyMapDto": {
-                    "items": {
-                        "type": "KeyMapDto"
-                    },
-                    "required": false,
-                    "type": "array"
-                }
-            }
-        },
-        "KeyValue": {
-            "description": "",
-            "id": "KeyValue",
-            "properties": {
-                "key": {
-                    "required": false,
-                    "type": "string"
-                },
-                "value": {
-                    "required": false,
-                    "type": "string"
-                },
-                "sort": {
-                    "required": false,
-                    "type": "string"
-                }
-            }
-        },
-        "Page«NewCarOrderInfoDto»": {
-            "description": "",
-            "id": "Page«NewCarOrderInfoDto»",
-            "properties": {
-                "currentIndex": {
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "pageSize": {
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "totalNumber": {
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "totalPage": {
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "nextIndex": {
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "preIndex": {
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "items": {
-                    "items": {
-                        "type": "NewCarOrderInfoDto"
-                    },
-                    "required": false,
-                    "type": "array"
-                }
-            }
-        },
-        "Result«object»": {
-            "description": "",
-            "id": "Result«object»",
-            "properties": {
-                "success": {
-                    "required": false,
-                    "type": "boolean"
-                },
-                "data": {
-                    "required": false,
-                    "type": "object"
-                },
-                "msg": {
-                    "required": false,
-                    "type": "string"
-                },
-                "code": {
-                    "required": false,
-                    "type": "string"
-                },
-                "traceId": {
-                    "required": false,
-                    "type": "string"
-                }
-            }
-        },
-        "KeyMapDto": {
-            "description": "",
-            "id": "KeyMapDto",
-            "properties": {
-                "name": {
-                    "required": false,
-                    "type": "string"
-                },
-                "keyValues": {
-                    "items": {
-                        "type": "KeyValue"
-                    },
-                    "required": false,
-                    "type": "array"
-                },
-                "sort": {
-                    "required": false,
-                    "type": "string"
-                }
-            }
-        },
-        "Result«int»": {
-            "description": "",
-            "id": "Result«int»",
-            "properties": {
-                "success": {
-                    "required": false,
-                    "type": "boolean"
-                },
-                "data": {
-                    "required": false,
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "msg": {
-                    "required": false,
-                    "type": "string"
-                },
-                "code": {
-                    "required": false,
-                    "type": "string"
-                },
-                "traceId": {
-                    "required": false,
-                    "type": "string"
-                }
-            }
-        },
         "ModelConfigDto": {
             "description": "",
             "id": "ModelConfigDto",
             "properties": {
                 "configurationDto": {
                     "required": false,
-                    "type": "ModelConfigurationDto"
-                },
-                "parameterDto": {
-                    "required": false,
-                    "type": "ModelParameterDto"
-                }
-            }
-        },
-        "OperationColorList": {
-            "description": "",
-            "id": "OperationColorList",
-            "properties": {
-                "bodyColor": {
-                    "description": "车身颜色",
-                    "required": false,
-                    "type": "string"
-                },
-                "bodyColorCode": {
-                    "description": "车身颜色代码",
-                    "required": false,
-                    "type": "string"
-                },
-                "interiorColor": {
-                    "description": " 内饰颜色",
-                    "required": false,
-                    "type": "string"
-                },
-                "interiorColorCode": {
-                    "description": " 内饰颜色代码",
-                    "required": false,
-                    "type": "string"
-                },
-                "operationInfo": {
-                    "description": "车辆SKU详情",
-                    "items": {
-                        "type": "OperationInfo"
-                    },
-                    "required": false,
-                    "type": "array"
-                }
-            }
-        },
-        "Result«Page«NewCarOrderInfoDto»»": {
-            "description": "",
-            "id": "Result«Page«NewCarOrderInfoDto»»",
-            "properties": {
-                "success": {
-                    "required": false,
-                    "type": "boolean"
-                },
-                "data": {
-                    "required": false,
-                    "type": "Page«NewCarOrderInfoDto»"
-                },
-                "msg": {
-                    "required": false,
-                    "type": "string"
-                },
-                "code": {
-                    "required": false,
-                    "type": "string"
-                },
-                "traceId": {
-                    "required": false,
-                    "type": "string"
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						},
+						"name": {
+							"type": "integer"
+						}
+					}
                 }
             }
         },
@@ -510,7 +78,12 @@
                 },
                 "data": {
                     "required": false,
-                    "type": "ModelConfigDto"
+					"type": "object",
+					"properties": {
+						"id": {
+							"type": "string"
+						}
+					}
                 },
                 "msg": {
                     "required": false,

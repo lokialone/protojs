@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest test",
+    "test:watch": "npm run test -- --watch",
+    "test:cover": "npm run test -- --coverage",
+    "dev": "nodemon"
   },
   "keywords": [
     "业务监控"
@@ -13,6 +16,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "idx": "^2.4.0"
+    "idx": "^2.4.0",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0",
+    "nodemon": "^1.18.3"
   }
 }

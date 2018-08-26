@@ -7,7 +7,7 @@
     "test": "jest test",
     "test:watch": "npm run test -- --watch",
     "test:cover": "npm run test -- --coverage",
-    "dev": "nodemon"
+    "dev": "nodemon --watch index.js --watch /lib"
   },
   "keywords": [
     "业务监控"
@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "clui": "^0.3.6",
     "idx": "^2.4.0",
     "lodash": "^4.17.10"
   },

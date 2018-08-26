@@ -8,7 +8,7 @@ module.exports = {
         return this.getCurrentPath('deploy-email-config.json')
     },
    getToken: function (res){
-        var arr = res.match(new RegExp('sid=([^"]*)'));
+        var arr = res.match(new RegExp('sid=([^"]*)'))
         return arr[1]
     }
 }

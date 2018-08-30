@@ -24,7 +24,7 @@ Schema.prototype.toSchema = function (data, schema = {}) {
 
 	if (_.has(data, 'properties')) {
 		_.forOwn(data.properties, (value, key) => {
-			schema.type = 'object'
+			schema.$type = 'object'
 			schema[key] = {}
 			this.toSchema(value, schema[key])
 		})
@@ -32,17 +32,19 @@ Schema.prototype.toSchema = function (data, schema = {}) {
 	// model里自定义的对象
 	if (data.type && !_.includes(this.basicType, data.type)) {
 		schema[data.type] = {}
-		schema.type = 'object'
+		schema.$type = 'object'
 		this.toSchema(this.models[data.type], schema[data.type])
 	}
-
+	// 处理数组定义
 	if (data.type === 'array' && _.has(data, 'items')) {
-		schema.type = 'array'
+		schema.$type = 'array'
 		schema.items = {}
 		this.toSchema(data.items, schema.items)
 	}
 
-	data.type && _.includes(this.basicType, data.type) ? schema.type = data.type : null
+	if (data.type === 'integer') data.type= 'number'
+
+	data.type && _.includes(this.basicType, data.type) ? schema.$type = data.type : null
 
 	return schema
 }

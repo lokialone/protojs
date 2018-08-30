@@ -116,3 +116,16 @@ export function getDaysInOneMonth(year, month) {
     return d.getDate();
 }
 
+// 正则解析url
+var url = "https://harttle.land:80/api-docs?simple=true#HTML"
+function getUrlPath(url) {
+	var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
+    result = parse_url.exec(url);
+    blanks = '       ';
+    fields = ['url', 'scheme', 'slash', 'host', 'port', 'path', 'query', 'hash'];
+	fields.forEach(function(field, i){
+		console.log(field + ':' + blanks.substr(field.length) + result[i]);
+	});
+}
+
+// getUrlPath(url)

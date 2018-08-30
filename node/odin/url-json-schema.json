@@ -1,4798 +1,4798 @@
 {
   "/clue/clueQuotedAction/queryHistory.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/clue/clueQuotedAction/queryHotData.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/clue/clueQuotedAction/queryModel.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/clue/clueQuotedAction/quotedModelList.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/clue/clueQuotedAction/quotedPrice.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/consignment/consignmentAction/getModelConfig.json": {
     "ModelConfigDto": {
-      "type": "object",
+      "$type": "object",
       "configurationDto": {
         "ModelConfigurationDto": {
-          "type": "object",
+          "$type": "object",
           "remark": {
-            "type": "string"
+            "$type": "string"
           },
           "keyMapDto": {
-            "type": "array",
+            "$type": "array",
             "items": {
               "KeyMapDto": {
-                "type": "object",
+                "$type": "object",
                 "name": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "keyValues": {
-                  "type": "array",
+                  "$type": "array",
                   "items": {
                     "KeyValue": {
-                      "type": "object",
+                      "$type": "object",
                       "key": {
-                        "type": "string"
+                        "$type": "string"
                       },
                       "value": {
-                        "type": "string"
+                        "$type": "string"
                       },
                       "sort": {
-                        "type": "string"
+                        "$type": "string"
                       }
                     },
-                    "type": "object"
+                    "$type": "object"
                   }
                 },
                 "sort": {
-                  "type": "string"
+                  "$type": "string"
                 }
               },
-              "type": "object"
+              "$type": "object"
             }
           }
         },
-        "type": "object"
+        "$type": "object"
       },
       "parameterDto": {
         "ModelParameterDto": {
-          "type": "object",
+          "$type": "object",
           "remark": {
-            "type": "string"
+            "$type": "string"
           },
           "keyMapDto": {
-            "type": "array",
+            "$type": "array",
             "items": {
               "KeyMapDto": {
-                "type": "object",
+                "$type": "object",
                 "name": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "keyValues": {
-                  "type": "array",
+                  "$type": "array",
                   "items": {
                     "KeyValue": {
-                      "type": "object",
+                      "$type": "object",
                       "key": {
-                        "type": "string"
+                        "$type": "string"
                       },
                       "value": {
-                        "type": "string"
+                        "$type": "string"
                       },
                       "sort": {
-                        "type": "string"
+                        "$type": "string"
                       }
                     },
-                    "type": "object"
+                    "$type": "object"
                   }
                 },
                 "sort": {
-                  "type": "string"
+                  "$type": "string"
                 }
               },
-              "type": "object"
+              "$type": "object"
             }
           }
         },
-        "type": "object"
+        "$type": "object"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/consignment/consignmentAction/getNewCarOrders.json": {
-    "type": "array",
+    "$type": "array",
     "items": {
       "NewCarOrdersDto": {
-        "type": "object",
+        "$type": "object",
         "name": {
-          "type": "string"
+          "$type": "string"
         },
         "carOrderInfoDtoList": {
-          "type": "array",
+          "$type": "array",
           "items": {
             "NewCarOrderInfoDto": {
-              "type": "object",
+              "$type": "object",
               "spuId": {
-                "type": "string"
+                "$type": "string"
               },
               "modelCode": {
-                "type": "string"
+                "$type": "string"
               },
               "orderCode": {
-                "type": "string"
+                "$type": "string"
               },
               "mainPic": {
-                "type": "string"
+                "$type": "string"
               },
               "modelName": {
-                "type": "string"
+                "$type": "string"
               },
               "lowPrice": {
-                "type": "string"
+                "$type": "string"
               },
               "purchasePrice": {
-                "type": "string"
+                "$type": "string"
               },
               "purchaseDate": {
-                "type": "string"
+                "$type": "string"
               },
               "createDate": {
-                "type": "integer"
+                "$type": "number"
               },
               "carBodyColor": {
-                "type": "string"
+                "$type": "string"
               },
               "carInteriorColor": {
-                "type": "string"
+                "$type": "string"
               },
               "carBodyColorCode": {
-                "type": "string"
+                "$type": "string"
               },
               "carInteriorColorCode": {
-                "type": "string"
+                "$type": "string"
               },
               "orderStatus": {
-                "type": "string"
+                "$type": "string"
               },
               "orderStatusText": {
-                "type": "string"
+                "$type": "string"
               },
               "isClose": {
-                "type": "boolean"
+                "$type": "boolean"
               }
             },
-            "type": "object"
+            "$type": "object"
           }
         }
       },
-      "type": "object"
+      "$type": "object"
     }
   },
   "/consignment/consignmentAction/getNewCarOrdersNewVersion.json": {
     "Page«NewCarOrderAPPListDTO»": {
-      "type": "object",
+      "$type": "object",
       "currentIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "pageSize": {
-        "type": "integer"
+        "$type": "number"
       },
       "totalNumber": {
-        "type": "integer"
+        "$type": "number"
       },
       "totalPage": {
-        "type": "integer"
+        "$type": "number"
       },
       "nextIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "preIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "items": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "NewCarOrderAPPListDTO": {
-            "type": "object",
+            "$type": "object",
             "mainPic": {
-              "type": "string"
+              "$type": "string"
             },
             "name": {
-              "type": "string"
+              "$type": "string"
             },
             "purchasePrice": {
-              "type": "string"
+              "$type": "string"
             },
             "retailPrice": {
-              "type": "string"
+              "$type": "string"
             },
             "stock": {
-              "type": "integer"
+              "$type": "number"
             },
             "modelCode": {
-              "type": "string"
+              "$type": "string"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/consignment/consignmentAction/getOrderDetails.json": {
     "ConsignmentDto": {
-      "type": "object",
+      "$type": "object",
       "modelCode": {
-        "type": "string"
+        "$type": "string"
       },
       "mainPic": {
-        "type": "string"
+        "$type": "string"
       },
       "carModelName": {
-        "type": "string"
+        "$type": "string"
       },
       "guidePrice": {
-        "type": "string"
+        "$type": "string"
       },
       "salePrice": {
-        "type": "integer"
+        "$type": "number"
       },
       "salePriceFormat": {
-        "type": "string"
+        "$type": "string"
       },
       "floorPrice": {
-        "type": "integer"
+        "$type": "number"
       },
       "floorPriceFormat": {
-        "type": "string"
+        "$type": "string"
       },
       "purchasePriceRange": {
-        "type": "string"
+        "$type": "string"
       },
       "deposit": {
-        "type": "string"
+        "$type": "string"
       },
       "operationColorLists": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "OperationColorList": {
-            "type": "object",
+            "$type": "object",
             "bodyColor": {
-              "type": "string"
+              "$type": "string"
             },
             "bodyColorCode": {
-              "type": "string"
+              "$type": "string"
             },
             "interiorColor": {
-              "type": "string"
+              "$type": "string"
             },
             "interiorColorCode": {
-              "type": "string"
+              "$type": "string"
             },
             "operationInfo": {
-              "type": "array",
+              "$type": "array",
               "items": {
                 "OperationInfo": {
-                  "type": "object",
+                  "$type": "object",
                   "skuId": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "modelCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "bodyColor": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "bodyColorCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "interiorColorCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "interiorColor": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "stockNum": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "lowPrice": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "purchasePrice": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "wholesalePrice": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "wholesalePriceCanModify": {
-                    "type": "boolean"
+                    "$type": "boolean"
                   },
                   "preferentialType": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "preferentialCount": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "earliestDelivery": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "latestDelivery": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "sourceType": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "plateAddress": {
-                    "type": "array",
+                    "$type": "array",
                     "items": {
-                      "type": "string"
+                      "$type": "string"
                     }
                   },
                   "plateAddressName": {
-                    "type": "array",
+                    "$type": "array",
                     "items": {
-                      "type": "string"
+                      "$type": "string"
                     }
                   },
                   "plateDeposit": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "deposit": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "distance": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "shopName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "shopCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "remark": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "baseCommission": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "vipPhone": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "saleLocation": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "saleLocationName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "carSourceLocation": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "carSourceLocationName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "handleCarDateStr": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "brandCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "brandName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "seriesCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "seriesName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "modelName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "status": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "spuId": {
-                    "type": "string"
+                    "$type": "string"
                   }
                 },
-                "type": "object"
+                "$type": "object"
               }
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/consignment/consignmentAction/getPurchaseOrders.json": {
     "Page«NewCarOrderInfoDto»": {
-      "type": "object",
+      "$type": "object",
       "currentIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "pageSize": {
-        "type": "integer"
+        "$type": "number"
       },
       "totalNumber": {
-        "type": "integer"
+        "$type": "number"
       },
       "totalPage": {
-        "type": "integer"
+        "$type": "number"
       },
       "nextIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "preIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "items": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "NewCarOrderInfoDto": {
-            "type": "object",
+            "$type": "object",
             "spuId": {
-              "type": "string"
+              "$type": "string"
             },
             "modelCode": {
-              "type": "string"
+              "$type": "string"
             },
             "orderCode": {
-              "type": "string"
+              "$type": "string"
             },
             "mainPic": {
-              "type": "string"
+              "$type": "string"
             },
             "modelName": {
-              "type": "string"
+              "$type": "string"
             },
             "lowPrice": {
-              "type": "string"
+              "$type": "string"
             },
             "purchasePrice": {
-              "type": "string"
+              "$type": "string"
             },
             "purchaseDate": {
-              "type": "string"
+              "$type": "string"
             },
             "createDate": {
-              "type": "integer"
+              "$type": "number"
             },
             "carBodyColor": {
-              "type": "string"
+              "$type": "string"
             },
             "carInteriorColor": {
-              "type": "string"
+              "$type": "string"
             },
             "carBodyColorCode": {
-              "type": "string"
+              "$type": "string"
             },
             "carInteriorColorCode": {
-              "type": "string"
+              "$type": "string"
             },
             "orderStatus": {
-              "type": "string"
+              "$type": "string"
             },
             "orderStatusText": {
-              "type": "string"
+              "$type": "string"
             },
             "isClose": {
-              "type": "boolean"
+              "$type": "boolean"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/consignment/consignmentAction/getStock.json": {
-    "type": "integer"
+    "$type": "number"
   },
   "/consignment/consignmentAction/takePrice.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/consignment/consignmentAction/takeSellPriceAndWeiDianSalePrice.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/consignment/consignmentAction/takeWeiDianSalePrice.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/inc/financeCounterCallbackAction/receiveRefundResultStatus.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/clue/fixClueAction/fixCreateMarketOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/auditOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/batchCloseTmallOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/cancelConsignment.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/changePriceForTmallOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/closePurchase.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/closePurchaseAndRefund.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/closeTmallOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/confirmOfflineRetainage.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/confirmfee.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/dealPlateDeposit.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/dealPurchaseDeposit.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/deleteCache.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixAuditOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixCreateMarketOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixCreateMarketOrder2.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixCreatePayOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixMarketOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixPurchaseOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixSaleOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixSaleOrder2.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/fixTmallOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/freezeOrNotTmallOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/getCarIndex.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/getRetailSearchVOBySkuId.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/getTmallOrderDetail.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/getUsedMacodeInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/getUserInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/operatorCloseRetailSaleOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/reCreatePayOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/redoComfirmPay.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/redoCouponSettle.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/redoRecodeMaCode.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/refundInfoAdd.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/retailOrderAuditAction.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/retrySignPurchaseContract.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/searchIndexOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/syncPlateModifyBugOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/testAddOrderRemarks.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/testConfirmHandCar.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/testRetailPurchase.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/testUnfrozeEarnest.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/testWriteHandCarUserInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/unbindRetailOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/uodateMarketOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/updateRefundOrderStatus.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/fix/fixOrderAction/uplodeContractForAli.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/clue/importDataAction/importData.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/deleteOperationModel.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/deleteOperationModelBySpuId.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/downOperationModel.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/downShelfSku.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/getAllCity.json": {
-    "type": "array",
+    "$type": "array",
     "items": {
       "Map«string,object»": {},
-      "type": "object"
+      "$type": "object"
     }
   },
   "/updownmodel/operationModelAction/getDic.json": {
-    "type": "array",
+    "$type": "array",
     "items": {
       "Map«string,object»": {},
-      "type": "object"
+      "$type": "object"
     }
   },
   "/updownmodel/operationModelAction/getGoodsBodyColorBySpu.json": {
-    "type": "object",
+    "$type": "object",
     "key": {
-      "type": "string"
+      "$type": "string"
     },
     "value": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/updownmodel/operationModelAction/getGoodsInteriorColorBySpu.json": {
-    "type": "object",
+    "$type": "object",
     "key": {
-      "type": "string"
+      "$type": "string"
     },
     "value": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/updownmodel/operationModelAction/getModelList.json": {
     "Page«OperationModelDto»": {
-      "type": "object",
+      "$type": "object",
       "currentIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "pageSize": {
-        "type": "integer"
+        "$type": "number"
       },
       "totalNumber": {
-        "type": "integer"
+        "$type": "number"
       },
       "totalPage": {
-        "type": "integer"
+        "$type": "number"
       },
       "nextIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "preIndex": {
-        "type": "integer"
+        "$type": "number"
       },
       "items": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "OperationModelDto": {
-            "type": "object",
+            "$type": "object",
             "spuId": {
-              "type": "string"
+              "$type": "string"
             },
             "modelCode": {
-              "type": "string"
+              "$type": "string"
             },
             "brandCode": {
-              "type": "string"
+              "$type": "string"
             },
             "seriesCode": {
-              "type": "string"
+              "$type": "string"
             },
             "mainPic": {
-              "type": "string"
+              "$type": "string"
             },
             "carModelName": {
-              "type": "string"
+              "$type": "string"
             },
             "guidePrice": {
-              "type": "string"
+              "$type": "string"
             },
             "deposit": {
-              "type": "string"
+              "$type": "string"
             },
             "factoryWholeSalePrice": {
-              "type": "integer"
+              "$type": "number"
             },
             "operationInfos": {
-              "type": "array",
+              "$type": "array",
               "items": {
                 "OperationInfo": {
-                  "type": "object",
+                  "$type": "object",
                   "skuId": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "modelCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "bodyColor": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "bodyColorCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "interiorColorCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "interiorColor": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "stockNum": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "lowPrice": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "purchasePrice": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "wholesalePrice": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "wholesalePriceCanModify": {
-                    "type": "boolean"
+                    "$type": "boolean"
                   },
                   "preferentialType": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "preferentialCount": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "earliestDelivery": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "latestDelivery": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "sourceType": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "plateAddress": {
-                    "type": "array",
+                    "$type": "array",
                     "items": {
-                      "type": "string"
+                      "$type": "string"
                     }
                   },
                   "plateAddressName": {
-                    "type": "array",
+                    "$type": "array",
                     "items": {
-                      "type": "string"
+                      "$type": "string"
                     }
                   },
                   "plateDeposit": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "deposit": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "distance": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "shopName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "shopCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "remark": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "baseCommission": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "vipPhone": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "saleLocation": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "saleLocationName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "carSourceLocation": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "carSourceLocationName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "handleCarDateStr": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "brandCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "brandName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "seriesCode": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "seriesName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "modelName": {
-                    "type": "string"
+                    "$type": "string"
                   },
                   "status": {
-                    "type": "integer"
+                    "$type": "number"
                   },
                   "spuId": {
-                    "type": "string"
+                    "$type": "string"
                   }
                 },
-                "type": "object"
+                "$type": "object"
               }
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/getSkuById.json": {
     "OperationInfoVO": {
-      "type": "object",
+      "$type": "object",
       "skuId": {
-        "type": "string"
+        "$type": "string"
       },
       "modelCode": {
-        "type": "string"
+        "$type": "string"
       },
       "bodyColor": {
-        "type": "string"
+        "$type": "string"
       },
       "bodyColorCode": {
-        "type": "string"
+        "$type": "string"
       },
       "interiorColorCode": {
-        "type": "string"
+        "$type": "string"
       },
       "interiorColor": {
-        "type": "string"
+        "$type": "string"
       },
       "stockNum": {
-        "type": "integer"
+        "$type": "number"
       },
       "lowPrice": {
-        "type": "string"
+        "$type": "string"
       },
       "purchasePrice": {
-        "type": "string"
+        "$type": "string"
       },
       "wholesalePrice": {
-        "type": "string"
+        "$type": "string"
       },
       "wholesalePriceCanModify": {
-        "type": "boolean"
+        "$type": "boolean"
       },
       "preferentialType": {
-        "type": "integer"
+        "$type": "number"
       },
       "preferentialCount": {
-        "type": "string"
+        "$type": "string"
       },
       "earliestDelivery": {
-        "type": "integer"
+        "$type": "number"
       },
       "latestDelivery": {
-        "type": "integer"
+        "$type": "number"
       },
       "sourceType": {
-        "type": "string"
+        "$type": "string"
       },
       "plateAddress": {
-        "type": "array",
+        "$type": "array",
         "items": {
-          "type": "string"
+          "$type": "string"
         }
       },
       "plateAddressName": {
-        "type": "array",
+        "$type": "array",
         "items": {
-          "type": "string"
+          "$type": "string"
         }
       },
       "plateDeposit": {
-        "type": "string"
+        "$type": "string"
       },
       "deposit": {
-        "type": "string"
+        "$type": "string"
       },
       "distance": {
-        "type": "string"
+        "$type": "string"
       },
       "shopName": {
-        "type": "string"
+        "$type": "string"
       },
       "shopCode": {
-        "type": "string"
+        "$type": "string"
       },
       "remark": {
-        "type": "string"
+        "$type": "string"
       },
       "baseCommission": {
-        "type": "string"
+        "$type": "string"
       },
       "vipPhone": {
-        "type": "string"
+        "$type": "string"
       },
       "saleLocation": {
-        "type": "array",
+        "$type": "array",
         "items": {
-          "type": "string"
+          "$type": "string"
         }
       },
       "saleLocationName": {
-        "type": "array",
+        "$type": "array",
         "items": {
-          "type": "string"
+          "$type": "string"
         }
       },
       "carSourceLocation": {
-        "type": "string"
+        "$type": "string"
       },
       "carSourceLocationName": {
-        "type": "string"
+        "$type": "string"
       },
       "handleCarDateStr": {
-        "type": "string"
+        "$type": "string"
       },
       "brandCode": {
-        "type": "string"
+        "$type": "string"
       },
       "brandName": {
-        "type": "string"
+        "$type": "string"
       },
       "seriesCode": {
-        "type": "string"
+        "$type": "string"
       },
       "seriesName": {
-        "type": "string"
+        "$type": "string"
       },
       "modelName": {
-        "type": "string"
+        "$type": "string"
       },
       "status": {
-        "type": "integer"
+        "$type": "number"
       },
       "spuId": {
-        "type": "string"
+        "$type": "string"
       },
       "contactNumber": {
-        "type": "string"
+        "$type": "string"
       },
       "procedure": {
-        "type": "integer"
+        "$type": "number"
       },
       "suggestPrice": {
         "SuggestPriceVO": {
-          "type": "object",
+          "$type": "object",
           "cityCode": {
-            "type": "string"
+            "$type": "string"
           },
           "low": {
-            "type": "string"
+            "$type": "string"
           },
           "high": {
-            "type": "string"
+            "$type": "string"
           }
         },
-        "type": "object"
+        "$type": "object"
       },
       "guidePrice": {
-        "type": "string"
+        "$type": "string"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/getSkuList.json": {
     "OperationDtoWapper«SkuVo»": {
-      "type": "object",
+      "$type": "object",
       "operationDtos": {
         "Page«SkuVo»": {
-          "type": "object",
+          "$type": "object",
           "currentIndex": {
-            "type": "integer"
+            "$type": "number"
           },
           "pageSize": {
-            "type": "integer"
+            "$type": "number"
           },
           "totalNumber": {
-            "type": "integer"
+            "$type": "number"
           },
           "totalPage": {
-            "type": "integer"
+            "$type": "number"
           },
           "nextIndex": {
-            "type": "integer"
+            "$type": "number"
           },
           "preIndex": {
-            "type": "integer"
+            "$type": "number"
           },
           "items": {
-            "type": "array",
+            "$type": "array",
             "items": {
               "SkuVo": {
-                "type": "object",
+                "$type": "object",
                 "skuId": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "modelCode": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "bodyColor": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "bodyColorCode": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "interiorColorCode": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "interiorColor": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "stockNum": {
-                  "type": "integer"
+                  "$type": "number"
                 },
                 "lowPrice": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "purchasePrice": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "wholesalePrice": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "wholesalePriceCanModify": {
-                  "type": "boolean"
+                  "$type": "boolean"
                 },
                 "preferentialType": {
-                  "type": "integer"
+                  "$type": "number"
                 },
                 "preferentialCount": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "earliestDelivery": {
-                  "type": "integer"
+                  "$type": "number"
                 },
                 "latestDelivery": {
-                  "type": "integer"
+                  "$type": "number"
                 },
                 "sourceValidPeriod": {
-                  "type": "integer"
+                  "$type": "number"
                 },
                 "sourceType": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "plateAddress": {
-                  "type": "array",
+                  "$type": "array",
                   "items": {
-                    "type": "string"
+                    "$type": "string"
                   }
                 },
                 "plateAddressName": {
-                  "type": "array",
+                  "$type": "array",
                   "items": {
-                    "type": "string"
+                    "$type": "string"
                   }
                 },
                 "plateDeposit": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "deposit": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "distance": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "shopName": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "shopCode": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "remark": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "baseCommission": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "vipPhone": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "saleLocation": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "saleLocationName": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "carSourceLocation": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "carSourceLocationName": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "handleCarDateStr": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "brandCode": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "brandName": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "seriesCode": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "seriesName": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "modelName": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "status": {
-                  "type": "integer"
+                  "$type": "number"
                 },
                 "spuId": {
-                  "type": "string"
+                  "$type": "string"
                 }
               },
-              "type": "object"
+              "$type": "object"
             }
           }
         },
-        "type": "object"
+        "$type": "object"
       },
       "skuCountDTO": {
         "SkuCountDTO": {
-          "type": "object",
+          "$type": "object",
           "totalNums": {
-            "type": "integer"
+            "$type": "number"
           },
           "upShelfNums": {
-            "type": "integer"
+            "$type": "number"
           },
           "downShelfNums": {
-            "type": "integer"
+            "$type": "number"
           }
         },
-        "type": "object"
+        "$type": "object"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/getSkusList.json": {
     "OperationModelDTO": {
-      "type": "object",
+      "$type": "object",
       "spuId": {
-        "type": "string"
+        "$type": "string"
       },
       "modelCode": {
-        "type": "string"
+        "$type": "string"
       },
       "brandCode": {
-        "type": "string"
+        "$type": "string"
       },
       "seriesCode": {
-        "type": "string"
+        "$type": "string"
       },
       "mainPic": {
-        "type": "string"
+        "$type": "string"
       },
       "carModelName": {
-        "type": "string"
+        "$type": "string"
       },
       "guidePrice": {
-        "type": "string"
+        "$type": "string"
       },
       "deposit": {
-        "type": "string"
+        "$type": "string"
       },
       "factoryWholeSalePrice": {
-        "type": "integer"
+        "$type": "number"
       },
       "contactNumber": {
-        "type": "array",
+        "$type": "array",
         "items": {
-          "type": "string"
+          "$type": "string"
         }
       },
       "operationInfos": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "OperationInfoVO": {
-            "type": "object",
+            "$type": "object",
             "skuId": {
-              "type": "string"
+              "$type": "string"
             },
             "modelCode": {
-              "type": "string"
+              "$type": "string"
             },
             "bodyColor": {
-              "type": "string"
+              "$type": "string"
             },
             "bodyColorCode": {
-              "type": "string"
+              "$type": "string"
             },
             "interiorColorCode": {
-              "type": "string"
+              "$type": "string"
             },
             "interiorColor": {
-              "type": "string"
+              "$type": "string"
             },
             "stockNum": {
-              "type": "integer"
+              "$type": "number"
             },
             "lowPrice": {
-              "type": "string"
+              "$type": "string"
             },
             "purchasePrice": {
-              "type": "string"
+              "$type": "string"
             },
             "wholesalePrice": {
-              "type": "string"
+              "$type": "string"
             },
             "wholesalePriceCanModify": {
-              "type": "boolean"
+              "$type": "boolean"
             },
             "preferentialType": {
-              "type": "integer"
+              "$type": "number"
             },
             "preferentialCount": {
-              "type": "string"
+              "$type": "string"
             },
             "earliestDelivery": {
-              "type": "integer"
+              "$type": "number"
             },
             "latestDelivery": {
-              "type": "integer"
+              "$type": "number"
             },
             "sourceType": {
-              "type": "string"
+              "$type": "string"
             },
             "plateAddress": {
-              "type": "array",
+              "$type": "array",
               "items": {
-                "type": "string"
+                "$type": "string"
               }
             },
             "plateAddressName": {
-              "type": "array",
+              "$type": "array",
               "items": {
-                "type": "string"
+                "$type": "string"
               }
             },
             "plateDeposit": {
-              "type": "string"
+              "$type": "string"
             },
             "deposit": {
-              "type": "string"
+              "$type": "string"
             },
             "distance": {
-              "type": "string"
+              "$type": "string"
             },
             "shopName": {
-              "type": "string"
+              "$type": "string"
             },
             "shopCode": {
-              "type": "string"
+              "$type": "string"
             },
             "remark": {
-              "type": "string"
+              "$type": "string"
             },
             "baseCommission": {
-              "type": "string"
+              "$type": "string"
             },
             "vipPhone": {
-              "type": "string"
+              "$type": "string"
             },
             "saleLocation": {
-              "type": "array",
+              "$type": "array",
               "items": {
-                "type": "string"
+                "$type": "string"
               }
             },
             "saleLocationName": {
-              "type": "array",
+              "$type": "array",
               "items": {
-                "type": "string"
+                "$type": "string"
               }
             },
             "carSourceLocation": {
-              "type": "string"
+              "$type": "string"
             },
             "carSourceLocationName": {
-              "type": "string"
+              "$type": "string"
             },
             "handleCarDateStr": {
-              "type": "string"
+              "$type": "string"
             },
             "brandCode": {
-              "type": "string"
+              "$type": "string"
             },
             "brandName": {
-              "type": "string"
+              "$type": "string"
             },
             "seriesCode": {
-              "type": "string"
+              "$type": "string"
             },
             "seriesName": {
-              "type": "string"
+              "$type": "string"
             },
             "modelName": {
-              "type": "string"
+              "$type": "string"
             },
             "status": {
-              "type": "integer"
+              "$type": "number"
             },
             "spuId": {
-              "type": "string"
+              "$type": "string"
             },
             "contactNumber": {
-              "type": "string"
+              "$type": "string"
             },
             "procedure": {
-              "type": "integer"
+              "$type": "number"
             },
             "suggestPrice": {
               "SuggestPriceVO": {
-                "type": "object",
+                "$type": "object",
                 "cityCode": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "low": {
-                  "type": "string"
+                  "$type": "string"
                 },
                 "high": {
-                  "type": "string"
+                  "$type": "string"
                 }
               },
-              "type": "object"
+              "$type": "object"
             },
             "guidePrice": {
-              "type": "string"
+              "$type": "string"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       },
       "suggestPrice": {
         "SuggestPriceVO": {
-          "type": "object",
+          "$type": "object",
           "cityCode": {
-            "type": "string"
+            "$type": "string"
           },
           "low": {
-            "type": "string"
+            "$type": "string"
           },
           "high": {
-            "type": "string"
+            "$type": "string"
           }
         },
-        "type": "object"
+        "$type": "object"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/getSuggestPrice.json": {
     "SuggestPriceVO": {
-      "type": "object",
+      "$type": "object",
       "cityCode": {
-        "type": "string"
+        "$type": "string"
       },
       "low": {
-        "type": "string"
+        "$type": "string"
       },
       "high": {
-        "type": "string"
+        "$type": "string"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/sourceType.json": {
-    "type": "array",
+    "$type": "array",
     "items": {
       "SourceTypeBo": {
-        "type": "object",
+        "$type": "object",
         "name": {
-          "type": "string"
+          "$type": "string"
         },
         "value": {
-          "type": "integer"
+          "$type": "number"
         }
       },
-      "type": "object"
+      "$type": "object"
     }
   },
   "/updownmodel/operationModelAction/updateOperationModel.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/updownmodel/operationModelAction/updateSku.json": {
-    "type": "boolean"
+    "$type": "boolean"
   },
   "/updownmodel/operationModelAction/updownShelfSku.json": {
-    "type": "boolean"
+    "$type": "boolean"
   },
   "/updownmodel/operationModelImportAction/batchInsert.json": {
-    "type": "string"
+    "$type": "string"
   },
   "/updownmodel/operationModelImportAction/getProcess.json": {
     "ImportResultVo": {
-      "type": "object",
+      "$type": "object",
       "startTime": {
-        "type": "integer"
+        "$type": "number"
       },
       "endTime": {
-        "type": "integer"
+        "$type": "number"
       },
       "totalCount": {
-        "type": "integer"
+        "$type": "number"
       },
       "handledCount": {
-        "type": "integer"
+        "$type": "number"
       },
       "status": {
-        "type": "string"
+        "$type": "string"
       },
       "resultMessage": {
-        "type": "string"
+        "$type": "string"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/pos/posOrderAction/getOrderDetails.json": {
     "PosDetailsDto": {
-      "type": "object",
+      "$type": "object",
       "waitPayEarnest": {
-        "type": "string"
+        "$type": "string"
       },
       "alreadyPayEarnest": {
-        "type": "string"
+        "$type": "string"
       },
       "carModelName": {
-        "type": "string"
+        "$type": "string"
       },
       "carBodyColor": {
-        "type": "string"
+        "$type": "string"
       },
       "carInteriorColor": {
-        "type": "string"
+        "$type": "string"
       },
       "vinNumber": {
-        "type": "string"
+        "$type": "string"
       },
       "orderCode": {
-        "type": "string"
+        "$type": "string"
       },
       "createDate": {
-        "type": "string"
+        "$type": "string"
       },
       "retainage": {
-        "type": "string"
+        "$type": "string"
       },
       "dealPrice": {
-        "type": "string"
+        "$type": "string"
       },
       "clientName": {
-        "type": "string"
+        "$type": "string"
       },
       "clientPhone": {
-        "type": "string"
+        "$type": "string"
       },
       "clientIdentity": {
-        "type": "string"
+        "$type": "string"
       },
       "clientAlipay": {
-        "type": "string"
+        "$type": "string"
       },
       "fourShopName": {
-        "type": "string"
+        "$type": "string"
       },
       "fourShopAddress": {
-        "type": "string"
+        "$type": "string"
       },
       "fourShopPhone": {
-        "type": "string"
+        "$type": "string"
       },
       "receipt": {
-        "type": "boolean"
+        "$type": "boolean"
       },
       "payOver": {
-        "type": "boolean"
+        "$type": "boolean"
       },
       "agentsShopName": {
-        "type": "string"
+        "$type": "string"
       },
       "agentsSalesName": {
-        "type": "string"
+        "$type": "string"
       },
       "agentsSalesPhone": {
-        "type": "string"
+        "$type": "string"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/pos/posOrderAction/paidInProcess.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/pos/posOrderAction/preparePay.json": {
-    "type": "object",
+    "$type": "object",
     "corderId": {
-      "type": "integer"
+      "$type": "number"
     },
     "corderType": {
-      "type": "string"
+      "$type": "string"
     },
     "sellerAccType": {
-      "type": "string"
+      "$type": "string"
     },
     "outerTradeNo": {
-      "type": "string"
+      "$type": "string"
     },
     "orderId": {
-      "type": "string"
+      "$type": "string"
     },
     "tradeList": {
-      "type": "string"
+      "$type": "string"
     },
     "goCashier": {
-      "type": "string"
+      "$type": "string"
     },
     "id": {
-      "type": "integer"
+      "$type": "number"
     },
     "moneyAmount": {
-      "type": "number"
+      "$type": "number"
     },
     "payAgain": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "payKind": {
-      "type": "string"
+      "$type": "string"
     },
     "sign": {
-      "type": "string"
+      "$type": "string"
     },
     "orderInfoExtension": {
       "JSONObject": {
-        "type": "object",
+        "$type": "object",
         "empty": {
-          "type": "boolean"
+          "$type": "boolean"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "sfee": {
-      "type": "integer"
+      "$type": "number"
     },
     "businessCode": {
-      "type": "string"
+      "$type": "string"
     },
     "businessType": {
-      "type": "string"
+      "$type": "string"
     },
     "createdAt": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/pos/posOrderAction/tradeRecord.json": {
-    "type": "object",
+    "$type": "object",
     "orderId": {
-      "type": "integer"
+      "$type": "number"
     },
     "sellerId": {
-      "type": "string"
+      "$type": "string"
     },
     "buyerId": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "itemType": {
-      "type": "string"
+      "$type": "string"
     },
     "itemAmount": {
-      "type": "integer"
+      "$type": "number"
     },
     "itemId": {
-      "type": "string"
+      "$type": "string"
     },
     "status": {
-      "type": "string"
+      "$type": "string"
     },
     "paymentStatus": {
-      "type": "integer"
+      "$type": "number"
     },
     "pendingAmount": {
-      "type": "number"
+      "$type": "number"
     },
     "alreadyPaidAmount": {
-      "type": "number"
+      "$type": "number"
     },
     "orderTotalAmount": {
-      "type": "number"
+      "$type": "number"
     },
     "buyerShouldPayAmountYuan": {
-      "type": "number"
+      "$type": "number"
     },
     "sellerShouldGetAmountYuan": {
-      "type": "number"
+      "$type": "number"
     },
     "createdAt": {
-      "type": "string"
+      "$type": "string"
     },
     "updatedAt": {
-      "type": "string"
+      "$type": "string"
     },
     "tradeRecords": {
-      "type": "array",
+      "$type": "array",
       "items": {
         "TradeRecordDTO": {
-          "type": "object",
+          "$type": "object",
           "id": {
-            "type": "integer"
+            "$type": "number"
           },
           "orderCode": {
-            "type": "string"
+            "$type": "string"
           },
           "cheniuOrderId": {
-            "type": "integer"
+            "$type": "number"
           },
           "amountYuan": {
-            "type": "number"
+            "$type": "number"
           },
           "isLast": {
-            "type": "boolean"
+            "$type": "boolean"
           },
           "status": {
-            "type": "string"
+            "$type": "string"
           },
           "tradeCode": {
-            "type": "string"
+            "$type": "string"
           },
           "numOfOrder": {
-            "type": "integer"
+            "$type": "number"
           },
           "payerId": {
-            "type": "string"
+            "$type": "string"
           },
           "payerName": {
-            "type": "string"
+            "$type": "string"
           },
           "payerMobile": {
-            "type": "string"
+            "$type": "string"
           },
           "orderSellerId": {
-            "type": "string"
+            "$type": "string"
           },
           "orderBuyerId": {
-            "type": "string"
+            "$type": "string"
           },
           "weijinType": {
-            "type": "string"
+            "$type": "string"
           },
           "weijinStatus": {
-            "type": "string"
+            "$type": "string"
           },
           "weijinNotifiedAt": {
-            "type": "string"
+            "$type": "string"
           },
           "payMethod": {
-            "type": "string"
+            "$type": "string"
           },
           "statusText": {
-            "type": "string"
+            "$type": "string"
           },
           "statusInfo": {
-            "type": "integer"
+            "$type": "number"
           },
           "tailNum": {
-            "type": "string"
+            "$type": "string"
           },
           "bankName": {
-            "type": "string"
+            "$type": "string"
           },
           "operatorName": {
-            "type": "string"
+            "$type": "string"
           },
           "operatorAccount": {
-            "type": "string"
+            "$type": "string"
           },
           "createdAt": {
-            "type": "string"
+            "$type": "string"
           },
           "updatedAt": {
-            "type": "string"
+            "$type": "string"
           }
         },
-        "type": "object"
+        "$type": "object"
       }
     }
   },
   "/order/refundOrderAction/applyForRefund.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/refundOrderAction/getRefundData.json": {
     "RefundDataDto": {
-      "type": "object",
+      "$type": "object",
       "formDownloadUrl": {
-        "type": "string"
+        "$type": "string"
       },
       "refundType": {
-        "type": "integer"
+        "$type": "number"
       },
       "formUrl": {
-        "type": "string"
+        "$type": "string"
       },
       "paidAmountDesc": {
-        "type": "string"
+        "$type": "string"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/order/refundOrderAction/getRefundOrder.json": {
     "RefundOrderDto": {
-      "type": "object",
+      "$type": "object",
       "stepNo": {
-        "type": "integer"
+        "$type": "number"
       },
       "status": {
-        "type": "integer"
+        "$type": "number"
       },
       "statusText": {
-        "type": "string"
+        "$type": "string"
       },
       "description": {
-        "type": "string"
+        "$type": "string"
       },
       "applyDateStr": {
-        "type": "string"
+        "$type": "string"
       },
       "earnestDateStr": {
-        "type": "string"
+        "$type": "string"
       },
       "earnestAlreadyPaid": {
-        "type": "string"
+        "$type": "string"
       },
       "retainageDateStr": {
-        "type": "string"
+        "$type": "string"
       },
       "retainageAlreadyPaid": {
-        "type": "string"
+        "$type": "string"
       },
       "formUrl": {
-        "type": "string"
+        "$type": "string"
       },
       "salerName": {
-        "type": "string"
+        "$type": "string"
       },
       "salerPhone": {
-        "type": "string"
+        "$type": "string"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/order/refundOrderAction/getRefundOrderDetail.json": {
-    "type": "array",
+    "$type": "array",
     "items": {
       "RefundOrderDetailDto": {
-        "type": "object",
+        "$type": "object",
         "cardType": {
-          "type": "integer"
+          "$type": "number"
         },
         "userName": {
-          "type": "string"
+          "$type": "string"
         },
         "idCardNo": {
-          "type": "string"
+          "$type": "string"
         },
         "bankCardNo": {
-          "type": "string"
+          "$type": "string"
         },
         "accountOpeningBank": {
-          "type": "string"
+          "$type": "string"
         },
         "bankReservationNumber": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     }
   },
   "/order/refundOrderAction/testPullPayment.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/refundOrderAction/testPush.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/car/retailCarAction/getColorList.json": {
     "ColorInfoDTO": {
-      "type": "object",
+      "$type": "object",
       "modelName": {
-        "type": "string"
+        "$type": "string"
       },
       "purchasePrice": {
-        "type": "string"
+        "$type": "string"
       },
       "salePrice": {
-        "type": "string"
+        "$type": "string"
       },
       "colorStringList": {
-        "type": "array",
+        "$type": "array",
         "items": {
-          "type": "string"
+          "$type": "string"
         }
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/car/retailCarAction/getLogisticsInfo.json": {
     "LogisticsInfoDTO": {
-      "type": "object",
+      "$type": "object",
       "originName": {
-        "type": "string"
+        "$type": "string"
       },
       "originCode": {
-        "type": "string"
+        "$type": "string"
       },
       "provinceName": {
-        "type": "string"
+        "$type": "string"
       },
       "provinceCode": {
-        "type": "string"
+        "$type": "string"
       },
       "cityName": {
-        "type": "string"
+        "$type": "string"
       },
       "cityCode": {
-        "type": "string"
+        "$type": "string"
       },
       "destinationName": {
-        "type": "string"
+        "$type": "string"
       },
       "selfStorageName": {
-        "type": "string"
+        "$type": "string"
       },
       "destinationCode": {
-        "type": "string"
+        "$type": "string"
       },
       "address": {
-        "type": "string"
+        "$type": "string"
       },
       "price": {
-        "type": "string"
+        "$type": "string"
       },
       "days": {
-        "type": "integer"
+        "$type": "number"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/car/retailCarAction/getRetailNewCarDetail.json": {
     "RetailCarDetailDTO": {
-      "type": "object",
+      "$type": "object",
       "carPriceDTO": {
         "CarPriceDTO": {
-          "type": "object",
+          "$type": "object",
           "modelName": {
-            "type": "string"
+            "$type": "string"
           },
           "purchasePrice": {
-            "type": "string"
+            "$type": "string"
           },
           "guidePrice": {
-            "type": "string"
+            "$type": "string"
           },
           "salePrice": {
-            "type": "string"
+            "$type": "string"
           },
           "floorPrice": {
-            "type": "string"
+            "$type": "string"
           },
           "carOnSaleTag": {
-            "type": "boolean"
+            "$type": "boolean"
           },
           "saleTag": {
-            "type": "boolean"
+            "$type": "boolean"
           },
           "carLoanTag": {
-            "type": "boolean"
+            "$type": "boolean"
           },
           "transportTag": {
-            "type": "boolean"
+            "$type": "boolean"
           }
         },
-        "type": "object"
+        "$type": "object"
       },
       "carInfoDTO": {
         "CarInfoDTO": {
-          "type": "object",
+          "$type": "object",
           "carType": {
-            "type": "string"
+            "$type": "string"
           },
           "carId": {
-            "type": "string"
+            "$type": "string"
           },
           "bodyColor": {
-            "type": "string"
+            "$type": "string"
           },
           "bodyColorCode": {
-            "type": "string"
+            "$type": "string"
           },
           "modelCode": {
-            "type": "string"
+            "$type": "string"
           },
           "interiorColor": {
-            "type": "string"
+            "$type": "string"
           },
           "interiorColorCode": {
-            "type": "string"
+            "$type": "string"
           },
           "diliveryTime": {
-            "type": "string"
+            "$type": "string"
           },
           "carSourceLocation": {
-            "type": "string"
+            "$type": "string"
           },
           "saleLocation": {
-            "type": "string"
+            "$type": "string"
           },
           "deposit": {
-            "type": "string"
+            "$type": "string"
           },
           "licenseAddress": {
-            "type": "string"
+            "$type": "string"
           },
           "desc": {
-            "type": "string"
+            "$type": "string"
           },
           "procedure": {
-            "type": "string"
+            "$type": "string"
           }
         },
-        "type": "object"
+        "$type": "object"
       },
       "retailCarDTOList": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "RetailCarDTO": {
-            "type": "object",
+            "$type": "object",
             "skuId": {
-              "type": "string"
+              "$type": "string"
             },
             "modelCode": {
-              "type": "string"
+              "$type": "string"
             },
             "carModelName": {
-              "type": "string"
+              "$type": "string"
             },
             "guidePriceFormat": {
-              "type": "string"
+              "$type": "string"
             },
             "purchasePriceFormat": {
-              "type": "string"
+              "$type": "string"
             },
             "saleArea": {
-              "type": "string"
+              "$type": "string"
             },
             "interiorColor": {
-              "type": "string"
+              "$type": "string"
             },
             "bodyColor": {
-              "type": "string"
+              "$type": "string"
             },
             "carSource": {
-              "type": "string"
+              "$type": "string"
             },
             "carType": {
-              "type": "string"
+              "$type": "string"
             },
             "carLoanTag": {
-              "type": "boolean"
+              "$type": "boolean"
             },
             "carOnSaleTag": {
-              "type": "boolean"
+              "$type": "boolean"
             },
             "saleTag": {
-              "type": "boolean"
+              "$type": "boolean"
             },
             "transportTag": {
-              "type": "boolean"
+              "$type": "boolean"
             },
             "stockNum": {
-              "type": "integer"
+              "$type": "number"
             },
             "retailShopName": {
-              "type": "string"
+              "$type": "string"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       },
       "phone": {
-        "type": "string"
+        "$type": "string"
       },
       "carSourceCity": {
-        "type": "string"
+        "$type": "string"
       },
       "carId": {
-        "type": "string"
+        "$type": "string"
       },
       "selfGetAddress": {
-        "type": "string"
+        "$type": "string"
       },
       "retailShopName": {
-        "type": "string"
+        "$type": "string"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/car/retailCarAction/getRetailNewCarList.json": {
-    "type": "object",
+    "$type": "object",
     "skuId": {
-      "type": "string"
+      "$type": "string"
     },
     "modelCode": {
-      "type": "string"
+      "$type": "string"
     },
     "carModelName": {
-      "type": "string"
+      "$type": "string"
     },
     "guidePriceFormat": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePriceFormat": {
-      "type": "string"
+      "$type": "string"
     },
     "saleArea": {
-      "type": "string"
+      "$type": "string"
     },
     "interiorColor": {
-      "type": "string"
+      "$type": "string"
     },
     "bodyColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carSource": {
-      "type": "string"
+      "$type": "string"
     },
     "carType": {
-      "type": "string"
+      "$type": "string"
     },
     "carLoanTag": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "carOnSaleTag": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "saleTag": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "transportTag": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "stockNum": {
-      "type": "integer"
+      "$type": "number"
     },
     "retailShopName": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/car/retailCarAction/getTruckStoreList.json": {
-    "type": "array",
+    "$type": "array",
     "items": {
       "TruckStoreDTO": {
-        "type": "object",
+        "$type": "object",
         "cityListKey": {
-          "type": "string"
+          "$type": "string"
         },
         "cityStorageDTOList": {
-          "type": "array",
+          "$type": "array",
           "items": {
             "CityStorageDTO": {
-              "type": "object",
+              "$type": "object",
               "cityName": {
-                "type": "string"
+                "$type": "string"
               },
               "cityCode": {
-                "type": "string"
+                "$type": "string"
               },
               "storageDetailDTOList": {
-                "type": "array",
+                "$type": "array",
                 "items": {
                   "StorageDetailDTO": {
-                    "type": "object",
+                    "$type": "object",
                     "storageName": {
-                      "type": "string"
+                      "$type": "string"
                     },
                     "cityName": {
-                      "type": "string"
+                      "$type": "string"
                     },
                     "address": {
-                      "type": "string"
+                      "$type": "string"
                     },
                     "storageCode": {
-                      "type": "string"
+                      "$type": "string"
                     },
                     "firstPinyin": {
-                      "type": "string"
+                      "$type": "string"
                     }
                   },
-                  "type": "object"
+                  "$type": "object"
                 }
               }
             },
-            "type": "object"
+            "$type": "object"
           }
         }
       },
-      "type": "object"
+      "$type": "object"
     }
   },
   "/car/retailCarAction/takeSellPriceAndWeiDianSalePrice.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailCarSourceAction/getHotBrand.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryBrandList.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryBrandListByShopCode.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryConsignmentBodyColorByModelCode.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryConsignmentBrandList.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryConsignmentCarSourceArea.json": {
-    "type": "object",
+    "$type": "object",
     "provinceCode": {
-      "type": "string"
+      "$type": "string"
     },
     "provinceName": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryConsignmentModelBySeriesCode.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     },
     "detail": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryConsignmentSeriesByBrandCode.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryInsideColor.json": {
-    "type": "object",
+    "$type": "object",
     "colorValue": {
-      "type": "string"
+      "$type": "string"
     },
     "colorName": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryModelBySeriesCode.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     },
     "detail": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryModelBySeriesCodeEx.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     },
     "detail": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryModelByShopCode.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     },
     "detail": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/queryOutsideColor.json": {
-    "type": "object",
+    "$type": "object",
     "colorValue": {
-      "type": "string"
+      "$type": "string"
     },
     "colorName": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/querySeriesByBrandCode.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailCarSourceAction/querySeriesByShopCode.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "img": {
-      "type": "string"
+      "$type": "string"
     },
     "firstWord": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailContractAction/getContractPicUrls.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/comfirmRetainage.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "group": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/confirmCarryCarFrom4S.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/confirmHandCar.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/createRetailOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/createSaleOrderByPurchase.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/generalRetailOrderCreate.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/gerMaCodeInfo.json": {
-    "type": "object",
+    "$type": "object",
     "buyerName": {
-      "type": "string"
+      "$type": "string"
     },
     "buyerMobile": {
-      "type": "string"
+      "$type": "string"
     },
     "voucherPrice": {
-      "type": "integer"
+      "$type": "number"
     },
     "isCanUse": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "message": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/gerRetailOrderPrepareInfo.json": {
-    "type": "object",
+    "$type": "object",
     "showBar": {
-      "type": "string"
+      "$type": "string"
     },
     "spuId": {
-      "type": "string"
+      "$type": "string"
     },
     "skuId": {
-      "type": "string"
+      "$type": "string"
     },
     "mainPic": {
-      "type": "string"
+      "$type": "string"
     },
     "goodsName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateDeposit": {
-      "type": "string"
+      "$type": "string"
     },
     "earnest": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColorCode": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColorCode": {
-      "type": "string"
+      "$type": "string"
     },
     "wholeSalePrice": {
-      "type": "string"
+      "$type": "string"
     },
     "saleFloorPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "modelCode": {
-      "type": "string"
+      "$type": "string"
     },
     "bizCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "makeType": {
-      "type": "string"
+      "$type": "string"
     },
     "invoiceType": {
-      "type": "string"
+      "$type": "string"
     },
     "personalName": {
-      "type": "string"
+      "$type": "string"
     },
     "personalIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "personalPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "enterpriseName": {
-      "type": "string"
+      "$type": "string"
     },
     "enterpriseSocialCode": {
-      "type": "string"
+      "$type": "string"
     },
     "enterpriseLinkerName": {
-      "type": "string"
+      "$type": "string"
     },
     "enterpriseLinkerPhone": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getMaCodeInfo.json": {
-    "type": "object",
+    "$type": "object",
     "buyerName": {
-      "type": "string"
+      "$type": "string"
     },
     "buyerMobile": {
-      "type": "string"
+      "$type": "string"
     },
     "voucherPrice": {
-      "type": "integer"
+      "$type": "number"
     },
     "isCanUse": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "message": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getOrderActions.json": {
-    "type": "object",
+    "$type": "object",
     "actionName": {
-      "type": "string"
+      "$type": "string"
     },
     "createTime": {
-      "type": "string"
+      "$type": "string"
     },
     "operatorName": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getOrderFinanceList.json": {
-    "type": "object",
+    "$type": "object",
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCodeShow": {
-      "type": "string"
+      "$type": "string"
     },
     "itemId": {
-      "type": "string"
+      "$type": "string"
     },
     "mainPicture": {
-      "type": "string"
+      "$type": "string"
     },
     "businessTypeName": {
-      "type": "string"
+      "$type": "string"
     },
     "payerName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateName": {
-      "type": "string"
+      "$type": "string"
     },
     "detailUrl": {
-      "type": "string"
+      "$type": "string"
     },
     "carAllName": {
-      "type": "string"
+      "$type": "string"
     },
     "goodsSubTitle": {
-      "type": "string"
+      "$type": "string"
     },
     "displayStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCreateDate": {
-      "type": "string"
+      "$type": "string"
     },
     "alreayPayFormat": {
-      "type": "string"
+      "$type": "string"
     },
     "needPayFormat": {
-      "type": "string"
+      "$type": "string"
     },
     "businessTypes": {
-      "type": "string"
+      "$type": "string"
     },
     "businessTypesName": {
-      "type": "string"
+      "$type": "string"
     },
     "guidePrice": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePriceFormat": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getOrderList.json": {
-    "type": "object",
+    "$type": "object",
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCodeShow": {
-      "type": "string"
+      "$type": "string"
     },
     "itemId": {
-      "type": "string"
+      "$type": "string"
     },
     "mainPicture": {
-      "type": "string"
+      "$type": "string"
     },
     "businessTypeName": {
-      "type": "string"
+      "$type": "string"
     },
     "payerName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateName": {
-      "type": "string"
+      "$type": "string"
     },
     "detailUrl": {
-      "type": "string"
+      "$type": "string"
     },
     "carAllName": {
-      "type": "string"
+      "$type": "string"
     },
     "productSubTitle": {
-      "type": "string"
+      "$type": "string"
     },
     "displayStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCreateDate": {
-      "type": "string"
+      "$type": "string"
     },
     "dealPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestFormat": {
-      "type": "string"
+      "$type": "string"
     },
     "plateEarnestFormat": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePriceFormat": {
-      "type": "string"
+      "$type": "string"
     },
     "businessTypes": {
-      "type": "string"
+      "$type": "string"
     },
     "modelName": {
-      "type": "string"
+      "$type": "string"
     },
     "brandName": {
-      "type": "string"
+      "$type": "string"
     },
     "vimNumber": {
-      "type": "string"
+      "$type": "string"
     },
     "sellerName": {
-      "type": "string"
+      "$type": "string"
     },
     "downPaymentFormat": {
-      "type": "string"
+      "$type": "string"
     },
     "buyerName": {
-      "type": "string"
+      "$type": "string"
     },
     "latestDiliveryTime": {
-      "type": "string"
+      "$type": "string"
     },
     "retailAuditStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "linkOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "specBizStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "retailAuditStatusCode": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getOrderQRCode.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/getOrderStatus.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/getOrderTypes.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/getPlateCity.json": {
-    "type": "object",
+    "$type": "object",
     "code": {
-      "type": "string"
+      "$type": "string"
     },
     "name": {
-      "type": "string"
+      "$type": "string"
     },
     "group": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getRetailAuditStatus.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/getRetailOrderDetail.json": {
-    "type": "object",
+    "$type": "object",
     "showBar": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseShowBar": {
-      "type": "string"
+      "$type": "string"
     },
     "orderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "orderDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "orderSubDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "carSource": {
-      "type": "string"
+      "$type": "string"
     },
     "expectHandCarDate": {
-      "type": "string"
+      "$type": "string"
     },
     "handCarDeadlineDate": {
-      "type": "string"
+      "$type": "string"
     },
     "carplateAddressLimit": {
-      "type": "string"
+      "$type": "string"
     },
     "carSourceExpireDate": {
-      "type": "string"
+      "$type": "string"
     },
     "carModelName": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColorCode": {
-      "type": "string"
+      "$type": "string"
     },
     "carMainPic": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColorCode": {
-      "type": "string"
+      "$type": "string"
     },
     "vinNumber": {
-      "type": "string"
+      "$type": "string"
     },
     "remark": {
-      "type": "string"
+      "$type": "string"
     },
     "carModelRemark": {
-      "type": "string"
+      "$type": "string"
     },
     "earnest": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestFens": {
-      "type": "integer"
+      "$type": "number"
     },
     "retainage": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseRetainage": {
-      "type": "string"
+      "$type": "string"
     },
     "dealPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePrice": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseEarnest": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePlateDeposit": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePlateDepositFens": {
-      "type": "integer"
+      "$type": "number"
     },
     "purchaseaddress": {
-      "type": "string"
+      "$type": "string"
     },
     "handUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "handUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "vipPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "handUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCodeShow": {
-      "type": "string"
+      "$type": "string"
     },
     "saleShopCodeName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "payerName": {
-      "type": "string"
+      "$type": "string"
     },
     "payerPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "payerIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "plateAddress": {
-      "type": "string"
+      "$type": "string"
     },
     "invoiceMakeType": {
-      "type": "string"
+      "$type": "string"
     },
     "plateType": {
-      "type": "string"
+      "$type": "string"
     },
     "plateTypeName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "businessName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessSocialCode": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "contractNo": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasecontractNo": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCreateDate": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseCreateDate": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestDetail4s": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePriceInfo": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseShopName": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "buttonDisplayStr": {
-      "type": "string"
+      "$type": "string"
     },
     "step": {
-      "type": "integer"
+      "$type": "number"
     },
     "statusBtn": {
-      "type": "integer"
+      "$type": "number"
     },
     "mainbtn": {
-      "type": "integer"
+      "$type": "number"
     },
     "mainSubBtn": {
-      "type": "integer"
+      "$type": "number"
     },
     "canModify": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "skuId": {
-      "type": "string"
+      "$type": "string"
     },
     "spuId": {
-      "type": "string"
+      "$type": "string"
     },
     "tradeInfo": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "makeGetCarDate": {
-      "type": "string"
+      "$type": "string"
     },
     "maCode": {
-      "type": "string"
+      "$type": "string"
     },
     "voucherPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "auditStatus": {
-      "type": "integer"
+      "$type": "number"
     },
     "auditText": {
-      "type": "string"
+      "$type": "string"
     },
     "auditRejectReason": {
-      "type": "string"
+      "$type": "string"
     },
     "guidePrice": {
-      "type": "string"
+      "$type": "string"
     },
     "saleArea": {
-      "type": "string"
+      "$type": "string"
     },
     "carSourceArea": {
-      "type": "string"
+      "$type": "string"
     },
     "modelCode": {
-      "type": "string"
+      "$type": "string"
     },
     "additionalContract": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseAuditStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseAuditStatusDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseDisagreeReason": {
-      "type": "string"
+      "$type": "string"
     },
     "remarkDto": {
-      "type": "array",
+      "$type": "array",
       "items": {
         "OrderRemarkDto": {
-          "type": "object",
+          "$type": "object",
           "dateCreate": {
-            "type": "string"
+            "$type": "string"
           },
           "remarkText": {
-            "type": "string"
+            "$type": "string"
           },
           "operator": {
-            "type": "string"
+            "$type": "string"
           }
         },
-        "type": "object"
+        "$type": "object"
       }
     },
     "retailTransportDto": {
       "RetailTransportDto": {
-        "type": "object",
+        "$type": "object",
         "transportTypeCode": {
-          "type": "string"
+          "$type": "string"
         },
         "transportType": {
-          "type": "string"
+          "$type": "string"
         },
         "carryWarehouseName": {
-          "type": "string"
+          "$type": "string"
         },
         "carryWarehouseAddress": {
-          "type": "string"
+          "$type": "string"
         },
         "transportDays": {
-          "type": "string"
+          "$type": "string"
         },
         "estimatePrice": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "retainageShowCode": {
-      "type": "integer"
+      "$type": "number"
     },
     "watchPaymentReceipts": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "displayText": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "procedure": {
-      "type": "string"
+      "$type": "string"
     },
     "saleState": {
-      "type": "string"
+      "$type": "string"
     },
     "customerName": {
-      "type": "string"
+      "$type": "string"
     },
     "customerPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "customerIdentity": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getRetailOrderFinanceDetail.json": {
-    "type": "object",
+    "$type": "object",
     "showBar": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseShowBar": {
-      "type": "string"
+      "$type": "string"
     },
     "orderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "orderDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "orderSubDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "carSource": {
-      "type": "string"
+      "$type": "string"
     },
     "expectHandCarDate": {
-      "type": "string"
+      "$type": "string"
     },
     "handCarDeadlineDate": {
-      "type": "string"
+      "$type": "string"
     },
     "carplateAddressLimit": {
-      "type": "string"
+      "$type": "string"
     },
     "carSourceExpireDate": {
-      "type": "string"
+      "$type": "string"
     },
     "carModelName": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColorCode": {
-      "type": "string"
+      "$type": "string"
     },
     "carMainPic": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColorCode": {
-      "type": "string"
+      "$type": "string"
     },
     "vinNumber": {
-      "type": "string"
+      "$type": "string"
     },
     "remark": {
-      "type": "string"
+      "$type": "string"
     },
     "carModelRemark": {
-      "type": "string"
+      "$type": "string"
     },
     "earnest": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestFens": {
-      "type": "integer"
+      "$type": "number"
     },
     "retainage": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseRetainage": {
-      "type": "string"
+      "$type": "string"
     },
     "dealPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePrice": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseEarnest": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePlateDeposit": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePlateDepositFens": {
-      "type": "integer"
+      "$type": "number"
     },
     "purchaseaddress": {
-      "type": "string"
+      "$type": "string"
     },
     "handUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "handUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "vipPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "handUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCodeShow": {
-      "type": "string"
+      "$type": "string"
     },
     "saleShopCodeName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "payerName": {
-      "type": "string"
+      "$type": "string"
     },
     "payerPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "payerIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "plateAddress": {
-      "type": "string"
+      "$type": "string"
     },
     "invoiceMakeType": {
-      "type": "string"
+      "$type": "string"
     },
     "plateType": {
-      "type": "string"
+      "$type": "string"
     },
     "plateTypeName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "businessName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessSocialCode": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "contractNo": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasecontractNo": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCreateDate": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseCreateDate": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestDetail4s": {
-      "type": "string"
+      "$type": "string"
     },
     "purchasePriceInfo": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseShopName": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "buttonDisplayStr": {
-      "type": "string"
+      "$type": "string"
     },
     "step": {
-      "type": "integer"
+      "$type": "number"
     },
     "statusBtn": {
-      "type": "integer"
+      "$type": "number"
     },
     "mainbtn": {
-      "type": "integer"
+      "$type": "number"
     },
     "mainSubBtn": {
-      "type": "integer"
+      "$type": "number"
     },
     "canModify": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "skuId": {
-      "type": "string"
+      "$type": "string"
     },
     "spuId": {
-      "type": "string"
+      "$type": "string"
     },
     "tradeInfo": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "makeGetCarDate": {
-      "type": "string"
+      "$type": "string"
     },
     "maCode": {
-      "type": "string"
+      "$type": "string"
     },
     "voucherPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "auditStatus": {
-      "type": "integer"
+      "$type": "number"
     },
     "auditText": {
-      "type": "string"
+      "$type": "string"
     },
     "auditRejectReason": {
-      "type": "string"
+      "$type": "string"
     },
     "guidePrice": {
-      "type": "string"
+      "$type": "string"
     },
     "saleArea": {
-      "type": "string"
+      "$type": "string"
     },
     "carSourceArea": {
-      "type": "string"
+      "$type": "string"
     },
     "modelCode": {
-      "type": "string"
+      "$type": "string"
     },
     "additionalContract": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseAuditStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseAuditStatusDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseDisagreeReason": {
-      "type": "string"
+      "$type": "string"
     },
     "remarkDto": {
-      "type": "array",
+      "$type": "array",
       "items": {
         "OrderRemarkDto": {
-          "type": "object",
+          "$type": "object",
           "dateCreate": {
-            "type": "string"
+            "$type": "string"
           },
           "remarkText": {
-            "type": "string"
+            "$type": "string"
           },
           "operator": {
-            "type": "string"
+            "$type": "string"
           }
         },
-        "type": "object"
+        "$type": "object"
       }
     },
     "retailTransportDto": {
       "RetailTransportDto": {
-        "type": "object",
+        "$type": "object",
         "transportTypeCode": {
-          "type": "string"
+          "$type": "string"
         },
         "transportType": {
-          "type": "string"
+          "$type": "string"
         },
         "carryWarehouseName": {
-          "type": "string"
+          "$type": "string"
         },
         "carryWarehouseAddress": {
-          "type": "string"
+          "$type": "string"
         },
         "transportDays": {
-          "type": "string"
+          "$type": "string"
         },
         "estimatePrice": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "retainageShowCode": {
-      "type": "integer"
+      "$type": "number"
     },
     "watchPaymentReceipts": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "displayText": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "procedure": {
-      "type": "string"
+      "$type": "string"
     },
     "saleState": {
-      "type": "string"
+      "$type": "string"
     },
     "customerName": {
-      "type": "string"
+      "$type": "string"
     },
     "customerPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "customerIdentity": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getRetailOrderInfo.json": {
     "RetailOrderInfoDto": {
-      "type": "object",
+      "$type": "object",
       "buyerName": {
-        "type": "string"
+        "$type": "string"
       },
       "buyerMobile": {
-        "type": "string"
+        "$type": "string"
       },
       "voucherPrice": {
-        "type": "integer"
+        "$type": "number"
       },
       "isCanUse": {
-        "type": "boolean"
+        "$type": "boolean"
       },
       "message": {
-        "type": "string"
+        "$type": "string"
       },
       "orderCode": {
-        "type": "string"
+        "$type": "string"
       },
       "modelCode": {
-        "type": "string"
+        "$type": "string"
       },
       "maCode": {
-        "type": "string"
+        "$type": "string"
       },
       "transactionPrice": {
-        "type": "integer"
+        "$type": "number"
       },
       "earnest": {
-        "type": "integer"
+        "$type": "number"
       },
       "payName": {
-        "type": "string"
+        "$type": "string"
       },
       "payPhone": {
-        "type": "string"
+        "$type": "string"
       },
       "payIdentityCard": {
-        "type": "string"
+        "$type": "string"
       },
       "licenseType": {
-        "type": "string"
+        "$type": "string"
       },
       "licensePeople": {
-        "type": "string"
+        "$type": "string"
       },
       "licensePhone": {
-        "type": "string"
+        "$type": "string"
       },
       "licenseIdentityCard": {
-        "type": "string"
+        "$type": "string"
       },
       "businessName": {
-        "type": "string"
+        "$type": "string"
       },
       "businessSocialCode": {
-        "type": "string"
+        "$type": "string"
       },
       "licenseAddress": {
-        "type": "string"
+        "$type": "string"
       },
       "licenseProvinceName": {
-        "type": "string"
+        "$type": "string"
       },
       "licenseCityName": {
-        "type": "string"
+        "$type": "string"
       },
       "licenseDistrictName": {
-        "type": "string"
+        "$type": "string"
       },
       "makeGetCarDate": {
-        "type": "string"
+        "$type": "string"
       },
       "supplementaryProvisions": {
-        "type": "string"
+        "$type": "string"
       },
       "canModify": {
-        "type": "boolean"
+        "$type": "boolean"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/getRetailOrderPrepareInfoByModel.json": {
-    "type": "object",
+    "$type": "object",
     "showBar": {
-      "type": "string"
+      "$type": "string"
     },
     "spuId": {
-      "type": "string"
+      "$type": "string"
     },
     "skuId": {
-      "type": "string"
+      "$type": "string"
     },
     "mainPic": {
-      "type": "string"
+      "$type": "string"
     },
     "goodsName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateDeposit": {
-      "type": "string"
+      "$type": "string"
     },
     "earnest": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "carryUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColorCode": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColorCode": {
-      "type": "string"
+      "$type": "string"
     },
     "wholeSalePrice": {
-      "type": "string"
+      "$type": "string"
     },
     "saleFloorPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "modelCode": {
-      "type": "string"
+      "$type": "string"
     },
     "bizCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "makeType": {
-      "type": "string"
+      "$type": "string"
     },
     "invoiceType": {
-      "type": "string"
+      "$type": "string"
     },
     "personalName": {
-      "type": "string"
+      "$type": "string"
     },
     "personalIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "personalPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "enterpriseName": {
-      "type": "string"
+      "$type": "string"
     },
     "enterpriseSocialCode": {
-      "type": "string"
+      "$type": "string"
     },
     "enterpriseLinkerName": {
-      "type": "string"
+      "$type": "string"
     },
     "enterpriseLinkerPhone": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailOrderAction/getSaleCertificate.json": {
-    "type": "object",
+    "$type": "object",
     "makeInvoiceDate": {
-      "type": "string"
+      "$type": "string"
     },
     "identityFrontage": {
       "RetailSalecertificateDto": {
-        "type": "object",
+        "$type": "object",
         "id": {
-          "type": "string"
+          "$type": "string"
         },
         "code": {
-          "type": "string"
+          "$type": "string"
         },
         "picUrl": {
-          "type": "string"
+          "$type": "string"
         },
         "desc": {
-          "type": "string"
+          "$type": "string"
         },
         "uploadDate": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "identityOpposite": {
       "RetailSalecertificateDto": {
-        "type": "object",
+        "$type": "object",
         "id": {
-          "type": "string"
+          "$type": "string"
         },
         "code": {
-          "type": "string"
+          "$type": "string"
         },
         "picUrl": {
-          "type": "string"
+          "$type": "string"
         },
         "desc": {
-          "type": "string"
+          "$type": "string"
         },
         "uploadDate": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "storeReceipt": {
       "RetailSalecertificateDto": {
-        "type": "object",
+        "$type": "object",
         "id": {
-          "type": "string"
+          "$type": "string"
         },
         "code": {
-          "type": "string"
+          "$type": "string"
         },
         "picUrl": {
-          "type": "string"
+          "$type": "string"
         },
         "desc": {
-          "type": "string"
+          "$type": "string"
         },
         "uploadDate": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "purchaseTaxCertificate": {
       "RetailSalecertificateDto": {
-        "type": "object",
+        "$type": "object",
         "id": {
-          "type": "string"
+          "$type": "string"
         },
         "code": {
-          "type": "string"
+          "$type": "string"
         },
         "picUrl": {
-          "type": "string"
+          "$type": "string"
         },
         "desc": {
-          "type": "string"
+          "$type": "string"
         },
         "uploadDate": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "drivingLicense": {
       "RetailSalecertificateDto": {
-        "type": "object",
+        "$type": "object",
         "id": {
-          "type": "string"
+          "$type": "string"
         },
         "code": {
-          "type": "string"
+          "$type": "string"
         },
         "picUrl": {
-          "type": "string"
+          "$type": "string"
         },
         "desc": {
-          "type": "string"
+          "$type": "string"
         },
         "uploadDate": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "carRegisterCertificate": {
       "RetailSalecertificateDto": {
-        "type": "object",
+        "$type": "object",
         "id": {
-          "type": "string"
+          "$type": "string"
         },
         "code": {
-          "type": "string"
+          "$type": "string"
         },
         "picUrl": {
-          "type": "string"
+          "$type": "string"
         },
         "desc": {
-          "type": "string"
+          "$type": "string"
         },
         "uploadDate": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "businessLicence": {
       "RetailSalecertificateDto": {
-        "type": "object",
+        "$type": "object",
         "id": {
-          "type": "string"
+          "$type": "string"
         },
         "code": {
-          "type": "string"
+          "$type": "string"
         },
         "picUrl": {
-          "type": "string"
+          "$type": "string"
         },
         "desc": {
-          "type": "string"
+          "$type": "string"
         },
         "uploadDate": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     },
     "rightsObligationsTransferAggrement": {
       "RetailSalecertificateDto": {
-        "type": "object",
+        "$type": "object",
         "id": {
-          "type": "string"
+          "$type": "string"
         },
         "code": {
-          "type": "string"
+          "$type": "string"
         },
         "picUrl": {
-          "type": "string"
+          "$type": "string"
         },
         "desc": {
-          "type": "string"
+          "$type": "string"
         },
         "uploadDate": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     }
   },
   "/order/retailOrderAction/isExistMatchPurchaseBySale.json": {
-    "type": "object",
+    "$type": "object",
     "match": {
-      "type": "integer"
+      "$type": "number"
     }
   },
   "/order/retailOrderAction/listOrderAuditAction.json": {
-    "type": "array",
+    "$type": "array",
     "items": {
       "OrderActionDto": {
-        "type": "object",
+        "$type": "object",
         "actionName": {
-          "type": "string"
+          "$type": "string"
         },
         "createTime": {
-          "type": "string"
+          "$type": "string"
         },
         "operatorName": {
-          "type": "string"
+          "$type": "string"
         }
       },
-      "type": "object"
+      "$type": "object"
     }
   },
   "/order/retailOrderAction/modifyCarryCarUserInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/modifyPlateCarUserInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/modifyRetailOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/purchaseOrderMatchSaleOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailOrderAction/uploadSaleCertificate.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/addOrderRemarks.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/auditPurchase.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/cancelOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/closePurchaseAndRefund.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/confirmCarryCarFrom4S.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/confirmHandCar.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/confirmVin.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/findPaymentVoucher.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/getClueTest.json": {
-    "type": "object",
+    "$type": "object",
     "id": {
-      "type": "string"
+      "$type": "string"
     },
     "errMsg": {
-      "type": "string"
+      "$type": "string"
     },
     "success": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "allotSuccess": {
-      "type": "boolean"
+      "$type": "boolean"
     },
     "allotErrorMsg": {
-      "type": "string"
+      "$type": "string"
     },
     "allotShopCode": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/order/retailPurchaseAction/getPurchaseOrderActions.json": {
-    "type": "array",
+    "$type": "array",
     "items": {
       "PurchaseOrderActionDto": {
-        "type": "object",
+        "$type": "object",
         "actionName": {
-          "type": "string"
+          "$type": "string"
         },
         "createTime": {
-          "type": "string"
+          "$type": "string"
         },
         "actionDesc": {
-          "type": "string"
+          "$type": "string"
         },
         "operatorName": {
-          "type": "string"
+          "$type": "string"
         },
         "date": {
-          "type": "string"
+          "$type": "string"
         },
         "sortDate": {
-          "type": "string"
+          "$type": "string"
         },
         "orderStatus": {
-          "type": "integer"
+          "$type": "number"
         }
       },
-      "type": "object"
+      "$type": "object"
     }
   },
   "/order/retailPurchaseAction/getRetailPurchaserDetail.json": {
     "PurchaseOrderDetailDto": {
-      "type": "object",
+      "$type": "object",
       "orderStatus": {
-        "type": "string"
+        "$type": "string"
       },
       "createDate": {
-        "type": "string"
+        "$type": "string"
       },
       "orderDesc": {
-        "type": "string"
+        "$type": "string"
       },
       "orderSubDesc": {
-        "type": "string"
+        "$type": "string"
       },
       "remainingDay": {
-        "type": "string"
+        "$type": "string"
       },
       "carSource": {
-        "type": "string"
+        "$type": "string"
       },
       "carSourceExpireDate": {
-        "type": "string"
+        "$type": "string"
       },
       "carModelName": {
-        "type": "string"
+        "$type": "string"
       },
       "carBodyColor": {
-        "type": "string"
+        "$type": "string"
       },
       "carInteriorColor": {
-        "type": "string"
+        "$type": "string"
       },
       "carMainPic": {
-        "type": "string"
+        "$type": "string"
       },
       "vinNumber": {
-        "type": "string"
+        "$type": "string"
       },
       "orderCode": {
-        "type": "string"
+        "$type": "string"
       },
       "purchaseShopCodeName": {
-        "type": "string"
+        "$type": "string"
       },
       "salesPhone": {
-        "type": "string"
+        "$type": "string"
       },
       "retainage": {
-        "type": "string"
+        "$type": "string"
       },
       "dealPrice": {
-        "type": "string"
+        "$type": "string"
       },
       "dealPriceOriginal": {
-        "type": "integer"
+        "$type": "number"
       },
       "purchaseEarnest": {
-        "type": "string"
+        "$type": "string"
       },
       "purchasePlateDeposit": {
-        "type": "string"
+        "$type": "string"
       },
       "plateAddressLimit": {
-        "type": "string"
+        "$type": "string"
       },
       "expectHandCarDate": {
-        "type": "string"
+        "$type": "string"
       },
       "handCarDeadlineDate": {
-        "type": "string"
+        "$type": "string"
       },
       "delayDay": {
-        "type": "string"
+        "$type": "string"
       },
       "handUserName": {
-        "type": "string"
+        "$type": "string"
       },
       "handUserPhone": {
-        "type": "string"
+        "$type": "string"
       },
       "handUserIdentity": {
-        "type": "string"
+        "$type": "string"
       },
       "handUserDefault": {
-        "type": "boolean"
+        "$type": "boolean"
       },
       "sellerShopCode": {
-        "type": "string"
+        "$type": "string"
       },
       "sellerShopName": {
-        "type": "string"
+        "$type": "string"
       },
       "sellerShopAddress": {
-        "type": "string"
+        "$type": "string"
       },
       "plateUserName": {
-        "type": "string"
+        "$type": "string"
       },
       "plateUserPhone": {
-        "type": "string"
+        "$type": "string"
       },
       "plateUserIdentity": {
-        "type": "string"
+        "$type": "string"
       },
       "contractId": {
-        "type": "string"
+        "$type": "string"
       },
       "remark": {
-        "type": "string"
+        "$type": "string"
       },
       "isShowCommit": {
-        "type": "boolean"
+        "$type": "boolean"
       },
       "recordDto": {
         "PurchaseOrderActionDto": {
-          "type": "object",
+          "$type": "object",
           "actionName": {
-            "type": "string"
+            "$type": "string"
           },
           "createTime": {
-            "type": "string"
+            "$type": "string"
           },
           "actionDesc": {
-            "type": "string"
+            "$type": "string"
           },
           "operatorName": {
-            "type": "string"
+            "$type": "string"
           },
           "date": {
-            "type": "string"
+            "$type": "string"
           },
           "sortDate": {
-            "type": "string"
+            "$type": "string"
           },
           "orderStatus": {
-            "type": "integer"
+            "$type": "number"
           }
         },
-        "type": "object"
+        "$type": "object"
       },
       "hint": {
-        "type": "string"
+        "$type": "string"
       },
       "additionalContract": {
-        "type": "string"
+        "$type": "string"
       },
       "purchaseAuditStatus": {
-        "type": "string"
+        "$type": "string"
       },
       "purchaseAuditStatusDesc": {
-        "type": "string"
+        "$type": "string"
       },
       "purchaseDisagreeReason": {
-        "type": "string"
+        "$type": "string"
       },
       "saleArea": {
-        "type": "string"
+        "$type": "string"
       },
       "buttons": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "ClientButtonDto": {
-            "type": "object",
+            "$type": "object",
             "title": {
-              "type": "string"
+              "$type": "string"
             },
             "operationDesc": {
-              "type": "string"
+              "$type": "string"
             },
             "disable": {
-              "type": "boolean"
+              "$type": "boolean"
             },
             "model": {
-              "type": "string"
+              "$type": "string"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       },
       "dotButtons": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "ClientButtonDto": {
-            "type": "object",
+            "$type": "object",
             "title": {
-              "type": "string"
+              "$type": "string"
             },
             "operationDesc": {
-              "type": "string"
+              "$type": "string"
             },
             "disable": {
-              "type": "boolean"
+              "$type": "boolean"
             },
             "model": {
-              "type": "string"
+              "$type": "string"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       },
       "guidePrice": {
-        "type": "string"
+        "$type": "string"
       },
       "saleConfirmation": {
-        "type": "string"
+        "$type": "string"
       },
       "carSourceArea": {
-        "type": "string"
+        "$type": "string"
       },
       "modelCode": {
-        "type": "string"
+        "$type": "string"
       },
       "retailPurchaseRemark": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "OrderRemarkDto": {
-            "type": "object",
+            "$type": "object",
             "dateCreate": {
-              "type": "string"
+              "$type": "string"
             },
             "remarkText": {
-              "type": "string"
+              "$type": "string"
             },
             "operator": {
-              "type": "string"
+              "$type": "string"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       },
       "purchaserShopAddress": {
-        "type": "string"
+        "$type": "string"
       },
       "purchaserShopCity": {
-        "type": "string"
+        "$type": "string"
       },
       "purchaserShopCityCode": {
-        "type": "string"
+        "$type": "string"
       },
       "procedure": {
-        "type": "string"
+        "$type": "string"
       },
       "saleState": {
-        "type": "string"
+        "$type": "string"
       },
       "customerName": {
-        "type": "string"
+        "$type": "string"
       },
       "customerPhone": {
-        "type": "string"
+        "$type": "string"
       },
       "customerIdentity": {
-        "type": "string"
+        "$type": "string"
       },
       "invoiceMakeType": {
-        "type": "string"
+        "$type": "string"
       },
       "invoiceType": {
-        "type": "string"
+        "$type": "string"
       },
       "personalInvoiceName": {
-        "type": "string"
+        "$type": "string"
       },
       "personalInvoiceIdentity": {
-        "type": "string"
+        "$type": "string"
       },
       "personalInvoicePhone": {
-        "type": "string"
+        "$type": "string"
       },
       "enterpriseInvoiceName": {
-        "type": "string"
+        "$type": "string"
       },
       "enterpriseInvoiceSocialCode": {
-        "type": "string"
+        "$type": "string"
       },
       "enterpriseInvoiceLinkerName": {
-        "type": "string"
+        "$type": "string"
       },
       "enterpriseInvoiceLinkerPhone": {
-        "type": "string"
+        "$type": "string"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/modifyCarryCarUserInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/modifyInvoiceInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/newestPrice.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/queryPurchaseAuditRecords.json": {
     "PurchaseAuditDetailDto": {
-      "type": "object",
+      "$type": "object",
       "buttons": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "ClientButtonDto": {
-            "type": "object",
+            "$type": "object",
             "title": {
-              "type": "string"
+              "$type": "string"
             },
             "operationDesc": {
-              "type": "string"
+              "$type": "string"
             },
             "disable": {
-              "type": "boolean"
+              "$type": "boolean"
             },
             "model": {
-              "type": "string"
+              "$type": "string"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       },
       "records": {
-        "type": "array",
+        "$type": "array",
         "items": {
           "PurchaseAuditRecordDto": {
-            "type": "object",
+            "$type": "object",
             "date": {
-              "type": "string"
+              "$type": "string"
             },
             "result": {
-              "type": "string"
+              "$type": "string"
             },
             "resultDesc": {
-              "type": "string"
+              "$type": "string"
             },
             "rejectReason": {
-              "type": "string"
+              "$type": "string"
             }
           },
-          "type": "object"
+          "$type": "object"
         }
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/queryRecipient.json": {
     "接车人信息": {
-      "type": "object",
+      "$type": "object",
       "recipientId": {
-        "type": "integer"
+        "$type": "number"
       },
       "shopcode": {
-        "type": "string"
+        "$type": "string"
       },
       "name": {
-        "type": "string"
+        "$type": "string"
       },
       "phone": {
-        "type": "string"
+        "$type": "string"
       },
       "identity": {
-        "type": "string"
+        "$type": "string"
       },
       "dateCreate": {
-        "type": "string"
+        "$type": "string"
       },
       "dateUpdate": {
-        "type": "string"
+        "$type": "string"
       },
       "deleted": {
-        "type": "integer"
+        "$type": "number"
       }
     },
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/retainagePaid.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/retreatOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/submitPurchaseAudit.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/updateHandCarUserInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/updatePaymentVoucher.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/updatePriceBy4S.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/updatePurchaseAdditionalContract.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/uploadPaymentVoucher.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/retailPurchaseAction/writeHandCarUserInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/shopAction/getSalers.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/shopAction/getShopLevel.json": {
-    "type": "object",
+    "$type": "object",
     "shopCode": {
-      "type": "string"
+      "$type": "string"
     },
     "shopLevel": {
-      "type": "integer"
+      "$type": "number"
     }
   },
   "/order/stockOrderAction/createStockPurchaseOrder.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/order/stockOrderAction/gerRetailOrderPrepareInfo.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/tmall/tmallContractAction/signAgreement.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/tmall/tmallOrderAction/checkTmallUserInfo.json": {
-    "type": "object",
+    "$type": "object",
     "hint": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "orderDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "orderSubDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "carModelName": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColor": {
-      "type": "string"
+      "$type": "string"
     },
     "vinNumber": {
-      "type": "string"
+      "$type": "string"
     },
     "earnest": {
-      "type": "string"
+      "$type": "string"
     },
     "dealPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "payerName": {
-      "type": "string"
+      "$type": "string"
     },
     "payerPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "payerIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserType": {
-      "type": "string"
+      "$type": "string"
     },
     "plateAddress": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "businessName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessSocialCode": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "saleShopName": {
-      "type": "string"
+      "$type": "string"
     },
     "saleShopAddress": {
-      "type": "string"
+      "$type": "string"
     },
     "salesName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "showOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCreatedate": {
-      "type": "string"
+      "$type": "string"
     },
     "contractSignDate": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestPayDate": {
-      "type": "string"
+      "$type": "string"
     },
     "contractId": {
-      "type": "string"
+      "$type": "string"
     },
     "contractDetailUrl": {
-      "type": "string"
+      "$type": "string"
     },
     "buyerEarnestExpiryDate": {
-      "type": "string"
+      "$type": "string"
     },
     "signContractUrl": {
-      "type": "array",
+      "$type": "array",
       "items": {
-        "type": "string"
+        "$type": "string"
       }
     },
     "maCode": {
-      "type": "string"
+      "$type": "string"
     },
     "retainagePayDate": {
-      "type": "string"
+      "$type": "string"
     },
     "voucherPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "refundStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "refundStatusDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "retainage": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "makeGetCarDate": {
-      "type": "string"
+      "$type": "string"
     },
     "tmallOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "carMainPic": {
-      "type": "string"
+      "$type": "string"
     },
     "realDealPrice": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/tmall/tmallOrderAction/comfirmPay.json": {
-    "type": "object",
+    "$type": "object",
     "hint": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "orderDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "orderSubDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "carModelName": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColor": {
-      "type": "string"
+      "$type": "string"
     },
     "vinNumber": {
-      "type": "string"
+      "$type": "string"
     },
     "earnest": {
-      "type": "string"
+      "$type": "string"
     },
     "dealPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "payerName": {
-      "type": "string"
+      "$type": "string"
     },
     "payerPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "payerIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserType": {
-      "type": "string"
+      "$type": "string"
     },
     "plateAddress": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "businessName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessSocialCode": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "saleShopName": {
-      "type": "string"
+      "$type": "string"
     },
     "saleShopAddress": {
-      "type": "string"
+      "$type": "string"
     },
     "salesName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "showOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCreatedate": {
-      "type": "string"
+      "$type": "string"
     },
     "contractSignDate": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestPayDate": {
-      "type": "string"
+      "$type": "string"
     },
     "contractId": {
-      "type": "string"
+      "$type": "string"
     },
     "contractDetailUrl": {
-      "type": "string"
+      "$type": "string"
     },
     "buyerEarnestExpiryDate": {
-      "type": "string"
+      "$type": "string"
     },
     "signContractUrl": {
-      "type": "array",
+      "$type": "array",
       "items": {
-        "type": "string"
+        "$type": "string"
       }
     },
     "maCode": {
-      "type": "string"
+      "$type": "string"
     },
     "retainagePayDate": {
-      "type": "string"
+      "$type": "string"
     },
     "voucherPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "refundStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "refundStatusDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "retainage": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "makeGetCarDate": {
-      "type": "string"
+      "$type": "string"
     },
     "tmallOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "carMainPic": {
-      "type": "string"
+      "$type": "string"
     },
     "realDealPrice": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/tmall/tmallOrderAction/getOrderDetail.json": {
-    "type": "object",
+    "$type": "object",
     "hint": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "purchaseOrderStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "orderDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "orderSubDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "carModelName": {
-      "type": "string"
+      "$type": "string"
     },
     "carBodyColor": {
-      "type": "string"
+      "$type": "string"
     },
     "carInteriorColor": {
-      "type": "string"
+      "$type": "string"
     },
     "vinNumber": {
-      "type": "string"
+      "$type": "string"
     },
     "earnest": {
-      "type": "string"
+      "$type": "string"
     },
     "dealPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "payerName": {
-      "type": "string"
+      "$type": "string"
     },
     "payerPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "payerIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserType": {
-      "type": "string"
+      "$type": "string"
     },
     "plateAddress": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserName": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "plateUserIdentity": {
-      "type": "string"
+      "$type": "string"
     },
     "businessName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessSocialCode": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactName": {
-      "type": "string"
+      "$type": "string"
     },
     "businessContactPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "saleShopName": {
-      "type": "string"
+      "$type": "string"
     },
     "saleShopAddress": {
-      "type": "string"
+      "$type": "string"
     },
     "salesName": {
-      "type": "string"
+      "$type": "string"
     },
     "salesPhone": {
-      "type": "string"
+      "$type": "string"
     },
     "showOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "orderCreatedate": {
-      "type": "string"
+      "$type": "string"
     },
     "contractSignDate": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestPayDate": {
-      "type": "string"
+      "$type": "string"
     },
     "contractId": {
-      "type": "string"
+      "$type": "string"
     },
     "contractDetailUrl": {
-      "type": "string"
+      "$type": "string"
     },
     "buyerEarnestExpiryDate": {
-      "type": "string"
+      "$type": "string"
     },
     "signContractUrl": {
-      "type": "array",
+      "$type": "array",
       "items": {
-        "type": "string"
+        "$type": "string"
       }
     },
     "maCode": {
-      "type": "string"
+      "$type": "string"
     },
     "retainagePayDate": {
-      "type": "string"
+      "$type": "string"
     },
     "voucherPrice": {
-      "type": "string"
+      "$type": "string"
     },
     "refundStatus": {
-      "type": "string"
+      "$type": "string"
     },
     "refundStatusDesc": {
-      "type": "string"
+      "$type": "string"
     },
     "retainage": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageAlreayPay": {
-      "type": "string"
+      "$type": "string"
     },
     "earnestNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "retainageNeedPay": {
-      "type": "string"
+      "$type": "string"
     },
     "makeGetCarDate": {
-      "type": "string"
+      "$type": "string"
     },
     "tmallOrderCode": {
-      "type": "string"
+      "$type": "string"
     },
     "carMainPic": {
-      "type": "string"
+      "$type": "string"
     },
     "realDealPrice": {
-      "type": "string"
+      "$type": "string"
     }
   },
   "/tmall/tmallOrderAction/getShopType.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/inc/walletCallbackAction/refundV2ForDeposit.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/inc/walletCallbackAction/refundV2ForPlate.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/inc/walletCallbackAction/unfreezePurchaseWalletCallback.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/inc/walletCallbackAction/unfreezeWalletCallback.json": {
-    "type": "object"
+    "$type": "object"
   },
   "/inc/walletCallbackAction/unfrozenAndWithdrawT0.json": {
-    "type": "object"
+    "$type": "object"
   }
 }

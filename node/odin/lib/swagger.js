@@ -10,7 +10,6 @@ axios.defaults.headers.get['Cookie'] = '_security_token=1JxnP_bCwFWRGbmI'
  * return object  {url: schema, url: schema}
  */
 
-
  /**
  * get swagger info
  * @param {*} baseUrl

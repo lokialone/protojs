@@ -2,8 +2,10 @@ const _ = require('lodash')
 const axios = require('axios')
 const Schema = require('./schema')
 const idx = require('idx')
+const Configstore = require('configstore')
+const pkg = require('../package.json')
+const auth = require('./auth')
 
-axios.defaults.headers.get['Cookie'] = '_security_token=1JxnP_bCwFWRGbmI'
 /**
  * create swagger api schema
  * @param {*} data 数据为 ===>例如 http://topgear.prepub.souche.com/api-docs/souche/consignment-action
@@ -14,14 +16,26 @@ axios.defaults.headers.get['Cookie'] = '_security_token=1JxnP_bCwFWRGbmI'
  * get swagger info
  * @param {*} baseUrl
  */
+
+
+
+const conf = new Configstore(pkg.name)
+const retryTime = 1
+let tryTime = 0
+
 async function getAPiDocsInfo(baseUrl) {
+	axios.defaults.headers.get['Cookie'] = `_security_token=${conf.get('token')}`
 	try {
 		const res = await axios.get(baseUrl)
-		// console.log(res);
-		if (res.data) return res.data.apis
-		// TODO
-		// 登录souche
-		// then reget docinfo
+		if (res.data.apis) {
+			return res.data.apis
+		}
+		tryTime += 1
+		if (tryTime <= retryTime) {
+			await auth.loginTest(conf.get('username'), conf.get('password'))
+			await getAPiDocsInfo(baseUrl)
+		}
+
 
 	} catch (error) {
 		console.log(error)

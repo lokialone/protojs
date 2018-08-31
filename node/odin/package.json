@@ -7,7 +7,7 @@
     "test": "jest test",
     "test:watch": "npm run test -- --watch",
     "test:cover": "npm run test -- --coverage",
-    "dev": "nodemon --watch index.js --watch lib/validate.js"
+    "dev": "nodemon --watch index.js --watch lib/*.js"
   },
   "keywords": [
     "业务监控"
@@ -17,7 +17,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "clui": "^0.3.6",
+    "commander": "^2.17.1",
     "idx": "^2.4.0",
+    "inquirer": "^6.2.0",
     "lodash": "^4.17.10"
   },
   "devDependencies": {

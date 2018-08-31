@@ -24,7 +24,9 @@
   "dependencies": {
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "http-proxy": "^1.16.2"
+    "configstore": "^4.0.0",
+    "http-proxy": "^1.16.2",
+    "inquire": "^0.4.8"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

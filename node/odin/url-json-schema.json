@@ -1,19 +1,4 @@
 {
-  "/clue/clueQuotedAction/queryHistory.json": {
-    "$type": "object"
-  },
-  "/clue/clueQuotedAction/queryHotData.json": {
-    "$type": "object"
-  },
-  "/clue/clueQuotedAction/queryModel.json": {
-    "$type": "object"
-  },
-  "/clue/clueQuotedAction/quotedModelList.json": {
-    "$type": "object"
-  },
-  "/clue/clueQuotedAction/quotedPrice.json": {
-    "$type": "object"
-  },
   "/consignment/consignmentAction/getModelConfig.json": {
     "ModelConfigDto": {
       "$type": "object",
@@ -506,13 +491,7 @@
   "/inc/financeCounterCallbackAction/receiveRefundResultStatus.json": {
     "$type": "object"
   },
-  "/clue/fixClueAction/fixCreateMarketOrder.json": {
-    "$type": "object"
-  },
   "/fix/fixOrderAction/auditOrder.json": {
-    "$type": "object"
-  },
-  "/fix/fixOrderAction/batchCloseTmallOrder.json": {
     "$type": "object"
   },
   "/fix/fixOrderAction/cancelConsignment.json": {
@@ -524,16 +503,7 @@
   "/fix/fixOrderAction/closePurchase.json": {
     "$type": "object"
   },
-  "/fix/fixOrderAction/closePurchaseAndRefund.json": {
-    "$type": "object"
-  },
   "/fix/fixOrderAction/closeTmallOrder.json": {
-    "$type": "object"
-  },
-  "/fix/fixOrderAction/confirmOfflineRetainage.json": {
-    "$type": "object"
-  },
-  "/fix/fixOrderAction/confirmfee.json": {
     "$type": "object"
   },
   "/fix/fixOrderAction/dealPlateDeposit.json": {
@@ -548,16 +518,7 @@
   "/fix/fixOrderAction/fixAuditOrder.json": {
     "$type": "object"
   },
-  "/fix/fixOrderAction/fixCreateMarketOrder.json": {
-    "$type": "object"
-  },
-  "/fix/fixOrderAction/fixCreateMarketOrder2.json": {
-    "$type": "object"
-  },
   "/fix/fixOrderAction/fixCreatePayOrder.json": {
-    "$type": "object"
-  },
-  "/fix/fixOrderAction/fixMarketOrder.json": {
     "$type": "object"
   },
   "/fix/fixOrderAction/fixPurchaseOrder.json": {
@@ -566,16 +527,13 @@
   "/fix/fixOrderAction/fixSaleOrder.json": {
     "$type": "object"
   },
-  "/fix/fixOrderAction/fixSaleOrder2.json": {
-    "$type": "object"
-  },
   "/fix/fixOrderAction/fixTmallOrder.json": {
     "$type": "object"
   },
-  "/fix/fixOrderAction/freezeOrNotTmallOrder.json": {
+  "/fix/fixOrderAction/getCarIndex.json": {
     "$type": "object"
   },
-  "/fix/fixOrderAction/getCarIndex.json": {
+  "/fix/fixOrderAction/getConsignmentIndex.json": {
     "$type": "object"
   },
   "/fix/fixOrderAction/getRetailSearchVOBySkuId.json": {
@@ -584,16 +542,10 @@
   "/fix/fixOrderAction/getTmallOrderDetail.json": {
     "$type": "object"
   },
-  "/fix/fixOrderAction/getUsedMacodeInfo.json": {
-    "$type": "object"
-  },
   "/fix/fixOrderAction/getUserInfo.json": {
     "$type": "object"
   },
   "/fix/fixOrderAction/operatorCloseRetailSaleOrder.json": {
-    "$type": "object"
-  },
-  "/fix/fixOrderAction/reCreatePayOrder.json": {
     "$type": "object"
   },
   "/fix/fixOrderAction/redoComfirmPay.json": {
@@ -617,7 +569,7 @@
   "/fix/fixOrderAction/searchIndexOrder.json": {
     "$type": "object"
   },
-  "/fix/fixOrderAction/syncPlateModifyBugOrder.json": {
+  "/fix/fixOrderAction/test.json": {
     "$type": "object"
   },
   "/fix/fixOrderAction/testAddOrderRemarks.json": {
@@ -645,9 +597,6 @@
     "$type": "object"
   },
   "/fix/fixOrderAction/uplodeContractForAli.json": {
-    "$type": "object"
-  },
-  "/clue/importDataAction/importData.json": {
     "$type": "object"
   },
   "/updownmodel/operationModelAction/deleteOperationModel.json": {
@@ -1549,10 +1498,10 @@
       "fourShopPhone": {
         "$type": "string"
       },
-      "receipt": {
+      "payOver": {
         "$type": "boolean"
       },
-      "payOver": {
+      "receipt": {
         "$type": "boolean"
       },
       "agentsShopName": {
@@ -1566,6 +1515,87 @@
       }
     },
     "$type": "object"
+  },
+  "/pos/posOrderAction/getOrderDetailsV2.json": {
+    "$type": "object",
+    "orderCode": {
+      "$type": "string"
+    },
+    "tmallOrderCode": {
+      "$type": "string"
+    },
+    "prePayments": {
+      "$type": "string"
+    },
+    "orderPayTag": {
+      "$type": "string"
+    },
+    "totalReceipt": {
+      "$type": "string"
+    },
+    "earnestNeedPayPrice": {
+      "$type": "string"
+    },
+    "earnestAlreadyPay": {
+      "$type": "string"
+    },
+    "earnestPrice": {
+      "$type": "string"
+    },
+    "voucherPrice": {
+      "$type": "string"
+    },
+    "earnestPayDate": {
+      "$type": "string"
+    },
+    "retainagePrice": {
+      "$type": "string"
+    },
+    "retainageNeedPayPrice": {
+      "$type": "string"
+    },
+    "retainageAlreadyPay": {
+      "$type": "string"
+    },
+    "retainagePayDate": {
+      "$type": "string"
+    },
+    "carModelName": {
+      "$type": "string"
+    },
+    "carBodyColor": {
+      "$type": "string"
+    },
+    "carInteriorColor": {
+      "$type": "string"
+    },
+    "carVinCode": {
+      "$type": "string"
+    },
+    "contractPrice": {
+      "$type": "string"
+    },
+    "shopName": {
+      "$type": "string"
+    },
+    "saler": {
+      "$type": "string"
+    },
+    "orderCreateDate": {
+      "$type": "string"
+    },
+    "buyerName": {
+      "$type": "string"
+    },
+    "canOperate": {
+      "$type": "string"
+    },
+    "canDisplay": {
+      "$type": "string"
+    },
+    "payMethod": {
+      "$type": "string"
+    }
   },
   "/pos/posOrderAction/paidInProcess.json": {
     "$type": "object"
@@ -2169,9 +2199,6 @@
                     },
                     "storageCode": {
                       "$type": "string"
-                    },
-                    "firstPinyin": {
-                      "$type": "string"
                     }
                   },
                   "$type": "object"
@@ -2478,9 +2505,6 @@
     "carryUserPhone": {
       "$type": "string"
     },
-    "carryUserIdentity": {
-      "$type": "string"
-    },
     "carBodyColor": {
       "$type": "string"
     },
@@ -2503,36 +2527,6 @@
       "$type": "string"
     },
     "bizCode": {
-      "$type": "string"
-    },
-    "orderCode": {
-      "$type": "string"
-    },
-    "makeType": {
-      "$type": "string"
-    },
-    "invoiceType": {
-      "$type": "string"
-    },
-    "personalName": {
-      "$type": "string"
-    },
-    "personalIdentity": {
-      "$type": "string"
-    },
-    "personalPhone": {
-      "$type": "string"
-    },
-    "enterpriseName": {
-      "$type": "string"
-    },
-    "enterpriseSocialCode": {
-      "$type": "string"
-    },
-    "enterpriseLinkerName": {
-      "$type": "string"
-    },
-    "enterpriseLinkerPhone": {
       "$type": "string"
     }
   },
@@ -2871,9 +2865,6 @@
     "plateAddress": {
       "$type": "string"
     },
-    "invoiceMakeType": {
-      "$type": "string"
-    },
     "plateType": {
       "$type": "string"
     },
@@ -3063,25 +3054,7 @@
     "retainageShowCode": {
       "$type": "number"
     },
-    "watchPaymentReceipts": {
-      "$type": "boolean"
-    },
-    "displayText": {
-      "$type": "boolean"
-    },
     "procedure": {
-      "$type": "string"
-    },
-    "saleState": {
-      "$type": "string"
-    },
-    "customerName": {
-      "$type": "string"
-    },
-    "customerPhone": {
-      "$type": "string"
-    },
-    "customerIdentity": {
       "$type": "string"
     }
   },
@@ -3216,9 +3189,6 @@
     "plateAddress": {
       "$type": "string"
     },
-    "invoiceMakeType": {
-      "$type": "string"
-    },
     "plateType": {
       "$type": "string"
     },
@@ -3408,111 +3378,9 @@
     "retainageShowCode": {
       "$type": "number"
     },
-    "watchPaymentReceipts": {
-      "$type": "boolean"
-    },
-    "displayText": {
-      "$type": "boolean"
-    },
     "procedure": {
       "$type": "string"
-    },
-    "saleState": {
-      "$type": "string"
-    },
-    "customerName": {
-      "$type": "string"
-    },
-    "customerPhone": {
-      "$type": "string"
-    },
-    "customerIdentity": {
-      "$type": "string"
     }
-  },
-  "/order/retailOrderAction/getRetailOrderInfo.json": {
-    "RetailOrderInfoDto": {
-      "$type": "object",
-      "buyerName": {
-        "$type": "string"
-      },
-      "buyerMobile": {
-        "$type": "string"
-      },
-      "voucherPrice": {
-        "$type": "number"
-      },
-      "isCanUse": {
-        "$type": "boolean"
-      },
-      "message": {
-        "$type": "string"
-      },
-      "orderCode": {
-        "$type": "string"
-      },
-      "modelCode": {
-        "$type": "string"
-      },
-      "maCode": {
-        "$type": "string"
-      },
-      "transactionPrice": {
-        "$type": "number"
-      },
-      "earnest": {
-        "$type": "number"
-      },
-      "payName": {
-        "$type": "string"
-      },
-      "payPhone": {
-        "$type": "string"
-      },
-      "payIdentityCard": {
-        "$type": "string"
-      },
-      "licenseType": {
-        "$type": "string"
-      },
-      "licensePeople": {
-        "$type": "string"
-      },
-      "licensePhone": {
-        "$type": "string"
-      },
-      "licenseIdentityCard": {
-        "$type": "string"
-      },
-      "businessName": {
-        "$type": "string"
-      },
-      "businessSocialCode": {
-        "$type": "string"
-      },
-      "licenseAddress": {
-        "$type": "string"
-      },
-      "licenseProvinceName": {
-        "$type": "string"
-      },
-      "licenseCityName": {
-        "$type": "string"
-      },
-      "licenseDistrictName": {
-        "$type": "string"
-      },
-      "makeGetCarDate": {
-        "$type": "string"
-      },
-      "supplementaryProvisions": {
-        "$type": "string"
-      },
-      "canModify": {
-        "$type": "boolean"
-      }
-    },
-    "$type": "object"
   },
   "/order/retailOrderAction/getRetailOrderPrepareInfoByModel.json": {
     "$type": "object",
@@ -3543,9 +3411,6 @@
     "carryUserPhone": {
       "$type": "string"
     },
-    "carryUserIdentity": {
-      "$type": "string"
-    },
     "carBodyColor": {
       "$type": "string"
     },
@@ -3568,36 +3433,6 @@
       "$type": "string"
     },
     "bizCode": {
-      "$type": "string"
-    },
-    "orderCode": {
-      "$type": "string"
-    },
-    "makeType": {
-      "$type": "string"
-    },
-    "invoiceType": {
-      "$type": "string"
-    },
-    "personalName": {
-      "$type": "string"
-    },
-    "personalIdentity": {
-      "$type": "string"
-    },
-    "personalPhone": {
-      "$type": "string"
-    },
-    "enterpriseName": {
-      "$type": "string"
-    },
-    "enterpriseSocialCode": {
-      "$type": "string"
-    },
-    "enterpriseLinkerName": {
-      "$type": "string"
-    },
-    "enterpriseLinkerPhone": {
       "$type": "string"
     }
   },
@@ -3805,9 +3640,6 @@
   "/order/retailOrderAction/modifyPlateCarUserInfo.json": {
     "$type": "object"
   },
-  "/order/retailOrderAction/modifyRetailOrder.json": {
-    "$type": "object"
-  },
   "/order/retailOrderAction/purchaseOrderMatchSaleOrder.json": {
     "$type": "object"
   },
@@ -3823,9 +3655,6 @@
   "/order/retailPurchaseAction/cancelOrder.json": {
     "$type": "object"
   },
-  "/order/retailPurchaseAction/closePurchaseAndRefund.json": {
-    "$type": "object"
-  },
   "/order/retailPurchaseAction/confirmCarryCarFrom4S.json": {
     "$type": "object"
   },
@@ -3833,9 +3662,6 @@
     "$type": "object"
   },
   "/order/retailPurchaseAction/confirmVin.json": {
-    "$type": "object"
-  },
-  "/order/retailPurchaseAction/findPaymentVoucher.json": {
     "$type": "object"
   },
   "/order/retailPurchaseAction/getClueTest.json": {
@@ -4131,56 +3957,11 @@
       },
       "procedure": {
         "$type": "string"
-      },
-      "saleState": {
-        "$type": "string"
-      },
-      "customerName": {
-        "$type": "string"
-      },
-      "customerPhone": {
-        "$type": "string"
-      },
-      "customerIdentity": {
-        "$type": "string"
-      },
-      "invoiceMakeType": {
-        "$type": "string"
-      },
-      "invoiceType": {
-        "$type": "string"
-      },
-      "personalInvoiceName": {
-        "$type": "string"
-      },
-      "personalInvoiceIdentity": {
-        "$type": "string"
-      },
-      "personalInvoicePhone": {
-        "$type": "string"
-      },
-      "enterpriseInvoiceName": {
-        "$type": "string"
-      },
-      "enterpriseInvoiceSocialCode": {
-        "$type": "string"
-      },
-      "enterpriseInvoiceLinkerName": {
-        "$type": "string"
-      },
-      "enterpriseInvoiceLinkerPhone": {
-        "$type": "string"
       }
     },
     "$type": "object"
   },
   "/order/retailPurchaseAction/modifyCarryCarUserInfo.json": {
-    "$type": "object"
-  },
-  "/order/retailPurchaseAction/modifyInvoiceInfo.json": {
-    "$type": "object"
-  },
-  "/order/retailPurchaseAction/newestPrice.json": {
     "$type": "object"
   },
   "/order/retailPurchaseAction/queryPurchaseAuditRecords.json": {
@@ -4231,36 +4012,6 @@
     },
     "$type": "object"
   },
-  "/order/retailPurchaseAction/queryRecipient.json": {
-    "接车人信息": {
-      "$type": "object",
-      "recipientId": {
-        "$type": "number"
-      },
-      "shopcode": {
-        "$type": "string"
-      },
-      "name": {
-        "$type": "string"
-      },
-      "phone": {
-        "$type": "string"
-      },
-      "identity": {
-        "$type": "string"
-      },
-      "dateCreate": {
-        "$type": "string"
-      },
-      "dateUpdate": {
-        "$type": "string"
-      },
-      "deleted": {
-        "$type": "number"
-      }
-    },
-    "$type": "object"
-  },
   "/order/retailPurchaseAction/retainagePaid.json": {
     "$type": "object"
   },
@@ -4273,16 +4024,10 @@
   "/order/retailPurchaseAction/updateHandCarUserInfo.json": {
     "$type": "object"
   },
-  "/order/retailPurchaseAction/updatePaymentVoucher.json": {
-    "$type": "object"
-  },
   "/order/retailPurchaseAction/updatePriceBy4S.json": {
     "$type": "object"
   },
   "/order/retailPurchaseAction/updatePurchaseAdditionalContract.json": {
-    "$type": "object"
-  },
-  "/order/retailPurchaseAction/uploadPaymentVoucher.json": {
     "$type": "object"
   },
   "/order/retailPurchaseAction/writeHandCarUserInfo.json": {

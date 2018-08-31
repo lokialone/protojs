@@ -1,10 +1,7 @@
 const _ = require('lodash')
 const Util = require('./utils')
 
-// const urlJsonSchema = require(Util.getUrlSchemaPath())
-const urlJsonSchema = require('../url-json-schema.json')
-
-
+const urlJsonSchema = require(Util.getUrlSchemaPath())
 
 function isArrayWithItems(schema) {
 	return schema.$type === 'array' && _.has(schema, 'items')

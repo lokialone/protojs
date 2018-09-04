@@ -1,21 +1,23 @@
-const swagger = require('./lib/Swagger')
-const api = 'http://topgear-test1.dasouche.net/api-docs'
-const _ = require('lodash')
-// const validate = require('./lib/validate')
-const inquirer = require('./lib/inquirer')
-const auth = require('./lib/auth')
+const validate = require('./lib/validate')
+const Raven = require('raven')
+Raven
+	.config('https://25ef59645c8f490282651137ee167a1b:7e0b5bd8380a46768b3521955bc2a188@sentry.souche-inc.com/247')
+	.install()
 
-async function init() {
-	if (!auth.checkUserInfo()) {
-		console.log('请输入http://sso.dasouche.net/login.htm 的用户名密码');
-		let { username } = await inquirer.askUsername()
-		let { password } =  await inquirer.askPassword()
-		auth.setUserInfo(username, password)
-	}
-	swagger.createSchemaFile(api)
+var testData ='dddddd'
+
+validate.validateUrlData({
+	Raven,
+	url: 'http://topgear-test1.dasouche.net/consignment/consignmentAction/getStock.json',
+	data: testData
+})
+
+
+module.exports = {
+	validate
 }
 
-// init()
+
 
 
 

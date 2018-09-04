@@ -44,8 +44,10 @@ function getHtmlToken (res){
  * @returns
  */
 async function getTestCsrfToken() {
+	console.log('try get crsftoken....')
 	try {
 		let res = await axios.get(SSO_DEV_lOGIN_HTML)
+		console.log(' get crsftoken success!')
 		return res.headers['set-cookie'][0]
 	} catch (e) {
 		console.error('getTestCsrfToken' + e)
@@ -60,17 +62,23 @@ async function getTestCsrfToken() {
  * @param {*} csrfToken
  * @returns
  */
-async function getToken(username, password, csrfToken) {
+async function getToken(csrfToken) {
 	axios.defaults.headers.post['Cookie'] = csrfToken
 	axios.defaults.headers.post['Referer'] = SSO_DEV_lOGIN_HTML
+	axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+	console.log('try get token...')
 	try {
-		let res = await axios.post(SSO_DEV_lOGIN_API, qs.stringify({
-			username: username,
-			password: password,
+		let res =  await axios.post(SSO_DEV_lOGIN_API, qs.stringify({
+			username: conf.get('username'),
+			password: conf.get('password'),
 		}))
+		console.log('res', res)
+		let token = getHtmlToken(res.data)
+		conf.set('token', token)
+		console.log('get token success')
 		return res
 	} catch (error) {
-		console.error('loginTest' + e)
+		console.error('login fail' + error)
 	}
 }
 /**
@@ -81,9 +89,8 @@ async function getToken(username, password, csrfToken) {
 async function loginTest(username, password) {
 	try {
 		let csrf = await getTestCsrfToken()
-		let res = await getToken(username, password, csrf)
-		let token = getHtmlToken(res.data)
-		conf.set('token', token)
+		let token = await getToken(csrf)
+
 		return token
 	} catch (e) {
 		console.error(e)
@@ -112,15 +119,6 @@ function setUserInfo(username, password) {
 function removeUserInfo() {
 	conf.clear()
 }
-
-async function sendCode (phone) {
-	try {
-		await axios.get(`http://sso.souche-inc.com/PhoneCode.json?username=${phone}&isDingDing=true`)
-	} catch (e) {
-		// console.error()
-	}
-}
-
 
 module.exports = {
 	loginTest,

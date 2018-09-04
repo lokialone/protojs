@@ -42,7 +42,7 @@ function getUrlInfo(url) {
  * @return String path
  */
 function getUrlPath(url) {
-	return getUrlInfo(url)[5]
+	return '/' + getUrlInfo(url)[5]
 }
 
 module.exports = {

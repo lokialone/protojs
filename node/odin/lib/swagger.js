@@ -32,11 +32,10 @@ async function getAPiDocsInfo(baseUrl) {
 		}
 		tryTime += 1
 		if (tryTime <= retryTime) {
-			await auth.loginTest(conf.get('username'), conf.get('password'))
+			console.log('try login in.....')
+			await auth.loginTest()
 			await getAPiDocsInfo(baseUrl)
 		}
-
-
 	} catch (error) {
 		console.log(error)
 	}
@@ -93,9 +92,19 @@ async function createSchemaFile (baseUrl) {
 	_.forEach(tmp, (value) => {
 		schemas = _.assign(schemas, dealSwaggerModelToScheme(baseUrl, value))
 	})
-	await Schema.saveSchema(schemas)
+	return schemas
+}
+
+async function createSchemaFiles(urls) {
+	if (!urls.length) throw new Error ('传入的url 不能为空')
+	let schemas = {}
+	for (let i = 0, len = urls.length; i < len; i++) {
+		let tmp = await createSchemaFile(urls[i])
+		schemas = _.assign(schemas, tmp)
+	}
+	Schema.saveSchema(schemas)
 }
 
 module.exports = {
-	createSchemaFile
+	createSchemaFiles
 }

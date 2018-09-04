@@ -8,7 +8,8 @@ function isArrayWithItems(schema) {
 }
 
 /**
- * 验证传入的schema 与 data
+ * 验证传入的schema 与 data,
+ * 上传error to sentry
  * @param {*} schema
  * @param {*} data
  * @returns Boolean
@@ -22,24 +23,32 @@ function validate(schema, data) {
 			for (let i in schema) {
 				if (schema.hasOwnProperty(i) && !_.startsWith(i, '$')) {
 					if (!data[i]) {
-						console.error(': '+ i + ' undefined 未返回有效的数据')
-						return false
+						throw new Error('data undefined')
 					}
 					validate(schema[i], data[i])
 				}
 			}
 		}
 	} else {
-		console.error(': type error', schema, data)
-		return false
+		throw new Error('type error')
 	}
 }
+
+function validateParams(params, data) {
+
+}
+
+function validateRoute() {
+
+}
+
+
 /**
  * 验证传入的url的数据
  * @param {*} url
  * @param {*} data
  */
-function validateUrlData(url, data) {
+function validateUrlData({ url, data }) {
 	if (!url || !data) {
 		console.error('请输入有效的url or data')
 		return
@@ -55,7 +64,11 @@ function validateUrlData(url, data) {
 	if (!schema) {
 		console.error('未找到api对应的schema')
 	}
-	validate(schema, data, path)
+	try {
+		validate(schema, data)
+	} catch (error) {
+		console.log(error)
+	}
 }
 
 module.exports = {

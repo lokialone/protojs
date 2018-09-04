@@ -6,7 +6,7 @@ const inquirer = require('inquirer')
 function askPassword () {
     return inquirer.prompt([{
         name: 'password',
-        type: 'password',
+        type: 'input',
         message: '密码'
     }])
 }

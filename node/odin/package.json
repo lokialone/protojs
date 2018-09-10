@@ -18,18 +18,26 @@
   "author": "lokialone",
   "license": "ISC",
   "dependencies": {
+    "@souche-f2e/souche-util": "^1.8.2",
     "axios": "^0.18.0",
     "clui": "^0.3.6",
     "commander": "^2.17.1",
+    "glob": "^7.1.3",
     "idx": "^2.4.0",
     "inquirer": "^6.2.0",
     "lodash": "^4.17.10",
-    "raven": "^2.6.3",
-    "raven-js": "^3.26.4",
-    "yargs": "^12.0.1"
+    "semver": "^5.5.1"
+  },
+  "engines": {
+    "node": ">=8.9"
   },
   "devDependencies": {
     "jest": "^23.5.0",
     "nodemon": "^1.18.3"
+  },
+  "peerDependencies": {
+    "raven": "^2.6.3",
+    "raven-js": "^3.26.4",
+    "@souche-f2e/http-request": "^4.0.4"
   }
 }

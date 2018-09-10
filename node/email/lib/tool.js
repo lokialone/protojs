@@ -7,7 +7,7 @@ module.exports = {
     getConfigFilePath: function () {
         return this.getCurrentPath('deploy-email-config.json')
     },
-   getToken: function (res){
+    getToken: function (res){
         var arr = res.match(new RegExp('sid=([^"]*)'))
         return arr[1]
     }

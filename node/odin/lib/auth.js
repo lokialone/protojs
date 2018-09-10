@@ -19,13 +19,13 @@
 
 const axios = require('axios')
 const qs = require('qs')
-const CLI = require('clui')
-const Spinner = CLI.Spinner
+// const CLI = require('clui')
+// const Spinner = CLI.Spinner
 const Configstore = require('configstore')
 const pkg = require('../package.json')
 const conf = new Configstore(pkg.name)
 
-var countdown = new Spinner('发送请求中  ', ['⣾','⣽','⣻','⢿','⡿','⣟','⣯','⣷'])
+// var countdown = new Spinner('发送请求中  ', ['⣾','⣽','⣻','⢿','⡿','⣟','⣯','⣷'])
 
 const SSO_DEV_lOGIN_HTML = 'http://sso.dasouche.net/login.htm'
 const SSO_DEV_lOGIN_API = 'http://sso.dasouche.net/loginAction/login.do'
@@ -68,14 +68,13 @@ async function getToken(csrfToken) {
 	axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 	console.log('try get token...')
 	try {
-		let res =  await axios.post(SSO_DEV_lOGIN_API, qs.stringify({
+		let res = await axios.post(SSO_DEV_lOGIN_API, qs.stringify({
 			username: conf.get('username'),
 			password: conf.get('password'),
 		}))
-		console.log('res', res)
 		let token = getHtmlToken(res.data)
 		conf.set('token', token)
-		console.log('get token success')
+		console.log('  get token success')
 		return res
 	} catch (error) {
 		console.error('login fail' + error)
@@ -86,15 +85,15 @@ async function getToken(csrfToken) {
  * @param {*} username
  * @param {*} password
  */
-async function loginTest(username, password) {
+async function loginTest() {
 	try {
 		let csrf = await getTestCsrfToken()
 		let token = await getToken(csrf)
-
 		return token
-	} catch (e) {
-		console.error(e)
+	} catch (error) {
+		console.log(error)
 	}
+
 }
 /**
  * 检验本地用户名，密码是否存在
@@ -118,13 +117,20 @@ function setUserInfo(username, password) {
 
 function removeUserInfo() {
 	conf.clear()
+	console.log('clear info')
+}
+
+function removeToken() {
+	conf.set('token', '')
+	console.log('clear token')
 }
 
 module.exports = {
 	loginTest,
 	checkUserInfo,
 	setUserInfo,
-	removeUserInfo
+	removeUserInfo,
+	removeToken
 }
 
 

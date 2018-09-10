@@ -25,9 +25,21 @@ var removeDuplicates = function(nums) {
  * 双指针法
  * @param {}} nums 
  */
-var removeDuplicates2 = function(nums) {
-
+let removeDuplicates2 = function(nums) {
+    let first = nums[0]
+    let diff = 0
+    for(let i = 1, len = nums.length; i < len; i++ ) {
+        if (nums[i] !== first) {
+            diff++
+            nums[diff] = nums[i]
+            first = nums[i]
+        }
+    }
+    console.log(nums)
+    console.log(diff)
 }
+
+removeDuplicates2(numsc)
 
 /**
  * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。设计一个算法来计算你所能获取的最大利润。
@@ -58,8 +70,6 @@ var maxProfit = function(prices) {
  * 输入: [7,6,4,3,1]
  * 输出: 0
 */
-let test = [1,2,3,4,5]
-console.log(maxProfit(test))
 
 
 

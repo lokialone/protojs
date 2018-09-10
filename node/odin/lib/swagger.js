@@ -4,8 +4,9 @@ const Schema = require('./schema')
 const idx = require('idx')
 const Configstore = require('configstore')
 const pkg = require('../package.json')
+// const testData = require('../test.json')
 const auth = require('./auth')
-
+const Util = require('./utils')
 /**
  * create swagger api schema
  * @param {*} data 数据为 ===>例如 http://topgear.prepub.souche.com/api-docs/souche/consignment-action
@@ -17,13 +18,11 @@ const auth = require('./auth')
  * @param {*} baseUrl
  */
 
-
-
 const conf = new Configstore(pkg.name)
 const retryTime = 1
 let tryTime = 0
 
-async function getAPiDocsInfo(baseUrl) {
+async function getApiDocsInfo(baseUrl) {
 	axios.defaults.headers.get['Cookie'] = `_security_token=${conf.get('token')}`
 	try {
 		const res = await axios.get(baseUrl)
@@ -31,25 +30,31 @@ async function getAPiDocsInfo(baseUrl) {
 			return res.data.apis
 		}
 		tryTime += 1
+		console.log('token失效, try login in.....')
 		if (tryTime <= retryTime) {
-			console.log('try login in.....')
 			await auth.loginTest()
-			await getAPiDocsInfo(baseUrl)
+			return await getApiDocsInfo(baseUrl)
 		}
 	} catch (error) {
 		console.log(error)
 	}
 }
 
+/**
+ * 处理swagger response data
+ * @param {*} baseUrl
+ * @param {*} data
+ */
 function dealSwaggerModelToScheme(baseUrl, data) {
 	const models = data.models
 	const schema = new Schema(models)
 	let res = {}
 	_.forEach(data.apis, (item) => {
-		const api = item.path;
+		const api = item.path
+		res[api] = {}
 		// response对象
 		const response = idx(item, _ => _.operations[0].type)
-
+		const parameters = idx(item, _ => _.operations[0].parameters)
 		if (!api || !response || !models) {
 			console.error('解析api model出错: ' + baseUrl + api + response)
 			return {}
@@ -67,7 +72,8 @@ function dealSwaggerModelToScheme(baseUrl, data) {
 			console.error('未返回有效的model: ' + baseUrl + api )
 			return {}
 		}
-		res[api] = schema.toSchema(reData)
+		res[api].data = schema.toSchema(reData)
+		res[api].params = schema.paramsToSchema(parameters)
 	})
 	return res
 }
@@ -76,7 +82,7 @@ function dealSwaggerModelToScheme(baseUrl, data) {
  * @param {*} api
  */
 async function createSchemaFile (baseUrl) {
-	const docsInfo = await getAPiDocsInfo(baseUrl);
+	const docsInfo = await getApiDocsInfo(baseUrl);
 	// for get api-docs info concurrently
 	const apiInfo= docsInfo.map(async item => {
 		let data = await axios.get(baseUrl + item.path)
@@ -106,5 +112,6 @@ async function createSchemaFiles(urls) {
 }
 
 module.exports = {
-	createSchemaFiles
+	createSchemaFiles,
+	createSchemaFile
 }

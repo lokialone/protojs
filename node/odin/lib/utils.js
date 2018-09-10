@@ -45,14 +45,29 @@ function getUrlPath(url) {
 	return '/' + getUrlInfo(url)[5]
 }
 
+/**
+ *返回params object
+ */
+function getParams(url) {
+	let query = getUrlInfo(url)[6]
+	if (!query) return {}
+	let res = {}
+	query.split('&').forEach((s) => {
+		let tmp = s.split('=')
+		res[tmp[0]] = tmp[1]
+	})
+	return res
+}
+
 module.exports = {
 	log,
 	getCurrentPath: function (filename) {
         return path.join(process.cwd(), filename)
     },
     getUrlSchemaPath: function () {
-        return this.getCurrentPath('url-json-schema.json')
+        return this.getCurrentPath('./url-json-schema.json')
 	},
 	getTypeOf,
-	getUrlPath
+	getUrlPath,
+	getParams
 }

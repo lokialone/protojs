@@ -7,6 +7,7 @@ const Configstore = require('configstore')
 const pkg = require('../package.json')
 const conf = new Configstore(pkg.name)
 const log = console.log
+const api = from('./api.js')
 
 const tool = require('./tool.js')
 const Tips = {
@@ -21,7 +22,7 @@ const Tips = {
     operate: '运营'
 }
 
-function askEmailInfo(tag, desc) {
+async function askEmailInfo(tag, desc) {
     const configFilePath = tool.getConfigFilePath()
     if (!fs.existsSync(configFilePath)) {
         let tmp = {}
@@ -37,6 +38,7 @@ function askEmailInfo(tag, desc) {
     let data = fs.readFileSync(configFilePath, 'utf-8')
     let jsonData = JSON.parse(data)
     let result = jsonData
+    let tagList = await api.getTagList()
     let questions = []
     for (item in Tips) {
         let defaultValue = jsonData[item] || ''
@@ -44,23 +46,32 @@ function askEmailInfo(tag, desc) {
             defaultValue = desc
         } else if (item === 'time') {
             defaultValue = moment().format('YYYY-MM-DD hh:mm:ss')
-        } else if (item === 'tag') {
-            defaultValue = tag
-        }
+        } 
+        if (item === 'tag') {
+            questions.push({
+                name: 'tag',
+                type: 'list',
+                message: '选择要发布的版本',
+                choices: tagList,
+                default: tagList[0]
 
-        questions.push({
-            name: item,
-            type: 'input',
-            default: defaultValue,
-            message: `${Tips[item]}`,
-            validate: function(value) {
-                if (value.length) {
-                    return true
-                } else {
-                    return  '请输入'
+            })
+        } else {
+            questions.push({
+                name: item,
+                type: 'input',
+                default: defaultValue,
+                message: `${Tips[item]}`,
+                validate: function(value) {
+                    if (value.length) {
+                        return true
+                    } else {
+                        return  '请输入'
+                    }
                 }
-            }
-        })
+            })
+        }
+        
     }
     return inquirer.prompt(questions)
 }

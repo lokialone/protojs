@@ -119,10 +119,12 @@ function getProjects(teamId) {
         })
     })  
 }
-
+/**
+ * 获取下一个发布的版本
+ */
 function getTagList(gitPath) {
     return new Promise((resolve, reject) => {
-        axios.post('http://robben.souche-inc.com/git/getTagList.json', qs.stringify({ gitPath })).then((res) => {
+        axios.post('http://robben.souche-inc.com/git/getNextTag.json', qs.stringify({ gitPath })).then((res) => {
             resolve (res.data.data)
         }).catch((e) => {
             reject()

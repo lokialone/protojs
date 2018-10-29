@@ -39,7 +39,7 @@ let removeDuplicates2 = function(nums) {
     console.log(diff)
 }
 
-removeDuplicates2(numsc)
+// removeDuplicates2(numsc)
 
 /**
  * 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。设计一个算法来计算你所能获取的最大利润。
@@ -72,4 +72,42 @@ var maxProfit = function(prices) {
 */
 
 
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var rotate1 = function(nums, k) {
+    let len = nums.length
+    let tmp = k
+    while(tmp > 0) {
+        let n = nums[len - 1]
+        nums.unshift(n)
+        tmp--
+    }
+    nums.splice(len, k)
+};
+
+var rotate = function(nums, k) {
+    reserve(nums, 0, nums.length-1)
+    reserve(nums, 0, k - 1)
+    reserve(nums, k, nums.length - 1)
+    console.log(nums)
+};
+
+function reserve(nums, i, j) {
+    while(i<j){
+        swap(nums, i, j);
+        i++;
+        j--;
+    }
+}
+
+function swap(nums, a, b) {
+    let tmp = nums[a]
+    nums[a] = nums[b]
+    nums[b] = tmp
+}
+
+rotate([1,2,3,4,5,6,7], 3)
 

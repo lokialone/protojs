@@ -59,7 +59,7 @@ function sendEmail(res) {
     let projectDesc = JSON.stringify([{
         teamId: res.teamId,
         id: res.projectId,
-        tag: res.tag,
+        tagType: res.tag,
         developmenter: res.developmenter,
         tester: res.tester,
         product: res.product,
@@ -68,7 +68,7 @@ function sendEmail(res) {
         operate: res.operate  
     }])
     let data = {
-        recipients: '',
+        recipients: 'shantingting@souche.com',
         emailTeams:'', 
         title: res.title,
         desc: res.desc,
@@ -122,9 +122,9 @@ function getProjects(teamId) {
 /**
  * 获取下一个发布的版本
  */
-function getTagList(gitPath) {
+function getTagList(id) {
     return new Promise((resolve, reject) => {
-        axios.post('http://robben.souche-inc.com/git/getNextTag.json', qs.stringify({ gitPath })).then((res) => {
+        axios.post('http://robben.souche-inc.com/git/getNextTag.json', qs.stringify({ id })).then((res) => {
             resolve (res.data.data)
         }).catch((e) => {
             reject()

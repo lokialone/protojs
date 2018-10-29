@@ -6,8 +6,6 @@ const chalk = require('chalk')
 const Configstore = require('configstore')
 const pkg = require('../package.json')
 const conf = new Configstore(pkg.name)
-const log = console.log
-const api = from('./api.js')
 
 const tool = require('./tool.js')
 const Tips = {
@@ -22,7 +20,7 @@ const Tips = {
     operate: '运营'
 }
 
-async function askEmailInfo(tag, desc) {
+function askEmailInfo(tagList) {
     const configFilePath = tool.getConfigFilePath()
     if (!fs.existsSync(configFilePath)) {
         let tmp = {}
@@ -37,13 +35,11 @@ async function askEmailInfo(tag, desc) {
     } 
     let data = fs.readFileSync(configFilePath, 'utf-8')
     let jsonData = JSON.parse(data)
-    let result = jsonData
-    let tagList = await api.getTagList()
     let questions = []
     for (item in Tips) {
         let defaultValue = jsonData[item] || ''
         if (item === 'desc') {
-            defaultValue = desc
+            defaultValue = ''
         } else if (item === 'time') {
             defaultValue = moment().format('YYYY-MM-DD hh:mm:ss')
         } 

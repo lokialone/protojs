@@ -49,7 +49,7 @@ export default {
     font-size: 28px;
     color: white;
     font-weight: bold;
-    letter-space: 4px;
+    letter-spacing: 4px;
     text-align: center;
     width: 100%;
     position: fixed;

@@ -82,9 +82,9 @@ async function getProjectInfoByFile () {
 
 async function getEmailInfo() {
     try {
-        let tmpTagData = await api.getTagList(emailData.gitPath)
-        let tag = tmpTagData[0] || {name: '', message: ''};
-        let data = await inquirer.askEmailInfo(tag.name, tag.message)
+        let tagList = await api.getTagList(emailData.projectId)
+        const tags = tagList.next.map((item) => item.version)
+        let data = await inquirer.askEmailInfo(tags)
         emailData = {...data, ...emailData}
     } catch (e) {
         console.error(e)

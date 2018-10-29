@@ -1,39 +1,40 @@
 {
-  "name": "odin",
-  "version": "1.0.0",
+  "name": "@souche/odin",
+  "version": "1.0.0-beta-7",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest test",
     "test:watch": "npm run test -- --watch",
     "test:cover": "npm run test -- --coverage",
-    "dev": "nodemon --watch index.js --watch lib/*.js"
+    "build": "babel src -d dist",
+    "dev": "nodemon --watch index.js --watch lib/*.js",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "业务监控"
   ],
-  "bin": {
-    "odin": "./bin/odin.js"
-  },
+  "files": [
+    "dist"
+  ],
   "author": "lokialone",
   "license": "ISC",
   "dependencies": {
-    "@souche-f2e/souche-util": "^1.8.2",
     "axios": "^0.18.0",
-    "clui": "^0.3.6",
-    "commander": "^2.17.1",
-    "glob": "^7.1.3",
     "idx": "^2.4.0",
-    "inquirer": "^6.2.0",
-    "lodash": "^4.17.10",
-    "semver": "^5.5.1"
+    "lodash": "^4.17.10"
   },
   "engines": {
     "node": ">=8.9"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
     "jest": "^23.5.0",
-    "nodemon": "^1.18.3"
+    "nodemon": "^1.18.3",
+    "regenerator-runtime": "^0.12.1"
   },
   "peerDependencies": {
     "raven": "^2.6.3",

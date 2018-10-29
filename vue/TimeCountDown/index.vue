@@ -1,5 +1,5 @@
 <template>
-    <div class='time-count-down'>
+    <div class='time-count-down' v-if="showTimeFlag">
        <span class="time-count-down__label">剩余时间</span> {{timeShow}}
     </div>
 </template>
@@ -10,7 +10,8 @@ export default {
             timeShow: '',
             timeCount: 60,
             now: 1000,
-            timer: ''
+            timer: '',
+            showTimeFlag: true
         };
     },
     props: {
@@ -24,6 +25,9 @@ export default {
             default() {
                 return 30 * 60;
             }
+        },
+        orderStatus: {
+            required: true
         }
     },
     computed: {
@@ -35,6 +39,9 @@ export default {
         if (this.timeCount > 0) {
             this.setCountDown();
         } else {
+            if (this.orderStatus === 150) {
+                this.showTimeFlag = false;
+            }
             this.timeShow = '00:00';
         }
     },
@@ -45,6 +52,7 @@ export default {
         countDown(timestamp) {
             let tmpTimeCount = this.timeCount / 1000;
             if (this.timeCount <= 0) {
+                this.showTimeFlag = false;
                 this.timeShow = '00:00';
                 return;
             }
@@ -64,14 +72,24 @@ export default {
                 if (this.timeCount <= 0) {
                     this.timeShow = '00:00';
                     this.timer = null;
+                    if (this.orderStatus === 150) {
+                        this.showTimeFlag = false;
+                    }
+                    this.$emit('time-out');
                     return;
                 }
                 let tmpTimeCount = this.timeCount / 1000;
-                let min = parseInt(tmpTimeCount / 60);
-                let sec = parseInt(tmpTimeCount) - (min * 60);
+                let hour = parseInt(tmpTimeCount / 60 / 60);
+                let min = parseInt((tmpTimeCount / 60) - (hour * 60));
+                let sec = parseInt(tmpTimeCount) - (min * 60) - (hour * 60 * 60);
+                hour = hour >= 10 ? hour : `0${hour}`;
                 min = min >= 10 ? min : `0${min}`;
                 sec = sec >= 10 ? sec : `0${sec}`;
-                this.timeShow = `${min}:${sec}`;
+                if (hour === '00') {
+                    this.timeShow = `${min}:${sec}`;
+                } else {
+                    this.timeShow = `${hour}:${min}:${sec}`;
+                }
                 this.timeCount -= 1000;
             }, 1000);
         }

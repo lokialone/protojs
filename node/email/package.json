@@ -1,6 +1,6 @@
 {
   "name": "@souche/send-deploy-email",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "",
   "main": "index.js",
   "scripts": {

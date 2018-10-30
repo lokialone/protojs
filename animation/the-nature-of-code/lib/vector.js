@@ -58,11 +58,6 @@ class Vector {
             this.y = Math.max(this.y, -1 * max)
         }
        
-    }
-
-    // 静态方法获取向量长度
-    static magnitude(vector) {
-        return Math.sqrt(vector.x * vector.x + vector.y * vector.y)
     } 
 }
 

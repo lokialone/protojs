@@ -21,10 +21,12 @@ odin init 第一次执行时会需要测试环境的账号信息(手机号和密
 ```
 //main.js
 import Sif from '@souche/odin/dist/validate.js';
-import schema from './api-json-schema.json';
+import schema from '../api-json-schema.json';
+import Package from '../package.json';
 import Http from '@souche-f2e/http-request'; //(如果未使用http-request,则init不需要传入Http)
 
 Sif.init({
+	name: Package.name,
 	schema,
 	Http,
 	env: 'prod', // dev、prepub、 prod
@@ -110,9 +112,11 @@ export default router;
 ```
 //main.js
 import Sif from '@souche/odin/dist/validate.js';
+import Package from '../package.json';
 import router from '../router'; //router路径
 
 Sif.init({
+	name: Package.name,
 	router,
 	env: 'prod', // dev/development prepub prod/production
 });

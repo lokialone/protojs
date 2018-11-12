@@ -6,9 +6,10 @@ import idx from 'idx'
 import Bragi from './report'
 import ValidateError from './error'
 import Rules from './rules'
+import config from './config'
 
 function isArrayWithItems(schema) {
-	return schema.$type === 'array' && schema.hasOwnProperty('items')
+	return schema.$type === 'array' && schema.hasOwnProperty('$items')
 }
 
 const Sif = {
@@ -27,7 +28,7 @@ Sif.init = function ({ schema, env, router, name, Http}) {
 	this.localSchema = schema || {}
 	this.Http = Http
 	this.name = name
-	this.env = env || 'dev'
+	this.env = env || config.ENV.DEV
 	if (Http) this.validateHttp()
 	if (router) this.validateRoute(router)
 }
@@ -37,9 +38,9 @@ Sif.init = function ({ schema, env, router, name, Http}) {
  */
 Sif.errorCapture = function ({url, code, type, error}) {
 	let desc
-	type !== 'route' ? desc = 'Server ERROR, url = '+ url+', code =' + code : desc = 'route data ERROR'
+	type !== 'route' ? desc = 'JSON Server ERROR, url = '+ url+', code =' + code : desc = 'route data ERROR'
 	desc = desc + '\n\n' + error
-	if (this.env === 'production' || this.env === 'prepub') {
+	if (this.env === config.ENV.PROD) {
 		Bragi.addTask(() => {
 			this.report(type, desc)
 		})
@@ -114,10 +115,8 @@ Sif.validateAxios = function (res) {
 	})
 }
 
-Sif._validateHttp = function (path, url, params, response) {
-	// let schema = await this.getSchema()
-	let schema = this.getSchema()
-
+Sif._validateHttp = async function (path, url, params, response) {
+	let schema = await this.getSchema()
 	// validate params
 	// schema里没有这条记录就不验证
 	if (!schema[path]) {
@@ -166,7 +165,7 @@ Sif.validate = function(schema, data, key) {
 			this.rules(schema.$type, schema, data, key )
 		}
 		// $type = array
-		if (isArrayWithItems) this.validate(schema.items, data[0], key)
+		if (isArrayWithItems) this.validate(schema.$items, data[0], key)
 
 		// $type = object
 		if (schema.$type === 'object') {
@@ -186,7 +185,7 @@ Sif.validate = function(schema, data, key) {
  */
 Sif.getRemoteSchema = function () {
 	if (!this.remoteSchema) {
-		this.remoteSchema = axios.get('http://monitor-server-dev.dasouche-inc.net/api/schemas/project?projectName='+ this.name)
+		this.remoteSchema = axios.get(config.RemoteSchemaApi + this.name)
 			.then((res) => {
 				if (res.data.success) return res.data.data.projectSchema
 				return {}
@@ -199,9 +198,9 @@ Sif.getRemoteSchema = function () {
 
 }
 
-Sif.getSchema = function () {
-	// let remoteSchema = await this.getRemoteSchema()
-	// if (Util.isEmpty(remoteSchema)) return this.localSchema
+Sif.getSchema = async function () {
+	let remoteSchema = await this.getRemoteSchema()
+	if (Util.isEmpty(remoteSchema)) return this.localSchema
 	return this.localSchema
 }
 

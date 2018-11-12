@@ -8,21 +8,29 @@ class Ball {
         this.mass = this.radius * 1
         this.width = ctx.canvas.width
         this.height = ctx.canvas.height
-        this.location = new Vector(x, 30)
+        this.location = new Vector(x, y)
         this.speed = new Vector(0, 0)
         this.acceleration = new Vector(0, 0)
-        this.wind = new Vector(0.5, 0)
-        this.gravity = new Vector(0, 1)
+        this.wind = new Vector(1, 0)
+        this.gravity = new Vector(0, 1 * this.mass)
+        this.u = 0.004
+
     }
 
     update() {
-       this.display()
-       this.applyForce(this.wind)
-       this.applyForce(this.gravity)
-       this.speed.add(this.acceleration)
-       this.location.add(this.speed)
+        this.display()
+        // 空气阻力
+        let friction = new Vector(this.speed.x, this.speed.y)
+        friction.normalize()
+        friction.mult( -1* this.u)
+        // 空气阻力
+        this.applyForce(friction)
+        this.applyForce(this.wind)
+        this.applyForce(this.gravity)
+        this.speed.add(this.acceleration)
+        this.location.add(this.speed)
     }
-
+    // 绘制函数
     display() {
         let ctx = this.ctx
         ctx.beginPath()
@@ -55,7 +63,5 @@ class Ball {
         }
     }
 }
-
-// 感受是也没啥大区别
 
 export default Ball

@@ -109,5 +109,43 @@ function swap(nums, a, b) {
     nums[b] = tmp
 }
 
-rotate([1,2,3,4,5,6,7], 3)
+// rotate([1,2,3,4,5,6,7], 3)
 
+/** 
+ * 给定一个整数数组，判断是否存在重复元素。
+ * 如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。
+ * 输入: [1,2,3,1]
+ * 输出: true
+ * 输入: [1,2,3,4]
+ * 输出: false
+*/
+
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+// 做人过于依赖set了
+// 88 ms
+var containsDuplicate = function(nums) {
+    let set = new Set(nums)
+    return set.size === nums.length
+};
+// 96 ms
+var containsDuplicate1 = function(nums) {
+    let map = {}
+    return nums.some((item) => {
+        if (map[item]) return true
+        map[item] = true
+    })
+}; 
+// 92ms 额，我的妈，Set效率这么高的么
+var containsDuplicate2 = function(nums) {
+    let map = {}
+    for (let i = 0, len = nums.length; i < len; i++) {
+        if (map[nums[i]]) return true
+        map[nums[i]] = true
+    }
+    return false
+};
+
+// console.log(containsDuplicate2([1,2,3,1]))

@@ -4,7 +4,6 @@
  * 使用 requestIdCallback 检测空闲时间
  */
 
-
 class Bragi {
 	constructor() {
 		this.taskList = []
@@ -15,11 +14,9 @@ class Bragi {
 	doTask(deadline) {
 		while ((deadline.timeRemaining() > 0 || deadline.didTimeout) && this.taskList.length > 0) {
 			let task = this.taskList.pop()
-			console.log('doTask', task)
 			if (task) task()
 		}
 		if (this.callbackId) {
-			console.log(this.callbackId)
 			window.cancelIdleCallback(this.callbackId)
 			this.callbackId = null
 		}
@@ -50,7 +47,7 @@ class Bragi {
 
 		window.cancelIdleCallback = window.cancelIdleCallback ||
 			  function (id) {
-				clearTimeout(id);
+				clearTimeout(id)
 		}
 	}
 }

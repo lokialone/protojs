@@ -1,4 +1,4 @@
-const RemoteSchemaApi = 'http://monitor-server-dev.dasouche-inc.net/api/schemas/project?projectName='
+const RemoteSchemaApi = 'https://monitor-server-dev.dasouche-inc.net/api/schemas/project?projectName='
 
 const ENV = {
     DEV: 'development',

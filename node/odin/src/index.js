@@ -1,5 +1,5 @@
-import Sif from './validate'
-import Thor from './perfomance'
+import Sif from './validate/validate'
+import Thor from './perfomance/perfomance'
 
 const Odin = {}
 

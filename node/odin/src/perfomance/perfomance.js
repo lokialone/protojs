@@ -1,7 +1,7 @@
 
 import idx from 'idx'
 import Vue from 'vue'
-import Bragi from './report.js'
+import Bragi from '../util/report.js'
 
 const Thor = {}
 let startTime = ''

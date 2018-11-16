@@ -1,5 +1,5 @@
 
-import ValidateError from '../util/error'
+import ValidateError from './error'
 
 const numberRules = {
 	$max: function(schema, data, key) {

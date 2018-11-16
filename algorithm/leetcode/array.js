@@ -128,7 +128,7 @@ function swap(nums, a, b) {
 // 88 ms
 var containsDuplicate = function(nums) {
     let set = new Set(nums)
-    return set.size === nums.length
+    return set.size !== nums.length
 };
 // 96 ms
 var containsDuplicate1 = function(nums) {
@@ -149,3 +149,85 @@ var containsDuplicate2 = function(nums) {
 };
 
 // console.log(containsDuplicate2([1,2,3,1]))
+
+/** 
+ * 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+ * 说明：
+ * 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
+ * 输入: [2,2,1]
+ * 输出: 1
+ * 输入: [4,1,2,1,2]
+ * 输出: 4
+*/
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var singleNumber = function(nums) {
+    let map = {}
+    nums.forEach(item => {
+        map[item] ?  map[item] = 2 : map[item] = 1    
+    })
+    return +Object.keys(map).find(item => map[item] === 1)
+};
+/*
+* 相同的数字异或为0，这个题目感觉有点刻意。不太具备普遍规律
+*/
+
+var singleNumber1 = function(nums) {
+   return nums.reduce((a, i) => a^i)
+};
+
+// console.log(singleNumber1([2,2,1,1,3]));
+
+/**
+ * 给定两个数组，编写一个函数来计算它们的交集。
+ * 示例 1:
+ * 输入: nums1 = [1,2,2,1], nums2 = [2,2]
+ * 输出: [2,2]
+ * 示例 2:
+ * 输入: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+ * 输出: [4,9]
+ * 说明：
+ * 输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。
+ * 我们可以不考虑输出结果的顺序。
+ * 进阶:
+ * 如果给定的数组已经排好序呢？你将如何优化你的算法?
+ * 如果 nums1 的大小比 nums2 小很多，哪种方法更优？
+ * 如果 nums2 的元素存储在磁盘上，磁盘内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
+*/
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ * 遍历nums1,如果nums2有相同的元素,将其值赋为false, 
+ */
+var intersect = function(nums1, nums2) {
+    return nums1.reduce((a, i) => {
+        let index = nums2.indexOf(i)
+        if (index !== -1) {
+            nums2[index] = false
+            return a.concat(i)
+        }
+        return a
+    }, [])
+}
+
+// 首先将nums1里有的数据遍历到一个对象里，然后遍历nums2 如果
+var intersect1 = function(nums1, nums2) {
+    let res = [], set = {}
+    nums1.forEach(e => {
+        set[e] = set[e] + 1 || 1
+    })
+    nums2.forEach(e => {
+        if (set[e]) {
+            res.push(e)
+            set[e] -= 1
+        }
+    })
+    return res
+}
+
+console.log(intersect1([3,1,2], [1,1]))

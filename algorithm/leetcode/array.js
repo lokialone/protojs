@@ -230,4 +230,256 @@ var intersect1 = function(nums1, nums2) {
     return res
 }
 
-console.log(intersect1([3,1,2], [1,1]))
+// console.log(intersect1([3,1,2], [1,1]))
+
+/** 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
+ *
+ * 最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。
+ * 你可以假设除了整数 0 之外，这个整数不会以零开头。
+ * 示例 1:
+ * 输入: [1,2,3]
+ * 输出: [1,2,4]
+ * 解释: 输入数组表示数字 123。
+ * 示例 2:
+ * 输入: [4,3,2,1]
+ * 输出: [4,3,2,2]
+ * 解释: 输入数组表示数字 4321。
+ * 实例3：
+ * 输入： [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]
+ * 输出： [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,4]
+*/
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+
+//原来以为是个傻逼问题，但仔细一想类似大数想加问题
+var plusOne = function(digits) {
+    let n = digits.length - 1
+    while ((digits[n] = digits[n] + 1) && digits[n] >= 10)  {
+        digits[n] = 0
+        if (n === 0) {
+            digits.unshift(1)
+            break
+        }
+        n --
+    }
+    return digits
+};
+// console.log(plusOne([6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]))
+
+/**给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+ * 输入: [0,1,0,3,12]
+ * 输出: [1,3,12,0,0]
+ * /
+ /**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+    let notZero = 0;
+    nums.forEach((v) => {
+        if (v !== 0) {
+            nums[notZero++] = v
+        }
+    })
+    nums.fill(0, notZero)
+};
+
+// moveZeroes([0,1])
+
+
+/** 
+ * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的 两个整数。
+ * 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
+ * 给定 nums = [2, 7, 11, 15], target = 9
+ * 因为 nums[0] + nums[1] = 2 + 7 = 9
+ * 所以返回 [0, 1]
+ * 
+*/
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    for(let i = 0, len =  nums.length; i < len - 1; i++) {
+        for(let j = i + 1; j < len;j++) {
+            if (nums[i] + nums[j] === target) {
+                return [i, j]
+            }
+        }
+    }
+};
+// 使用对象存储， 需要的值为key, index 为value
+var twoSum1 = function(nums, target) {
+    let store = {}
+    for(let i = 0, len = nums.length; i < len; i++) {
+        let v = nums[i]
+        if (store[v] !== undefined) return [store[v],i]
+        store[target -v] = i
+    }
+    console.log(store)
+};
+
+// console.log(twoSum1([2, 7, 11, 15], 9))
+
+
+/**判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
+ * 数字 1-9 在每一行只能出现一次
+ * 数字 1-9 在每一列只能出现一次
+ * 数字 1-9 在每一个以粗实线分隔的 3x3宫内只能出现一次
+ * 数独部分空格内已填入了数字，空白格用 '.' 表示
+ * 输入:
+[
+  ["5","3",".",".","7",".",".",".","."],
+  ["6",".",".","1","9","5",".",".","."],
+  [".","9","8",".",".",".",".","6","."],
+  ["8",".",".",".","6",".",".",".","3"],
+  ["4",".",".","8",".","3",".",".","1"],
+  ["7",".",".",".","2",".",".",".","6"],
+  [".","6",".",".",".",".","2","8","."],
+  [".",".",".","4","1","9",".",".","5"],
+  [".",".",".",".","8",".",".","7","9"]
+]
+输出: true
+输入:
+[
+  ["8","3",".",".","7",".",".",".","."],
+  ["6",".",".","1","9","5",".",".","."],
+  [".","9","8",".",".",".",".","6","."],
+  ["8",".",".",".","6",".",".",".","3"],
+  ["4",".",".","8",".","3",".",".","1"],
+  ["7",".",".",".","2",".",".",".","6"],
+  [".","6",".",".",".",".","2","8","."],
+  [".",".",".","4","1","9",".",".","5"],
+  [".",".",".",".","8",".",".","7","9"]
+]
+输出: false
+ */
+
+ /**
+ * @param {character[][]} board
+ * @return {boolean}
+ */
+var isValidSudoku = function(board) {
+    // 检查列
+    let column = {}
+    // 检查3*3
+    let box = {}
+    
+    for (let i = 0; i < 9; i++) {
+        // 检查行
+        let row = {} 
+        let boxIndex = Math.floor(i / 3)
+        if (!box[boxIndex]) box[boxIndex] = {}
+        for (let j = 0; j < 9; j++) {
+            let v = board[i][j]
+            let boxIndexJ = Math.floor(j / 3)
+            if (v === '.') continue
+
+            
+            if (row[v]) return false
+            if (column[j] && column[j][v]) return false
+            if (box[boxIndex][boxIndexJ] && box[boxIndex][boxIndexJ][v]) return false
+            row[v] = 1
+            if (!column[j]) column[j] = {}
+            column[j][v] = 1
+            if (!box[boxIndex][boxIndexJ]) box[boxIndex][boxIndexJ] = {}
+            box[boxIndex][boxIndexJ][v] = 1
+        }
+        
+    }
+    return true
+};
+
+// console.log(isValidSudoku([
+//     ["8","3",".",".","7",".",".",".","."],
+//     ["6",".",".","1","9","5",".",".","."],
+//     [".","9","8",".",".",".",".","6","."],
+//     ["8",".",".",".","6",".",".",".","3"],
+//     ["4",".",".","8",".","3",".",".","1"],
+//     ["7",".",".",".","2",".",".",".","6"],
+//     [".","6",".",".",".",".","2","8","."],
+//     [".",".",".","4","1","9",".",".","5"],
+//     [".",".",".",".","8",".",".","7","9"]]))
+// console.log(isValidSudoku([
+//     ["5","3",".",".","7",".",".",".","."],
+//   ["6",".",".","1","9","5",".",".","."],
+//   [".","9","8",".",".",".",".","6","."],
+//   ["8",".",".",".","6",".",".",".","3"],
+//   ["4",".",".","8",".","3",".",".","1"],
+//   ["7",".",".",".","2",".",".",".","6"],
+//   [".","6",".",".",".",".","2","8","."],
+//   [".",".",".","4","1","9",".",".","5"],
+//   [".",".",".",".","8",".",".","7","9"]
+// ]))
+// https://blog.csdn.net/biezhihua/article/details/79648015
+var isValidSudoku1 = function(board) {
+    var set ={};
+    for(var i=1;i<=9;i++) set[i]=[];
+    
+    for(var i=0;i<9;i++){
+        for(var j=0;j<9;j++){
+            var s=board[i][j];
+            if(Number(s)){
+                var index = parseInt(i/3)*3+parseInt(j/3);
+                for(var k=0;k<set[s].length;k++){
+                    if(i==set[s][k][0]||j==set[s][k][1]||index==set[s][k][2])
+                        return false;
+                }
+                set[s].push([i,j,index]);
+            }
+        }
+    }
+    return true;
+};
+
+/** 给定一个 n × n 的二维矩阵表示一个图像。
+ * 将图像顺时针旋转 90 度。
+ * 说明：
+ * 你必须在原地旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要使用另一个矩阵来旋转图像。
+ * 示例 1:
+ * 给定 matrix =
+ * [
+ *  [1,2,3],
+ *  [4,5,6],
+ * [7,8,9]
+ * ],
+ * 原地旋转输入矩阵，使其变为:
+ * [
+ *  [7,4,1],
+ * [8,5,2],
+ * [9,6,3]
+ * ]
+ * 给定 matrix =
+ * [
+ *  [ 5, 1, 9,11],
+ *  [ 2, 4, 8,10],
+ *  [13, 3, 6, 7],
+ *  [15,14,12,16]
+ * ], 
+ * 原地旋转输入矩阵，使其变为:
+ * [
+ *  [15,13, 2, 5],
+ *  [14, 3, 4, 1],
+ *  [12, 6, 8, 9],
+ *  [16, 7,10,11]
+ * ]
+ */
+
+ /**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+
+// 解析：http://www.cnblogs.com/chrischennx/p/4009376.html
+var rotate = function(matrix) {
+    
+};
+
+console.log(rotate([
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]))

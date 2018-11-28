@@ -62,7 +62,7 @@ export function isObject(value) {
  * @param {*} value
  */
 export function isEmpty(value) {
-
+	if (typeof value === undefined) return
 	if (value == null) return true
 
 	if (isString(value)) return value === ''

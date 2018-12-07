@@ -12,10 +12,9 @@ class Bragi {
 	}
 
 	doTask(deadline) {
-
 		while ((deadline.timeRemaining() > 0 || deadline.didTimeout) && this.taskList.length > 0) {
 			let task = this.taskList.pop()
-			// console.log('do-task', task)
+			console.log('do-task', task)
 			if (task) task()
 		}
 		if (this.callbackId) {
@@ -26,7 +25,6 @@ class Bragi {
 
 	addTask(item) {
 		this.taskList.push(item)
-		// console.log('add-task', item)
 		if (this.callbackId) return
 		this.callbackId = window.requestIdleCallback((deadline) => this.doTask(deadline))
 	}

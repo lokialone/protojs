@@ -1,26 +1,43 @@
 
 import idx from 'idx'
 import Vue from 'vue'
-import Bragi from '../util/report.js'
+import Bragi from '../util/bragi.js'
+import { ENV, ERROR_TYPE } from '../const'
+import errorCapture from '../util/report'
+import axios from 'axios'
+import store from 'store'
 
 const Thor = {}
 let startTime = ''
 let routeBegintime = Date.now()
-
+// 默认阈值
+const default_threshold = 800
 /**
  * router必填 env Http 选填
  * @param {*} opts
  */
-Thor.init = function (opts){
-	this.env = opts.env || 'dev'
-	this.router = opts.router
-	this.ajaxPerfInfo = []
-	this.http = opts.Http
-	this.perf = window.performance || window.webkitPerformance
-	if (this.perf) startTime = this.perf.timing.fetchStart
 
+
+Thor.init = function (opts){
+	this.env = opts.env || ENV.DEV
+	this.projectName = opts.name
+	this.router = opts.vueRouter
+	this.http = opts.httpRequest
+	this.threshold = store.get('Threshold') || {
+		requestThreshold: default_threshold,
+		loadingThreshold: default_threshold
+	}
+	this.perf = window.performance || window.webkitPerformance
+	if (this.perf) {
+		startTime = this.perf.timing.fetchStart
+		this.ajaxPerfInfo = []
+		if (this.http) this.httpRequestPref()
+	}
+	Bragi.addTask(() => {
+		this.getRemoteThreshold()
+	})
 	this.pageMountPerf()
-	this.ajaxPref()
+
 
 }
 
@@ -41,7 +58,7 @@ Thor.pageMountPerf = function () {
 				startTime = ''
 				console.log('router 跳转-> mount 时间:', Date.now() - routeBegintime, 'ms')
 				Bragi.addTask(() => {
-					that.report({url: window.location.href, stateTime: routeBegintime, endTime: Date.now()})
+					that.report(ERROR_TYPE.PAGE_SLOW_ERROR, {page: window.location.pathname + window.location.hash, loadTime:  Date.now() - routeBegintime, env: that.env})
 				})
 			}
 
@@ -54,61 +71,65 @@ function isPageComponent(vm) {
 }
 
 /**
- * ajax 耗时记录
+ * httpRequest 耗时记录
  */
-Thor.ajaxHttpPref = function () {
+Thor.httpRequestPref = function () {
+	if (!this.perf && !this.http && !this.projectName) return
 	this.http.afterEach((res) => {
 		const url = res.params.url
-		this.ajaxPerfInfo.push(url)
+		const traceId = res.json.traceId
+		this.ajaxPerfInfo.push({url, traceId})
 		Bragi.addTask(() => {
 			this._ajaxPerf()
 		})
 	})
 }
-
-Thor.ajaxPref = function () {
-	if (!this.perf && !this.http) return
-	this.ajaxHttpPref()
-}
-
+/**
+ * axios 耗时记录
+ */
 Thor.axiosPerf = function(res) {
-	if (!this.perf) return
+	if (!this.perf && !this.projectName) return
 	const url = res.config.url
-	this.ajaxPerfInfo.push(url)
+	const traceId = idx(res.data, _ => _.response.traceId)
+	this.ajaxPerfInfo.push({url, traceId})
 	Bragi.addTask(() => {
 		this._ajaxPerf()
 	})
 }
 
 Thor._ajaxPerf = function () {
-	const startTime = this.perf.timeOrigin;
 	const resource = this.perf.getEntries()
-	const url = this.ajaxPerfInfo.pop()
+	const data = this.ajaxPerfInfo.pop()
 	for(let i = resource.length - 1; i > 0; i--) {
-		if(resource[i].name === url) {
-			console.log(url, resource[i].duration)
-			this.report('')
+		if(resource[i].name === data.url) {
+			this.report(ERROR_TYPE.API_SLOW_ERROR, {api: data.url, loadTime: resource[i].duration, env: this.env, traceId: data.traceId})
 			return
 		}
 	}
 }
 
-/**
- * 数据上报
- */
-Thor.report = function(opts) {
-	// TODO
-	console.log('report')
-	if (this.env === 'dev') return
+
+Thor.report = async function(type, data) {
+	const maps ={
+		[ERROR_TYPE.API_SLOW_ERROR]: 'requestThreshold',
+		[ERROR_TYPE.PAGE_SLOW_ERROR]: 'loadingThreshold'
+	}
+	if (data.loadTime < this.threshold[maps[type]]) return
+	errorCapture(type, data)
 }
-
-
-Thor.h5Report = function() {
-//
-}
-
 Thor.AppReport = function () {
 //
+}
+
+/**
+ * 获取线上阈值
+ */
+Thor.getRemoteThreshold = function() {
+	axios.get('http://assets.souche.com/projects/wireless-configuration-online/monitor/dfc-shangjiache-pc/test/performance.json').then((res) => {
+		store.set('Threshold', res.data)
+	}).catch(err => {
+		console.error(err)
+	})
 }
 
 export default Thor

@@ -1,11 +1,13 @@
 import Util from '../util/tool'
 import idx from 'idx'
 import Bragi from '../util/bragi'
-import config from '../config'
+import { ENV, ERROR_TYPE, REMOTE_SCHEMA_API } from '../const'
 import validate from './validate'
 import axios from 'axios'
-import errorCapture from './error-capture'
+import errorCapture from '../util/report'
 import { formatSchema } from './schema'
+import ValidateError from './error'
+import store from 'store'
 
 const Sif = {
 	schema: {},
@@ -23,13 +25,16 @@ Sif.init = function ({ env, name, httpRequest, vueRouter, schema }) {
 	this.projectName = name
 	// for test
 	this.schema = schema
-	this.env = env || config.ENV.DEV
+	this.env = env || ENV.DEV
 	// 兼容httpRequest
 	if (httpRequest) this.validateHttpRequest(httpRequest)
 	// 兼容VueRouter
 	if (vueRouter) this.validateVueRoute(vueRouter)
 	// TODO rn route 校验
 	// if (router) this.validateRoute(router)
+	Bragi.addTask(() => {
+		this.getSchema()
+	})
 }
 
 /**
@@ -42,9 +47,10 @@ Sif.validateVueRoute = function (router) {
 		const params = to.params
 		const query = to.query
 		const data = Object.assign(query, params)
-		if (validate) {
+
+		if (routerSchema) {
 			Bragi.addTask(() => {
-				this._validateRoute({data, routerSchema })
+				this.validateRoute({data, routerSchema, path: to.path})
 			})
 		}
 	})
@@ -53,15 +59,17 @@ Sif.validateVueRoute = function (router) {
  *
  * @param {*} to
  */
-Sif.validateRoute = function ({ data, routerSchema } ) {
+Sif.validateRoute = function ({ data, routerSchema, path } ) {
 	const schema = formatSchema(routerSchema)
 	try {
 		validate(schema, data)
 	} catch (error) {
-		console.error('route 参数不匹配', error)
-		errorCapture({
-			type: 'route',
-			error
+		// console.log(error.message)
+		ValidateError.printError('route 参数不匹配 ' , path , error.message)
+		errorCapture(ERROR_TYPE.API_PARAMS_ERROR, {
+			router: path,
+			env: this.env,
+			error: error.message,
 		})
 	}
 }
@@ -76,7 +84,6 @@ Sif.validateHttpRequest = function (httpRequest) {
 	})
 }
 
-
 Sif.validateAxios = function (res) {
 	const url = res.config.url
 	const params = res.config.params
@@ -85,7 +92,7 @@ Sif.validateAxios = function (res) {
 	})
 }
 
-Sif.validateHttp = async function ( url, params, response) {
+Sif.validateHttp = async function (url, params, response) {
 	// 没有初始化信息，不校验
 	if (!this.projectName) {
 		console.warn('未进行初始化配置， 不进行校验')
@@ -93,10 +100,9 @@ Sif.validateHttp = async function ( url, params, response) {
 	};
 
 	const path = Util.getUrlPath(url)
-	let schema = await this.getSchema()
 
 	// for test
-	schema = this.schema
+	let schema = this.schema
 
 	// 拿不到schema不进行校验
 	if (Util.isEmpty(schema)) {
@@ -111,15 +117,21 @@ Sif.validateHttp = async function ( url, params, response) {
 	try {
 		validate(schema[path].params, params, 'params')
 	} catch (error) {
-		console.error('request params 验证失败', url, error.message)
-		errorCapture({url, code: response.code, type: 'reponse', error})
+		ValidateError.printError('request params 验证失败 ' , url, error.message)
+		errorCapture(ERROR_TYPE.API_PARAMS_ERROR, {
+			api: url,
+			env: this.env,
+			error: error.message,
+		})
 	}
 
-	// response返回失败不做校验
-	// TODO 返回状态异常监控
-	console.log('response', response)
+	//
 	if (!response || !response.success) {
-		errorCapture();
+		errorCapture(ERROR_TYPE.API_STATUS_ERROR, {
+			api: url,
+			env: this.env,
+			status: response.code
+		})
 		return;
 	}
 
@@ -127,8 +139,14 @@ Sif.validateHttp = async function ( url, params, response) {
 	try {
 		validate(schema[path].data, response.data, 'data')
 	} catch (error) {
-		console.error('response data 验证失败' , url, error.message)
-		errorCapture({url, code: response.code, type: 'reponse', error})
+		ValidateError.printError('response data 验证失败 ' , url, error.message)
+		// data =>api, key, value,traceId
+		errorCapture(ERROR_TYPE.API_DATA_ERROR, {
+			api: url,
+			env: this.env,
+			error: error.message,
+			traceId: response.traceId
+		})
 	}
 }
 
@@ -138,22 +156,15 @@ Sif.validateHttp = async function ( url, params, response) {
  * 只执行一次
  */
 
-Sif.getSchema = async function () {
-	// console.log('try get schema', this.remoteSchema)
-	if (this.remoteSchema === '') {
-		this.remoteSchema = await axios.get(config.RemoteSchemaApi + this.projectName)
-		.then((res) => {
-			if (res.data.success) return res.data.data.projectSchema
-			return {}
-		}).catch((error) => {
-			console.error(error, 'fail to get remote schema, validate data with local schema')
-			return {}
-		})
-		// console.log('get schema', this.remoteSchema)
-		return this.remoteSchema
-	} else {
-		return this.remoteSchema
-	}
+Sif.getSchema = function () {
+	axios.get(REMOTE_SCHEMA_API.RemoteSchemaApi + this.projectName)
+	.then((res) => {
+		if (res.data.success) {
+			store.set('Schema', res.data.data.projectSchema)
+		}
+	}).catch((error) => {
+		console.error(error, 'fail to get remote schema, validate data with cache schema')
+	})
 }
 
 

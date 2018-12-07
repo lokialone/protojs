@@ -14,23 +14,29 @@ function isArrayWithItems(schema) {
 	return schema.$type === 'array' && schema.hasOwnProperty('$items')
 }
 
-function validate (schema, data, key) {
+function validate (schema, data, key, isArray = false) {
 	if (!schema || Util.isEmpty(schema)) return
 
-	if (!schema.$required) return
+	// array items schema 中没有$required字段
+	if (!schema.$required && !isArray) return
 
 	if (data === undefined || data === null) {
-		throw new ValidateError(key + ' undefined or null')
+		throw new ValidateError({
+			key,
+			getType: Util.getTypeOf(data),
+			value: data,
+			shouldType: schema.$type
+		})
 	}
 
 	if (schema.$type === Util.getTypeOf(data)) {
 		const basicType = ['string', 'number']
 
 		if (basicType.includes(schema.$type)) {
-			rules(schema.$type, schema, data, key )
+			rules(schema.$type, schema, data, key)
 		}
 		// $type = array
-		if (isArrayWithItems) validate(schema.$items, data[0], key)
+		if (isArrayWithItems) validate(schema.$items, data[0], key, true)
 
 		// $type = object
 		if (schema.$type === 'object') {
@@ -41,7 +47,12 @@ function validate (schema, data, key) {
 			})
 		}
 	} else {
-		throw new ValidateError(key + ' type error; should be ' + schema.$type + ' actual ' + Util.getTypeOf(data))
+		throw new ValidateError({
+			key,
+			getType: Util.getTypeOf(data),
+			value: data,
+			shouldType: schema.$type
+		})
 	}
 }
 

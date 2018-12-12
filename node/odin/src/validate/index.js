@@ -38,7 +38,7 @@ Sif.init = function ({ env, name, httpRequest, vueRouter, schema }) {
 }
 
 /**
- * validate vue-route
+ * vue-route校验
  * @param {*} router
  */
 Sif.validateVueRoute = function (router) {
@@ -56,7 +56,7 @@ Sif.validateVueRoute = function (router) {
 	})
 }
 /**
- *
+ * router校验
  * @param {*} to
  */
 Sif.validateRoute = function ({ data, routerSchema, path } ) {
@@ -73,7 +73,7 @@ Sif.validateRoute = function ({ data, routerSchema, path } ) {
 		})
 	}
 }
-
+// httpRequest校验适配器
 Sif.validateHttpRequest = function (httpRequest) {
 	httpRequest.afterEach((res) => {
 		const url = res.params.url
@@ -83,7 +83,7 @@ Sif.validateHttpRequest = function (httpRequest) {
 		})
 	})
 }
-
+// axios校验适配器
 Sif.validateAxios = function (res) {
 	const url = res.config.url
 	const params = res.config.params
@@ -91,7 +91,7 @@ Sif.validateAxios = function (res) {
 		this.validateHttp(url, params, res.data)
 	})
 }
-
+// 校验http是否合适
 Sif.validateHttp = async function (url, params, response) {
 	// 没有初始化信息，不校验
 	if (!this.projectName) {
@@ -125,12 +125,13 @@ Sif.validateHttp = async function (url, params, response) {
 		})
 	}
 
-	//
+	//接口返回错误
 	if (!response || !response.success) {
+		console.log('response', response)
 		errorCapture(ERROR_TYPE.API_STATUS_ERROR, {
 			api: url,
 			env: this.env,
-			status: response.code
+			status: idx(response, _ => _.code)
 		})
 		return;
 	}
@@ -151,11 +152,9 @@ Sif.validateHttp = async function (url, params, response) {
 }
 
 /**
- * 获取remote schema
- * 同时执行几个validateHttp时还是会请求多次。TODO
+ * 获取服务端schema
  * 只执行一次
  */
-
 Sif.getSchema = function () {
 	axios.get(REMOTE_SCHEMA_API.RemoteSchemaApi + this.projectName)
 	.then((res) => {

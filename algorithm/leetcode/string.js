@@ -60,4 +60,53 @@ var reverse = function(x) {
     return end ? res * -1 : res
 };
 
-console.log(reverse(120))
+// console.log(reverse(120))
+
+/**
+* 给定一个字符串，找到它的第一个不重复的字符，并返回它的索引
+*。如果不存在，则返回 -1。
+* s = "leetcode"
+* 返回 0.
+* s = "loveleetcode",
+* 返回 2.
+*/
+// 注意事项：您可以假定该字符串只包含小写字母。
+
+/**
+ * @param {string} s
+ * @return {number}
+ * 
+ */
+var firstUniqChar = function(s) {
+    if (!s) return -1
+    let set = {}
+    for (let i=0 ,len = s.length; i< len; i++) {
+        let v = s[i]
+        if (set[v]) {
+            set[v] += 1
+        } else {
+            set[v] = 1
+        }
+    }
+    for (let i=0 ,len = s.length; i< len; i++) {
+        let v = s[i]
+        if (set[v] === 1) return i;
+    }
+    return -1
+};
+var firstUniqChar1 = function(s) {
+    let firstUniqChar = s.length
+    let alpha = 'abcdefghijklmnopqrstuvwxyz'
+    for (let i=0 ,len = alpha.length; i< len; i++) {
+        let v = alpha[i]
+        let index = s.indexOf(v)
+        if(index !== -1 && index === s.lastIndexOf(v)) {
+            if (firstUniqChar > index) firstUniqChar = index
+        }
+    }
+    return firstUniqChar == s.length ? -1 : firstUniqChar
+};
+
+
+console.log(firstUniqChar1("loveleetcode"))
+

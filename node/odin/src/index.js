@@ -16,7 +16,7 @@ Odin.init = function (opts) {
  * @export
  * @param {*} res axios 返回数据
  */
-export function axiosValidateHelper(res) {
+export function axiosHelper(res) {
 	Thor.axiosPerf(res)
 	Sif.validateAxios(res)
 }

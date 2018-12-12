@@ -2,6 +2,13 @@ import Raven from 'raven-js'
 import idx from 'idx'
 import Bragi from './bragi'
 import { ERROR_TYPE, ENV } from '../const'
+let archerUpload = ''
+
+try {
+	const archerTool = require('@souche-f2e/archer-tools')
+	archerUpload = archerTool.upload
+} catch (error) {
+}
 
 let currentEnv = ''
 function report (type, data) {
@@ -72,23 +79,34 @@ function reportApiParamsError(data) {
 	let key = idx(data.error, _ => _.key)
 	let value = idx(data.error, _ => _.value)
 
-	Raven
-	.setExtraContext({
-		api: data.api,
-		key: key,
-		value: value,
-		recordId: data.recordId
-	})
-	.captureException('BusinessAPIRequestParamsError', {
-		logger: 'javascript',
-		level: 'ERROR',
-		fingerprint: [
-			'{{ default }}', `params-${data.api}-${key}-${value}`
-		],
-		tags: {
-			monitor: 'request'
-		}
-	})
+	function raven(data) {
+		Raven
+			.setExtraContext({
+				api: data.api,
+				key: key,
+				value: value,
+				recordId: data.recordId
+			})
+			.captureException('BusinessAPIRequestParamsError', {
+				logger: 'javascript',
+				level: 'ERROR',
+				fingerprint: [
+					'{{ default }}', `params-${data.api}-${key}-${value}`
+				],
+				tags: {
+					monitor: 'request'
+				}
+			})
+	}
+
+	if (archerUpload) {
+		archerUpload().then(res => {
+			data.recordId = res.recordID
+			raven(data)
+		})
+	} else {
+		raven(data)
+	}
 }
 
 /**

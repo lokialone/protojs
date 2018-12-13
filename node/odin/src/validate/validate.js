@@ -14,7 +14,7 @@ function isArrayWithItems(schema) {
 	return schema.$type === 'array' && schema.hasOwnProperty('$items')
 }
 
-function validate (schema, data, key, isArray = false) {
+export function validate (schema, data, key, isArray = false) {
 	if (!schema || Util.isEmpty(schema)) return
 
 	// array items schema 中没有$required字段
@@ -56,7 +56,7 @@ function validate (schema, data, key, isArray = false) {
 	}
 }
 
-export default validate
+// export default validate
 
 
 

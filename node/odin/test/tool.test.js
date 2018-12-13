@@ -1,4 +1,4 @@
-import Util from '../src/util'
+import Util from '../src/util/tool.js'
 
 test('getTypeof', () => {
 	const data = {}

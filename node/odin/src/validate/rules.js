@@ -1,6 +1,9 @@
 
 import ValidateError from './error'
 
+/**
+ * number string 的额外校验规则。
+ */
 const numberRules = {
 	$max: function(schema, data, key) {
 		if (parseFloat(data) > parseFloat(schema.$max)) {

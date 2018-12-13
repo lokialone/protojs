@@ -9,6 +9,8 @@ import { formatSchema } from './schema'
 import ValidateError from './error'
 import store from 'store'
 
+const currentStore ='_SOUCHE_SCHEMA'
+
 const Sif = {
 	schema: {},
 	env: '',
@@ -21,10 +23,10 @@ const Sif = {
  *  @param {*} param name
  *
  */
-Sif.init = function ({ env, name, httpRequest, vueRouter, schema }) {
+Sif.init = function ({ env, name, httpRequest, vueRouter}) {
 	this.projectName = name
-	// for test
-	this.schema = schema
+	this.storeName = name + currentStore
+	this.schema = store.get(this.storeName) || {}
 	this.env = env || ENV.DEV
 	// 兼容httpRequest
 	if (httpRequest) this.validateHttpRequest(httpRequest)
@@ -64,7 +66,6 @@ Sif.validateRoute = function ({ data, routerSchema, path } ) {
 	try {
 		validate(schema, data)
 	} catch (error) {
-		// console.log(error.message)
 		ValidateError.printError('route 参数不匹配 ' , path , error.message)
 		errorCapture(ERROR_TYPE.API_PARAMS_ERROR, {
 			router: path,
@@ -91,7 +92,7 @@ Sif.validateAxios = function (res) {
 		this.validateHttp(url, params, res.data)
 	})
 }
-// 校验http是否合适
+// 校验http是否正确
 Sif.validateHttp = async function (url, params, response) {
 	// 没有初始化信息，不校验
 	if (!this.projectName) {
@@ -101,7 +102,6 @@ Sif.validateHttp = async function (url, params, response) {
 
 	const path = Util.getUrlPath(url)
 
-	// for test
 	let schema = this.schema
 
 	// 拿不到schema不进行校验
@@ -159,7 +159,7 @@ Sif.getSchema = function () {
 	axios.get(REMOTE_SCHEMA_API.RemoteSchemaApi + this.projectName)
 	.then((res) => {
 		if (res.data.success) {
-			store.set('Schema', res.data.data.projectSchema)
+			store.set(this.storeName, res.data.data.projectSchema)
 		}
 	}).catch((error) => {
 		console.error(error, 'fail to get remote schema, validate data with cache schema')

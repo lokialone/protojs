@@ -22,8 +22,6 @@
   "dependencies": {
     "axios": "^0.18.0",
     "idx": "^2.4.0",
-    "js2flowchart": "^1.1.7",
-    "lodash": "^4.17.10",
     "store": "^2.0.12"
   },
   "engines": {
@@ -41,7 +39,6 @@
   },
   "peerDependencies": {
     "raven": "^2.6.3",
-    "raven-js": "^3.26.4",
-    "@souche-f2e/http-request": "^4.0.4"
+    "raven-js": "^3.26.4"
   }
 }

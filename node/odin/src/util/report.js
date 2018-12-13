@@ -101,7 +101,7 @@ function reportApiParamsError(data) {
 
 	if (archerUpload) {
 		archerUpload().then(res => {
-			data.recordId = res.recordID
+			data.recordId = res.recordID || ''
 			raven(data)
 		})
 	} else {
@@ -118,23 +118,34 @@ function reportRouteParamsError(data) {
 	let key = idx(data.error, _ => _.key)
 	let value = idx(data.error, _ => _.value)
 
-	Raven
-	.setExtraContext({
-		router: data.router,
-		key: key,
-		value: value,
-		recordId: data.recordId
-	})
-	.captureException('BusinessAPIRequestParamsError', {
-		logger: 'javascript',
-		level: 'ERROR',
-		fingerprint: [
-			'{{ default }}', `router-${data.router}-${key}-${value}`
-		],
-		tags: {
-			monitor: 'router'
-		}
-	})
+	function raven () {
+		Raven
+		.setExtraContext({
+			router: data.router,
+			key: key,
+			value: value,
+			recordId: data.recordId
+		})
+		.captureException('BusinessAPIRequestParamsError', {
+			logger: 'javascript',
+			level: 'ERROR',
+			fingerprint: [
+				'{{ default }}', `router-${data.router}-${key}-${value}`
+			],
+			tags: {
+				monitor: 'router'
+			}
+		})
+	}
+
+	if (archerUpload) {
+		archerUpload().then(res => {
+			data.recordId = res.recordID || ''
+			raven(data)
+		})
+	} else {
+		raven(data)
+	}
 }
 
 /**

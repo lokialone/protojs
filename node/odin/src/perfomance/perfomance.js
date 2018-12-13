@@ -12,6 +12,7 @@ let startTime = ''
 let routeBegintime = Date.now()
 // 默认阈值
 const default_threshold = 800
+const currentStore ='_SOUCHE_PERFORMANCE'
 /**
  * router必填 env Http 选填
  * @param {*} opts
@@ -23,7 +24,8 @@ Thor.init = function (opts){
 	this.projectName = opts.name
 	this.router = opts.vueRouter
 	this.http = opts.httpRequest
-	this.threshold = store.get('Threshold') || {
+	this.storeName = this.projectName + currentStore
+	this.threshold = store.get(this.storeName) || {
 		requestThreshold: default_threshold,
 		loadingThreshold: default_threshold
 	}
@@ -117,16 +119,12 @@ Thor.report = async function(type, data) {
 	if (data.loadTime < this.threshold[maps[type]]) return
 	errorCapture(type, data)
 }
-Thor.AppReport = function () {
-//
-}
-
 /**
  * 获取线上阈值
  */
 Thor.getRemoteThreshold = function() {
 	axios.get('http://assets.souche.com/projects/wireless-configuration-online/monitor/dfc-shangjiache-pc/test/performance.json').then((res) => {
-		store.set('Threshold', res.data)
+		store.set(this.storeName, res.data)
 	}).catch(err => {
 		console.error(err)
 	})

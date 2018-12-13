@@ -1,6 +1,6 @@
-import Sif from '../src/validate'
+import { validate } from '../src/validate/validate.js'
 
-import { getTypeOf } from '../src/util';
+import { getTypeOf } from '../src/util/tool.js'
 
 /**
  * 校验custom Eorrr name 是否正确
@@ -11,9 +11,9 @@ import { getTypeOf } from '../src/util';
  * @param {*} data
  * @param {string}
  */
-function validateErrorTool(fn, schema, data, key = 'data') {
+function validateErrorTool(schema, data, key = 'data') {
 	try {
-		fn.call(Sif, schema, data, key)
+		validate(schema, data, key)
 	} catch (error) {
 		expect(error.name).toBe('ValidateError')
 		return
@@ -25,74 +25,70 @@ describe('validateString', () => {
 	describe('validateString $enum', () => {
 		const schema = {
 			$type: 'string',
+			$required: true,
 			$enum: ['1', '2', '3', '4']
 		}
 
 		test('when get a true value', () => {
 			const data = '1'
-			Sif.validate(schema, data, 'data')
+			validate(schema, data, 'data')
 		})
 
 		test('when get a false value', () => {
 			const data = '0'
-			validateErrorTool(Sif.validate, schema, data)
+			validateErrorTool(schema, data)
 		})
 	})
 
 	describe('validateString $pattern', () => {
 		const schema = {
 			$type: 'string',
+			$required: true,
 			$pattern: '^[A-Za-z\s]+$'
 		}
 
 		test('when get a true value', () => {
 			const data = 'helloworld'
-			Sif.validate(schema, data, 'data')
+			validate(schema, data, 'data')
 		})
 
 		test('when get a false value', () => {
 			const data = 'hello world11'
-			validateErrorTool(Sif.validate, schema, data)
+			validateErrorTool(schema, data)
 		})
 	})
 })
 
 describe('validateNumber', () => {
+	const schema = {
+		$type: 'number',
+		$required: true,
+		$max: 99
+	}
+
 	test('validateNumber $max', () => {
-		const schema = {
-			$type: 'number',
-			$max: 99
-		}
 		const data = 98
-		Sif.validate(schema, data, 'data')
+		validate(schema, data, 'data')
 	})
 
 	test('validateNumber $max ValidateError', () => {
-		const schema = {
-			$type: 'number',
-			$max: 1000.30
-		}
 		const data = 1000.60
-		validateErrorTool(Sif.validate, schema, data)
+		validateErrorTool(schema, data)
 	})
 
-
+	const schema1 = {
+		$type: 'number',
+		$required: true,
+		$min: 2000
+	}
 	test('validateNumber $min', () => {
-		const schema = {
-			$type: 'number',
-			$min: 2000
-		}
 		const data = 10000
-		Sif.validate(schema, data, 'data')
+		validate(schema1, data, 'data')
 	})
 
 	test('validateNumber $min ValidateError', () => {
-		const schema = {
-			$type: 'number',
-			$min: 1000
-		}
 		const data = 99
-		validateErrorTool(Sif.validate, schema, data)
+		validateErrorTool(schema1, data)
 	})
 })
 
@@ -113,7 +109,7 @@ describe('validate random type', () => {
 
 		test('when get a boolean', () => {
 			const data = false
-			Sif.validate(schema, data, 'data')
+			validate(schema, data, 'data')
 		})
 
 		const exceptionArr = [arrayArr[0],
@@ -123,7 +119,7 @@ describe('validate random type', () => {
 		exceptionArr.forEach((ele) => {
 			test(`when get a ${getTypeOf(ele)}:${ele}`, () => {
 				const data = ele
-				validateErrorTool(Sif.validate, schema, data)
+				validateErrorTool(schema, data)
 			})
 		})
 	})
@@ -136,7 +132,7 @@ describe('validate random type', () => {
 
 		test('when get a string', () => {
 			const data = 'loki'
-			Sif.validate(schema, data, 'data')
+			validate(schema, data, 'data')
 		})
 
 		const exceptionArr = [arrayArr[0], booleanArr[0], nullArr[0], numberArr[0], objectArr[0],
@@ -146,7 +142,7 @@ describe('validate random type', () => {
 		exceptionArr.forEach((ele) => {
 			test(`when get a ${getTypeOf(ele)}`, () => {
 				const data = ele
-				validateErrorTool(Sif.validate, schema, data)
+				validateErrorTool(schema, data)
 			})
 		})
 	})
@@ -175,7 +171,7 @@ describe('validate random type', () => {
 				world: 122,
 				flag: true
 			}
-			Sif.validate(schema, data, 'data')
+			validate(schema, data, 'data')
 		})
 
 		const exceptionArr = [arrayArr[0], booleanArr[0], nullArr[0], numberArr[0],
@@ -185,7 +181,7 @@ describe('validate random type', () => {
 		exceptionArr.forEach((ele) => {
 			test(`when get a ${getTypeOf(ele)}`, () => {
 				const data = ele
-				validateErrorTool(Sif.validate, schema, data)
+				validateErrorTool(schema, data)
 			})
 		})
 
@@ -195,7 +191,7 @@ describe('validate random type', () => {
 				world: 122,
 				flag: true
 			}
-			validateErrorTool(Sif.validate, schema, data)
+			validateErrorTool(schema, data)
 		})
 	})
 
@@ -203,82 +199,19 @@ describe('validate random type', () => {
 		const schema = {
 			$type: 'array',
 			$required: true,
-			items: {
-				$type: 'string',
-				$required: true
+			$items: {
+				$type: 'string'
 			}
 		}
 
 		test('when get a true value', () => {
 			const data = ['2', '1', '3']
-			Sif.validate(schema, data, 'data')
+			validate(schema, data)
 		})
 
-		test('validate type array  ValidateError', () => {
-			const schema = {
-				$type: 'array',
-				$required: true,
-				items: {
-					$type: 'string',
-					$required: true
-				}
-			}
-			const data = [2, '1', '3']
-			validateErrorTool(Sif.validate, schema, data)
+		test('validate type array ValidateError', () => {
+			const data = [2]
+			validateErrorTool(schema, data)
 		})
-	})
-})
-
-describe('format Schema', () => {
-	test('format Schema string', () => {
-		const params = {
-			hello: 'string'
-		}
-
-		const data = Sif.formatSchema(params)
-		const want = {
-			$type: 'object',
-			$required: true,
-			hello: {
-				$type: 'string',
-				$required: true
-			}
-		}
-		expect(data).toEqual(want)
-	})
-
-	test('format Schema object', () => {
-		const params = {
-			hello: 'object'
-		}
-
-		const data = Sif.formatSchema(params)
-		const want = {
-			$type: 'object',
-			$required: true,
-			hello: {
-				$type: 'object',
-				$required: true
-			}
-		}
-		expect(data).toEqual(want)
-	})
-
-	test('format Schema string enum', () => {
-		const params = {
-			hello: ['1', '2', '3']
-		}
-
-		const data = Sif.formatSchema(params)
-		const want = {
-			$type: 'object',
-			$required: true,
-			hello: {
-				$type: 'string',
-				$required: true,
-				$enum: ['1', '2', '3']
-			}
-		}
-		expect(data).toEqual(want)
 	})
 })

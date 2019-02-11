@@ -144,4 +144,73 @@ var isAnagram1 = function(s, t) {
     }
     return s==t? true:false;
 };
-console.log(isAnagram1("anagram", "nagaram"))
+// console.log(isAnagram1("anagram", "nagaram"))    
+
+/**验证字符串是否是回文
+ * @param {string} s
+ * @return {boolean}
+ */
+
+
+// var isNumberOrAlphabet = function s()
+var isPalindrome = function(s) {
+    s = s.toLowerCase()
+    let regexp = /^[a-z0-9]+$/
+    let i = 0, j = s.length - 1
+    while(i < j) {
+        let start = s[i]
+        let end = s[j]
+        while(!start.match(regexp) && i < j) {
+            start = s[++i]
+        }
+        while(!end.match(regexp) && i < j) {
+            end = s[--j]
+        }
+        console.log(start, end)
+        if (start !== end) return false
+        i++;
+        j--;
+    }
+    return true;
+};
+
+var isPalindrome1 = function(s) {
+    let str = s.replace(new RegExp('[^a-zA-Z0-9]', "g"), "").toLowerCase();
+    let i = 0, j = str.length - 1;
+    while (i < j) {
+        if (str[i] !== str[j]) return false
+        i++
+        j--
+    }
+    return true
+}
+
+
+// console.log(isPalindrome1(".,"))
+
+
+// 输入: "4193 with words"
+// 输出: 4193
+// 解释: 转换截止于数字 '3' ，因为它的下一个字符不为数字。
+// 输入: "words and 987"
+// 输出: 0
+// 解释: 第一个非空字符是 'w', 但它不是数字或正、负号。
+//      因此无法执行有效的转换。
+/**
+ * @param {string} str
+ * @return {number}
+ */
+var myAtoi = function(str) {
+    // str = str.replace(/(^\s*)/, '')
+    str = str.trim()
+    let regex = /^[+|-]?(\d+)/
+    let reg = str.match(regex)
+    if (str === '-' || str === '+' || !reg) return 0
+    let num = parseInt(reg[0])
+    let max = Math.pow(2, 31)
+    let min = max * -1 + 1
+    return Math.min(Math.max(min, num), max)
+};
+
+// console.log(myAtoi("    word -42"));
+

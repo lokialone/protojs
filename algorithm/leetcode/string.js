@@ -211,6 +211,19 @@ var myAtoi = function(str) {
     let min = max * -1 + 1
     return Math.min(Math.max(min, num), max)
 };
-
 // console.log(myAtoi("    word -42"));
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function(haystack, needle) {
+    if (needle === '') return 0
+    return haystack.search(needle) 
+};
+console.log(strStr('hello', 'll'))
+console.log(strStr('aaaaa', 'baa'))
+
+
 

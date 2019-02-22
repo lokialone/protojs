@@ -222,8 +222,55 @@ var strStr = function(haystack, needle) {
     if (needle === '') return 0
     return haystack.search(needle) 
 };
-console.log(strStr('hello', 'll'))
-console.log(strStr('aaaaa', 'baa'))
+// console.log(strStr('hello', 'll'))
+// console.log(strStr('aaaaa', 'baa'))
+
+
+/**
+ * @param {string[]} strs
+ * @return {string}
+ */
+var longestCommonPrefix = function(strs) {
+    let i = 1;
+    let common = strs[0] || '';
+    while (i < strs.length && common !== '') {
+        let len = strs[i].length < common.length ? strs[i].length : common.length;
+        let tmp = ''
+        for (let x = 0; x < len; x++) {
+            if (strs[i][x] !== common[x]) {
+                break;
+            } else {
+                tmp += common[x];
+            };
+        }
+        common = tmp;
+        i++;
+    }
+    return common;
+};
+// self 想用字典树的方式来做
+var longestCommonPrefix1 = function(strs) {
+    let i = 1;
+    let common = strs[0] || '';
+    while (i < strs.length && common !== '') {
+        let len = strs[i].length < common.length ? strs[i].length : common.length;
+        let tmp = ''
+        for (let x = 0; x < len; x++) {
+            if (strs[i][x] !== common[x]) {
+                break;
+            } else {
+                tmp += common[x];
+            };
+        }
+        common = tmp;
+        i++;
+    }
+    return common;
+};
+// console.log(longestCommonPrefix(["flower","flow","flight"]))
+// console.log(longestCommonPrefix(["dog","racecar","car"]))
+console.log(longestCommonPrefix([]))
+
 
 
 

@@ -16,8 +16,8 @@ let arr = [
 class trieNode {
 	constructor(v) {
 		this.value = v
-		this.end = false
-		this.time = 1
+		// this.end = false
+		this.time = 0
 	}
 }
 class Trie {
@@ -27,13 +27,15 @@ class Trie {
 	}
 
 	_insert(root, str) {
-		let v = str[0]
-		str = str.slice(1)
-		!root[v] ? root[v] = new trieNode(v) : null
-		str ? this._insert(root[v], str): repeatWord()
+		let { head, sup } = this._getHeadAndSup(str)
+		!root[head] ? root[head] = new trieNode(head) : null
+		sup ? this._insert(root[head], sup): root[head].time++
+	}
 
-		function repeatWord() {
-			root[v].end ? root[v].time++ : root[v].end = true
+	_getHeadAndSup(str) {
+		return {
+			head: str[0],
+			sup: str.slice(1)
 		}
 	}
 
@@ -44,10 +46,32 @@ class Trie {
 		}
 		this._insert(this.root, str)
 	}
+
+	search(str) {
+		if (typeof str !== 'string' || !str || !str.length) {
+			console.log('无效数据不进行插入')
+			return 0
+		}
+		return this._search(this.root, str)
+	}
+
+	_search(root, str) {
+		let { head, sup } = this._getHeadAndSup(str)
+		if (root[head]) {
+			if (sup === '') return root[head].time
+			return this._search(root[head], sup)
+		} else {
+			return 0
+		}
+	}
 }
 
 let tree1 = new Trie()
-tree1.insert('hello')
-tree1.insert('he')
-tree1.insert('he')
-log(tree1);
+arr.forEach((item) => {
+	tree1.insert(item)
+})
+
+arr.forEach((item) => {
+	log(tree1.search(item))
+})
+

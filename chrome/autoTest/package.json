@@ -1,0 +1,14 @@
+{
+  "name": "autotest",
+  "version": "1.0.0",
+  "description": "自动登录页面进行截图",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lokialone",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer-core": "^1.12.2"
+  }
+}

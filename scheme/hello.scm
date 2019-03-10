@@ -194,9 +194,128 @@
 ; 不需要检查不合法的输入。提示，字符到整数的转化是通过将字符#\0……#\9的ASCII减去48，
 ; 可以使用函数char->integer来获得字符的ASCII码。函数string->list可以将字符串转化为由字符构成的表。
 
-; (define sum3
-;     (lambda (a b c) 
-;      (+ a b c)   
-;     )  
+(define (sum list)
+    (sum-iter(list 0)))
+
+(define (sum-iter list res)
+    (if (null? list))
+        res
+        (sum-iter (cdr list) (+ res (car list))))
+
+; (define (s2i-iter l res)
+;     (if (null? l))
+;         res
+;         (s2i-iter ((cdr l) (cons res (c2i (car l)))))
 ; )
+; (define (c2i s)
+;     ((- (char -> interger (s) 48)))
+; )
+
+; (define (s2i s)
+;     ((let (l (string-list s)))
+;         (s2i-iter l `()))
+; )
+
+; 用命令let loop 重写
+; 一个分别接受一个表ls和一个对象x的函数，该函数返回从ls中删除x后得到的表。
+
+; (define (remove x ls)
+;   (let loop((ls0 ls) (ls1 ()))
+;     (if (null? ls0) 
+;     (reverse ls1)
+;     (loop
+;      (cdr ls0)
+;           (if (eqv? x (car ls0))
+;               ls1
+;             (cons (car ls0) ls1))))))
+
+; 一个分别接受一个表ls和一个对象x的函数，该函数返回x在ls中首次出现的位置。索引从0开始。如果x不在ls中，函数返回#f
+; (define (letIndex ls x)
+;     (let loop ((ls0 ls) (index 0)))
+;     (if (null? ls0))
+;        (#f)
+;        (if(eqv? x (car ls0)))
+;             (index)
+;             (loop 
+;                 (cdr ls)
+;                 (+ index 1)))
+
+(define (position x ls)
+  (let loop((ls0 ls) (i 0))
+    (cond
+     ((null? ls0) #f)
+     ((eqv? x (car ls0)) i)
+     (else (loop (cdr ls0) (1+ i))))))
+; 用于翻转表元素顺序的my-reverse函数。（reverse函数是预定义函数
+(define (reverse ls)
+  (let loop((ls0 ls)(res '()))
+        (if(null? ls0))
+           res
+           (loop (cdr ls0) (cons (car ls0) res))))
+
+; 求和由数构成的表。
+(define (sum ls)
+    (let loop((ls0 ls) (res 0))
+        (if(null? ls0))
+          res
+          (loop (cdr ls0) (+ res (car ls0)))
+    )
+)
+; 将一个代表正整数的字符串转化为对应整数。例如，"1232"会被转化为1232。不需要检查不合法的输入。
+; 提示，字符到整数的转化是通过将字符#\0……#\9的ASCII减去48，可以使用函数char->integer来获得字符的ASCII码。
+; 函数string->list可以将字符串转化为由字符构成的表。
+(define (sr string)
+   (let ((ls (string->list string)))
+        (let loop ((ls0 ls) (n 0))
+         (if (null? ls0))
+            n
+            (loop (cdr ls0) (+ (* 10 n) (car ls0)))
+            
+   )
+)
+
+; range函数：返回一个从0到n的表（但不包含n）。
+(define (range n)
+    (let loop((m 0) (res '()))
+        if (= m n)
+            (reverse res)
+            (loop (+ m 1) (cons m res))
+    ))
+
+;用letrec 来重写
+; 用于翻转表元素顺序的my-reverse函数。（reverse函数是预定义函数
+; 求和由数构成的表。
+; sting to int
+
+(define (my-reverse-letrec ls)
+  (letrec ((iter (lambda (ls0 ls1)
+           (if (null? ls0)
+               ls1
+               (iter (cdr ls0) (cons (car ls0) ls1))))))
+    (iter ls ())))
+
+(define (reverse ls)
+    (letrec ((iter (lambda (ls0 res))))
+        (if(null? ls0))
+            res
+            (iter (cdr ls0) (cons (car ls0) res))
+    )
+    (iter (ls) ())
+)
+(define (sum ls)
+    (letrec ((iter (lambda (ls0 res)))
+        (if (null? ls0))
+            res
+            (iter (cdr ls0) (+ res (car ls0)))
+    )
+    (iter ls 0)))
+)
+
+(define (s2i s)
+    (letrec ((iter (lambda (ls0 res)
+        (if (null? ls0))
+            res
+            (iter (cdr ls0) (+ (car ls0) (* 10 res)))
+    ))))
+)
 

@@ -315,7 +315,74 @@
     (letrec ((iter (lambda (ls0 res)
         (if (null? ls0))
             res
-            (iter (cdr ls0) (+ (car ls0) (* 10 res)))
-    ))))
+            (iter (cdr ls0) (+ (char->integer(car ls0)) (* 10 res))))))
+
+    iter(string->list ls 0)))
+
+; 用do 来重写
+; 用于翻转表元素顺序的my-reverse函数。（reverse函数是预定义函数
+; 求和由数构成的表。
+; sting to int
+
+(define (reverse ls)
+    (do ((ls0 ls (cdr ls) (res '() (cons (car ls0) res))))
+        (if (null? ls0))
+            res
+    )
 )
 
+(define (double ls)
+    (map (lambda (x) (* 2 x) ls))
+)
+
+(define (minus ls1 ls2)
+    (map - ls1 ls2)
+)
+
+(define (filteringOut ls)
+    (keep-matching-items ls even? ))
+
+(define (filteringOut ls)
+    (delete-matching-items ls 
+        (lambda (x) (< 10 x 100))))
+
+(define (sqrtSum ls)
+    (sqrt (reduce + 0 (map (lambda (x) (* x x)  ls)))
+)
+
+; (sort ls (lambda (x y) (> sin(x) sin(y))))
+
+(define (len ls)
+   (if null? ls)
+        0
+        (+ 1 len(cdr(ls)))
+)
+
+(define (length ls)
+   (let loop((ls0 ls) (res 0))
+        if (null? ls0)
+            res
+            (loop(cdr ls0) (+ res 1))
+   ))
+
+; (sort ls (lambda (x y) (< (length x) (length y)))))
+
+(define (sqrtSum ls)
+    (sqrt (apply + 0 (apply (lambda (x) (* x x) ls)))
+)
+
+(define (member-if proc ls)
+  (cond
+   ((null? ls) #f)
+   ((proc (car ls)) ls)
+   (else (member-if proc (cdr ls)))))
+
+; (member-if positive? '(0 -1 -2 3 5 -7))
+;自己实现keep-matching-items
+(define (filteringOut ls)
+    (keep-matching-items even? ls))
+
+; (define (filter ls proc)
+;     (if (proc car ls)
+;         c)
+; )

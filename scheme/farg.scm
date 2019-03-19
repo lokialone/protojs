@@ -36,7 +36,6 @@
 ;           (else
 ;             (loop (cdr ls) res))
 ;           )
-
 ;     ))
 ; )
 
@@ -93,5 +92,45 @@
 ; 如果你的代码体中有多条 S-表达式，那么可以使用 begin 语句让它们成组。
 (define (make-bank-account balance)
   (lambda (n)
-    (set! balance (+ balance n))
-    balance))
+      (let((m  (+ balance n ))))
+          (if (negative? m))
+             ('error)
+             (begin
+                (set! balance m)
+                ( balance )
+             )))
+
+(define (make-queue)
+    (cons '() '()))
+           
+(define (enqueue! queue obj)
+  (let ((lobj (cons obj '())))
+    (if (null? (car queue))
+    (begin
+      (set-car! queue lobj)
+      (set-cdr! queue lobj))
+    (begin
+      (set-cdr! (cdr queue) lobj)
+      (set-cdr! queue lobj)))
+    (car queue)))
+
+(define (dequeue! queue)
+  (let ((obj (car (car queue))))
+    (set-car! queue (cdr (car queue)))
+    obj))
+(define q (make-queue))
+;Value: q
+
+(enqueue! q 'a)
+;Value 12: (a)
+
+
+; ;Value 12: (a b)
+
+; (enqueue! q 'c)
+; ;Value 12: (a b c)
+
+; (dequeue! q)
+; ;Value: a
+; ; q
+; ;Value 13: ((b c) c)

@@ -189,19 +189,32 @@ var reverseList2 = function(head) {
  * @return {ListNode}
  */
 var mergeTwoLists = function(l1, l2) {
-    let m  = l1, n = l2;
+    let head;
     if (l1.val > l2.val) {
-        m = l2;
-        n = l1;
+        head = l2;
+        mergeIter(head, l1);
+    } else {
+        head = l1;
+        mergeIter(head, l2)
     }
-    let l = m
-    while(m.next && n.next) {
-        if (m.next.val > n.next.val) {
-            l.next = n.next;
-        }
-    }
+    return head;
+   
 };
 
-var reverseList3 = function (head) {
-    
+function mergeIter(l1, l2) {
+    if (!l1.next) {
+        l1.next = l2
+        return l1
+    }
+    if (!l2) {
+        return l1
+    }
+
+    if (l1.val <= l2.val) {
+        mergeIter(l1.next, l2)
+    } else {
+        l1.next = l1;
+        l1.val = l2.val;
+        mergeIter(l1.next, l2.next)
+    }
 }

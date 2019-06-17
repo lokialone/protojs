@@ -128,4 +128,9 @@ function getUrlPath(url) {
 	});
 }
 
+
+function removeElement(arr, index) {
+    if (index < 0) return arr;
+    return arr.slice(0, index).concat(arr.slice(index + 1, arr.length));
+}
 // getUrlPath(url)

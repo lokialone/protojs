@@ -1,7 +1,4 @@
 console.log(parseInt('111.2', 10));
-
-
-
 function curry(fun) {
     return function(args){
         return fun(args);

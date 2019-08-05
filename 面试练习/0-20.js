@@ -83,3 +83,75 @@ function debounce(fn, delay = 1000) {
 /*
 set, map, weakSet,weakMap
 */
+
+const testObj = {
+    a: 'dddd',
+    b: 'wold',
+    h: ['1', 'e', 'dd'],
+    c: {
+        d: 'ddd',
+        e: [2, 4, 3, 5],
+        f: [3, 4, {g: 'hello'}]
+    },
+   
+}
+
+
+function isArray(arr) {
+    return Array.isArray(arr);
+}
+/**
+ *获取数据的数据类型，
+ * return 小写的类型 array , boolean, object, number, string, null, undefined, function 等
+ */
+function getTypeOf (d) {
+	return Object.prototype.toString.call(d).slice(8, -1).toLowerCase()
+}
+function isPlainObject(d) {
+    return getTypeOf(d) === 'object'
+}
+
+function loopArray(key, arr, res) {
+   
+    for(let i = 0; i < arr.length; i++) {
+        loop(arr[i], key, res[key]);
+    }
+}
+
+function loopObject(obj, res) {
+    let keys = Object.keys(obj);
+    for(let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        res[key] = {}
+        loop(obj[key], key, res[key]);
+    }
+}
+
+// function loop(obj,key = '*', res = {}) {
+//     if (isArray(obj)) {
+//         res[key] = [];
+//         loopArray(obj, res[key], 'array');
+//     } else if (isPlainObject(obj)) {
+//         loopObject(obj,res);
+//     // } else {
+//     //     if ()
+//     // }
+//     console.log('res', res);
+// }
+
+
+function deepCopy(obj, newObj = {}) {
+    for (let k in obj) {
+        let v = obj[k];
+        if (typeof v === 'object') {
+            newObj[k] = Object.prototype.toString.call(v) === '[object Array]' ? [] : {}
+            deepCopy(obj[k], newObj[k])
+        } else {
+            newObj[k] = v;
+        }
+    }
+    return newObj
+}
+let newObj = deepCopy(testObj);
+console.log(newObj);
+console.log(newObj.c === testObj.c)

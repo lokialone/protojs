@@ -1,0 +1,14 @@
+host: 
+- xxxxx.test.home
+- xxxxx.prepub.home
+- xxxx.produciton.home
+
+path:
+    - 集团列表: /group
+    - 门店列表: /
+
+
+    
+    
+
+

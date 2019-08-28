@@ -111,47 +111,135 @@ function isPlainObject(d) {
     return getTypeOf(d) === 'object'
 }
 
-function loopArray(key, arr, res) {
-   
-    for(let i = 0; i < arr.length; i++) {
-        loop(arr[i], key, res[key]);
-    }
-}
-
-function loopObject(obj, res) {
-    let keys = Object.keys(obj);
-    for(let i = 0; i < keys.length; i++) {
-        let key = keys[i];
-        res[key] = {}
-        loop(obj[key], key, res[key]);
-    }
-}
-
-// function loop(obj,key = '*', res = {}) {
-//     if (isArray(obj)) {
-//         res[key] = [];
-//         loopArray(obj, res[key], 'array');
-//     } else if (isPlainObject(obj)) {
-//         loopObject(obj,res);
-//     // } else {
-//     //     if ()
-//     // }
-//     console.log('res', res);
-// }
-
-
-function deepCopy(obj, newObj = {}) {
+function DFSclone(obj, newObj = {}) {
     for (let k in obj) {
         let v = obj[k];
-        if (typeof v === 'object') {
-            newObj[k] = Object.prototype.toString.call(v) === '[object Array]' ? [] : {}
-            deepCopy(obj[k], newObj[k])
+        if (typeof v === 'object' && v !== null) {
+            newObj[k] = isArray(v) ? [] : {}
+            DFSclone(obj[k], newObj[k])
         } else {
             newObj[k] = v;
         }
     }
     return newObj
 }
-let newObj = deepCopy(testObj);
-console.log(newObj);
-console.log(newObj.c === testObj.c)
+// 感觉不对，有空改
+function BFSclone(obj, newObj = {}) {
+    for (let k in obj) {
+        let v = obj[k];
+        if (typeof v !== 'object' || v == null) {
+            newObj[k] = v;
+        } else {
+            newObj[k] = isArray(v) ? [] : {}
+            BFSclone(obj[k], newObj[k])
+        }
+    }
+    return newObj
+}
+
+function deepCopy(obj) {
+    if (isPlainObject(obj)) return DFSclone(obj, {});
+    if (isArray(obj)) return DFSclone(obj, []);
+    return obj;
+}
+
+// console.log(deepCopy(testObj));
+
+// 对象是否环有环
+
+const cycle = {
+    hello: "world",
+    test: {
+        name: 'fff'
+    },
+    deep: {
+        clild: null
+    },
+    seed: null
+}
+cycle.seed = 'dddd';
+// console.log(cycle);
+function isArrayOrObject(v) {
+    return typeof v=== 'object' && v!== null;
+}
+
+function hasCycle(cycle) {
+    function loopItem(obj) {
+        for (let k in obj) {
+            let v = obj[k]
+            if (typeof v === 'object' && v !== null) {
+                queue.push(v);
+                if (cache.find((item) => item === v)) return true;
+                cache.push(v);  
+            }
+        }
+        return false;
+    }
+    let cache = []
+    let queue = []
+    let flag = false
+    if (loopItem(cycle)) return true;
+    while(queue.length) {
+        let item = queue.shift();
+        flag = loopItem(item); 
+        if(flag) return flag;  
+    }
+    return false;
+
+}
+console.log(hasCycle(cycle))
+
+function father() {
+    this.faName = 'father';
+}
+father.prototype.getfaName = function() {
+    console.log(this.faName);
+};
+function child() {
+    this.chName = 'child';
+}
+child.prototype = new father();
+child.prototype.constructor = child;
+child.prototype.getchName = function() {
+    console.log(this.chName);
+};
+let b = new child();
+// b.getchName()
+// console.log(b.constructor)
+// console.log(b.__proto__)
+
+/** 
+ * 以下代码的输出问题
+*/
+
+// 有slice 会返回一个 类数组
+// 没有 slice会返回一个对象。
+var obj = {
+    '2': 3,
+    '3': 4,
+    'length': 0,
+    // 'splice': Array.prototype.splice,
+    'push': Array.prototype.push
+}
+obj.push(1)
+obj.push(2)
+console.log(obj)
+
+
+var obj1 = {
+    length: 1,
+    splice: function () {},
+}; // Object [empty, splice: ƒ]
+
+var obj2 = {
+    length: '1',
+    splice: function () {},
+}; // {length: "1", splice: ƒ}
+
+var obj3 = {
+    length: 1,
+    splice: {},
+}; // {length: 1, splice: {…}}
+
+
+

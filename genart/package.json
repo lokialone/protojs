@@ -1,0 +1,19 @@
+{
+  "name": "genart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sketch.js",
+  "scripts": {
+    "dev": "canvas-sketch sketch.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas-sketch": "^0.6.1",
+    "canvas-sketch-util": "^1.8.0",
+    "nice-color-palettes": "^3.0.0",
+    "three": "^0.108.0"
+  }
+}

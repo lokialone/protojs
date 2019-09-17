@@ -1,5 +1,4 @@
-// ugly numbers
-
+// nth ugly numbers
 function nthUglyNumber(n) {
     let a2 = 1;
     let a3 = 1;
@@ -26,4 +25,30 @@ function nthUglyNumber(n) {
     return ugly;
 }
 
-console.log(ceateUglyNumber(150));
+// console.log(nthUglyNumber(150));
+
+// Catalan Number 
+
+// bell numbers
+function s(n, m) {
+    
+    let cache = {};
+    if (m === 1) return 1;
+    if (m === n) return 1;
+    if (cache[`${n},${m}`]) return cache[`${n},${m}`];
+    let res = s(n - 1, m - 1) + m * s(n - 1, m);
+    cache[`${n},${m}`] = res;
+//    return s(n - 1, m - 1) + m * s(n - 1, m);
+    return res;
+}
+function bellNumber(n) {
+    if (n === 0 || n === 1 ) return n;
+    let bell = 0;
+    console.time('xxx');
+    for(let i = 1; i <= n; i++) {
+        bell = s(n, i) + bell;
+    }
+    console.timeEnd('xxx');
+    return bell;
+}
+console.log(bellNumber(13))

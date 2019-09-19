@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/focus-outside@0.5.0/lib/index.js"></script>
+</head>
+<body>
+<div id="app">
+        <span tabIndex="-1" id="button" class="focus-button">
+            点击按钮显示弹出层
+        </span>
+        <div 
+            tabIndex="-1"
+            id="dropdown"
+            class="focus-popup hide">
+            点击按钮或popup之外收起 popup
+        </div>
+        <iframe src="//baidu.com" frameborder="0">
+            
+        </iframe>
+        </div>
+
+</body>
+<script src='./clickoutside.js'>
+</script>
+<style>
+  .focus-button {
+    background: #f2f2f2;
+  }
+   
+  .focus-popup {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    background: #ccc;
+  }
+  
+  iframe {
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+  }
+  
+  .focus-outside {
+    outline: none;
+  }
+  
+  .hide {
+    visibility: hidden;
+  }</style>
+</html>

@@ -25,30 +25,27 @@ function* generateFn() {
     const post = yield response.json();
     const title = post.title;
     console.log('Title: ',title);
+    const data = yield fetch('http://jsonplaceholder.typicode.com/posts/1');
+    const post2 = yield data.json();
+    const number = yield 2;
+    console.log('Title2: ', number ,  post2.title);
 }
 
-function isPromise(obj) {
-    
-}
 
 function run(generate) {
     let gen = generate();
-    // let iteration = gen.next();
-    for (let v of gen) {
-        console.log(v);
-        v.then((res) => {
-            gen.next(res);
-        })
-      }
+    function next(res = null) {
+        let itration = gen.next(res);
+        if (!itration.done) {
+            if (itration.value.then) {
+                itration.value.then((res) => {
+                    next(res);
+                });
+            } else {
+                next(itration.value);
+            } 
+        }
+    }
+    next();
 }
 run(generateFn);
-// let fn = generateFn();
-// let iteration = fn.next();
-// console.log(iteration)
-// iteration.value.then((x) => {
-//     // console.log('x', x.json());
-//     let iteration2 = fn.next(x)
-//     iteration2.value.then((x2) => {
-//         fn.next(x2);
-//     })
-// })

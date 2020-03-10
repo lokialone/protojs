@@ -51,3 +51,79 @@ function recursiveBuble(arr, start = 0, next = 1) {
 // recursiveBuble(arr);
 // console.log(arr);
 
+// ["flower","flow","flight"]
+// 编写一个函数来查找字符串数组中的最长公共前缀。
+
+// 如果不存在公共前缀，返回空字符串 ""。
+// 0305
+var longestCommonPrefix = function(strs) {
+    let end = false;
+    let index = 0;
+    let common = '';
+    while(!end) {
+        let map = new Set();
+        strs.forEach((item) => {
+            let value = item.charAt(index);
+            if (value === '') {
+                end = true;
+            } else {
+                map.add(item.charAt(index))
+            }
+             
+        });
+        if (end || map.size !== 1) break;
+        common += strs[0].charAt(index);
+        index++;
+    }
+    return common;
+};
+var longestCommonPrefix2 = function(strs) {
+   if (!strs.length) return '';
+   let compare = strs[0];
+   let common = '';
+   for (let i = 0;  i < compare.length; i++) {
+        let value = compare.charAt(i);
+       for (let j = 0; j < strs.length; j++) {
+           if (value !== strs[j].charAt(i) || value === '') return common;
+        }
+        common += value;
+   }
+   return common;
+};
+
+// console.log(longestCommonPrefix2(["flower","flow","flight"]));
+let isSameArray = (s1, s2) => {
+    if (s1.length !== s2.length) return false;
+    for(let i = 0; i < s1.length; i++) {
+        if (s1[i] !== s2[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+let getMap = (s, i = 0, len = s.length) => {
+    let map = [];
+    let startIndex = 'a'.charCodeAt(0);
+    for (; i< len; i++) {
+        let value = s.charCodeAt(i) - startIndex;
+        let key = map[value] || 0;
+        console.log(s[i], value, key);
+        map[value] = ++key;
+    }
+    return map;
+
+}
+var checkInclusion = function(s1, s2) {
+    let map1 = getMap(s1);
+    let len1 = s1.length;
+    let len2 = s2.length;
+    for (let i = 0; i < len2; i += 1) {
+        let map2 = getMap(s2, i, len1 + i);
+        console.log(map2);
+        if (isSameArray(map1, map2)) return true;
+    }
+    return false;
+}
+
+console.log(checkInclusion('ab', 'eidbaooo'));
+
